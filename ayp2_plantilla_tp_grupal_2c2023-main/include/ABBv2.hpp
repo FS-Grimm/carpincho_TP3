@@ -6,42 +6,44 @@
 
 class ABB_exception : public std::exception {
 };
-
 template<typename T, bool menor(T, T), bool igual(T, T)>
 class ABB {
 private:
-    NodoABB<T, menor, igual>* raiz;
+    typedef NodoABB<T, menor, igual>* NodoABB;
+    NodoABB raiz;
     std::size_t cantidad_datos;
 
     // Pre: -
     // Post: Agrega el dato al árbol.
     // NOTA: Ya se debería haber revisado si el dato está o no.
-    void alta(T dato, NodoABB<T, menor, igual>* nodo_actual);
+    void alta(T dato, NodoABB nodo_actual);
 
     // Pre: -
     // Post: Elimina el dato del árbol y devuelve la nueva raiz, de haberla.
     // NOTA: Ya se debería haber revisado si el dato está o no.
-    void baja(T dato, NodoABB<T, menor, igual>* nodo_actual);
+    void baja(T dato, NodoABB nodo_actual);
 
     // Pre: -
     // Post: Devuelve true si el dato está en el subárbol.
-    bool consulta(T dato, NodoABB<T, menor, igual>* nodo_actual);
+    bool consulta(T dato, NodoABB nodo_actual);
 
     // Pre: -
     // Post: Carga los datos, respetando el recorrido inorder.
-    void inorder(NodoABB<T, menor, igual>* nodo_actual, std::vector<T>& datos);
+    void inorder(NodoABB nodo_actual, std::vector<T>& datos);
 
     // Pre: -
     // Post: Carga los datos, respetando el recorrido preorder.
-    void preorder(NodoABB<T, menor, igual>* nodo_actual, std::vector<T>& datos);
+    void preorder(NodoABB nodo_actual, std::vector<T>& datos);
 
     // Pre: -
     // Post: Carga los datos, respetando el recorrido postorder.
-    void postorder(NodoABB<T, menor, igual>* nodo_actual, std::vector<T>& datos);
+    void postorder(NodoABB nodo_actual, std::vector<T>& datos);
 
     // Pre: -
     // Post: Ejecuta el método/función en el subárbol.
-    void ejecutar(void metodo(T), NodoABB<T, menor, igual>* nodo_actual);
+    void ejecutar(void metodo(T), NodoABB nodo_actual);
+
+    void borrar_postorder(NodoABB borrado);
 
 public:
     // Constructor.
@@ -99,6 +101,48 @@ public:
 
     // Destructor.
     ~ABB();
+
+
+
 };
+
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+void ABB<T, menor, igual>::borrar_postorder(NodoABB borrado) {
+    if (!borrado){
+        return;
+    } else {
+        borrar_postorder(borrado->hijo_izquierdo);
+        borrar_postorder(borrado->hijo_derecho);
+        delete borrado;
+    }
+}
+
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+ABB<T, menor, igual>::ABB() {
+    cantidad_datos=0;
+    raiz= nullptr;
+}
+
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+ABB<T, menor, igual>::~ABB() {
+    //postorder( delete nodo);
+    if (!raiz)
+        return;
+    else {
+        NodoABB borrado=raiz;
+        borrar_postorder();
+    }
+}
+
+
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+bool ABB<T, menor, igual>::vacio() {
+    return raiz== nullptr;
+}
+
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+std::size_t ABB<T, menor, igual>::tamanio() {
+    return cantidad_datos;
+}
 
 #endif
