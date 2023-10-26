@@ -106,32 +106,11 @@ public:
 
 };
 
-template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
-void ABB<T, menor, igual>::borrar_postorder(NodoABB borrado) {
-    if (!borrado){
-        return;
-    } else {
-        borrar_postorder(borrado->hijo_izquierdo);
-        borrar_postorder(borrado->hijo_derecho);
-        delete borrado;
-    }
-}
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 ABB<T, menor, igual>::ABB() {
     cantidad_datos=0;
     raiz= nullptr;
-}
-
-template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
-ABB<T, menor, igual>::~ABB() {
-    //postorder( delete nodo);
-    if (!raiz)
-        return;
-    else {
-        NodoABB borrado=raiz;
-        borrar_postorder();
-    }
 }
 
 
@@ -144,5 +123,28 @@ template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 std::size_t ABB<T, menor, igual>::tamanio() {
     return cantidad_datos;
 }
+
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+void ABB<T, menor, igual>::borrar_postorder(NodoABB borrado) {
+    if (!borrado){
+        return;
+    } else {
+        borrar_postorder(borrado->hijo_izquierdo);
+        borrar_postorder(borrado->hijo_derecho);
+        delete borrado;
+    }
+}
+
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+ABB<T, menor, igual>::~ABB() {
+    //postorder( delete nodo);
+    if (!raiz)
+        return;
+    else {
+        NodoABB borrado=raiz;
+        borrar_postorder(raiz);
+    }
+}
+
 
 #endif
