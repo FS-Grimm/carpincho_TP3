@@ -4,6 +4,7 @@
 #include <exception>
 #include "NodoABBv2.hpp"
 
+#include <queue>
 class ABB_exception : public std::exception {
 };
 
@@ -99,6 +100,13 @@ public:
 
     // Destructor.
     ~ABB();
+};
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+std::vector<T> ABB< T, menor, igual>::ancho(){
+    std::queue< NodoABB<T,menor,igual>* > cola;
+    cola.push(this->raiz);
+    while (!cola.empty())
 };
 
 #endif
