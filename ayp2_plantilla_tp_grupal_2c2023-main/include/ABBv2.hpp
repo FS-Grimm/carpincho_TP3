@@ -104,9 +104,19 @@ public:
 
 template<typename T, bool menor(T, T), bool igual(T, T)>
 std::vector<T> ABB< T, menor, igual>::ancho(){
-    std::queue< NodoABB<T,menor,igual>* > cola;
+    std::vector<T> resultado;
+    std::queue< NodoABB< T, menor , igual>* > cola;
+    NodoABB<T,menor,igual>* nodo;
+
     cola.push(this->raiz);
-    while (!cola.empty())
+    while (!cola.empty()){
+        nodo_parcial = cola.pop();
+        resultado.push_back(nodo_parcial->dato);
+        cola.push(nodo_parcial->hijo_izquierdo);
+        cola.push(nodo_parcial->hijo_derecho);
+    }
+
+    return resultado;
 };
 
 #endif
