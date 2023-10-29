@@ -119,4 +119,22 @@ std::vector<T> ABB< T, menor, igual>::ancho(){
     return resultado;
 };
 
+template<typename T, bool menor(T, T), bool igual(T, T)>
+std::vector<T> ABB< T, menor, igual>::postorder(){
+    std::vector <T> resultado;
+    this->postorder(this->raiz, resultado);    
+    return resultado;
+};
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+void ABB< T, menor, igual>::postorder(NodoABB<T, menor, igual>* nodo_actual, std::vector<T>& datos){
+    if (nodo_actual->hijo_izquierdo)
+        this->postorder(nodo_actual->hijo_izquierdo, datos);
+    if (nodo_actual->hijo_derecho)
+        this->postorder(nodo_actual->hijo_derecho, datos);
+
+    datos.push_back(nodo_actual->dato);
+};
+
+
 #endif
