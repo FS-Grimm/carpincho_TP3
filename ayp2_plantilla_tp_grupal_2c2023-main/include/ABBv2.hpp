@@ -110,10 +110,14 @@ std::vector<T> ABB< T, menor, igual>::ancho(){
 
     cola.push(this->raiz);
     while (!cola.empty()){
-        nodo_parcial = cola.pop();
+        nodo_parcial = cola.front(); 
+        cola.pop();
+
         resultado.push_back(nodo_parcial->dato);
-        cola.push(nodo_parcial->hijo_izquierdo);
-        cola.push(nodo_parcial->hijo_derecho);
+        if (nodo_parcial->hijo_izquierdo)
+            cola.push(nodo_parcial->hijo_izquierdo);
+        if (nodo_parcial->hijo_derecho)
+            cola.push(nodo_parcial->hijo_derecho);
     }
 
     return resultado;
