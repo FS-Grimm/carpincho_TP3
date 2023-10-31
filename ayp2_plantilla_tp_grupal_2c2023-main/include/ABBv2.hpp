@@ -116,7 +116,13 @@ std::size_t ABB<T, menor, igual>::tamanio() {
 }
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 void ABB<T, menor, igual>::preorder(NodoABB<T, menor, igual> *nodo_actual, std::vector <T> &datos) {
-    if()
+    if(nodo_actual == nullptr){
+        return;
+    }
+    nodo_actual = raiz;
+    preorder(nodo_actual->hijo_izquierdo, datos.insert(nodo_actual->dato));
+    preorder(nodo_actual->hijo_derecho, datos.insert(nodo_actual->dato));
+
 }
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 
