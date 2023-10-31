@@ -16,9 +16,7 @@ private:
     // Pre: -
     // Post: Agrega el dato al árbol.
     // NOTA: Ya se debería haber revisado si el dato está o no.
-    void alta(T dato, NodoABB<T, menor, igual>* nodo_actual){
-        
-    };
+    void alta(T dato, NodoABB<T, menor, igual>* nodo_actual);
 
     // Pre: -
     // Post: Elimina el dato del árbol y devuelve la nueva raiz, de haberla.
@@ -102,5 +100,28 @@ public:
     // Destructor.
     ~ABB();
 };
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+ABB<T, menor, igual>::ABB() {
+    cantidad_datos=0;
+    raiz= nullptr;
+}
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+bool ABB<T, menor, igual>::vacio() {
+    return raiz== nullptr;
+}
+
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+std::size_t ABB<T, menor, igual>::tamanio() {
+    return cantidad_datos;
+}
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+void ABB<T, menor, igual>::preorder(NodoABB<T, menor, igual> *nodo_actual, std::vector <T> &datos) {
+    if()
+}
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+
+
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+
 
 #endif
