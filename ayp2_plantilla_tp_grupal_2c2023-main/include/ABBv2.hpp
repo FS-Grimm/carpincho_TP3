@@ -119,15 +119,20 @@ void ABB<T, menor, igual>::preorder(NodoABB<T, menor, igual> *nodo_actual, std::
     if(nodo_actual == nullptr){
         return;
     }
-    nodo_actual = raiz;
-    preorder(nodo_actual->hijo_izquierdo, datos.insert(nodo_actual->dato));
-    preorder(nodo_actual->hijo_derecho, datos.insert(nodo_actual->dato));
+    datos.push_back(nodo_actual->dato);
+    preorder(nodo_actual->hijo_izquierdo, datos);
+    preorder(nodo_actual->hijo_derecho, datos);
 
+}
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+std::vector <T> ABB<T, menor, igual>::preorder() {
+    std::vector<T> datos;
+    preorder(raiz, datos);
+    return  datos;
 }
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 
 
-template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 
 
 #endif
