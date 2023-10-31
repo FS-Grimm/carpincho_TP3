@@ -2,16 +2,16 @@
 
 Trabajo Práctico Grupal de Algoritmos y Programación 2 2c2023.
 
-### Integrantes del grupo NOMBRE_GRUPO:
+### Integrantes del grupo CARPINCHO:
 
-1. APELLIDO, Nombre - Padron - Mail_FIUBA
-2. APELLIDO, Nombre - Padron - Mail_FIUBA
-3. APELLIDO, Nombre - Padron - Mail_FIUBA
-4. APELLIDO, Nombre - Padron - Mail_FIUBA
+1. TESTA, Santiago - Padron - Mail_FIUBA
+2. CENICEROS, Valentino - Padron - Mail_FIUBA
+3. TAUREL, Felipe - Padron - Mail_FIUBA
+4. SANTELLAN, Felipe Martin - 109022 - felipesantellan@fi.uba.com
 
 ### Corrector asignado:
 
-CORRECTOR
+Julian Ruiz Diaz
 
 ## Compilación:
 
