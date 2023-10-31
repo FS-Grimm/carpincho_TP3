@@ -1,8 +1,8 @@
 /app/extra/clion/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/app/extra/clion/bin/ninja/linux/x64/ninja -G Ninja -S /home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/tests -B /home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug
-CMake Error at CMakeLists.txt:6 (add_subdirectory):
-  add_subdirectory given source "gtest_lib" which is not an existing
-  directory.
-
-
--- Configuring incomplete, errors occurred!
-See also "/home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+-- Found Python3: /usr/bin/python3.10 (found version "3.10.13") found components: Interpreter 
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug
