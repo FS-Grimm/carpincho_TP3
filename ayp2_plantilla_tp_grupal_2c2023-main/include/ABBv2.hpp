@@ -16,7 +16,9 @@ private:
     // Pre: -
     // Post: Agrega el dato al árbol.
     // NOTA: Ya se debería haber revisado si el dato está o no.
-    void alta(T dato, NodoABB<T, menor, igual>* nodo_actual);
+    void alta(T dato, NodoABB<T, menor, igual>* nodo_actual){
+        
+    };
 
     // Pre: -
     // Post: Elimina el dato del árbol y devuelve la nueva raiz, de haberla.

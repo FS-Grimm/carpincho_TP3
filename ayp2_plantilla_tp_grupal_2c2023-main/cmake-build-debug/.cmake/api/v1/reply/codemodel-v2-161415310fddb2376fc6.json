@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "ayp2_plantilla_tp_grupal_2c2023",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ayp2_plantilla_tp_grupal_2c2023::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ayp2_plantilla_tp_grupal_2c2023-Debug-da841c0e1f3e2240a249.json",
+					"name" : "ayp2_plantilla_tp_grupal_2c2023",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/cmake-build-debug",
+		"source" : "/home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
