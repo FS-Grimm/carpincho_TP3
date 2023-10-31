@@ -43,6 +43,18 @@ private:
     // Pre: -
     // Post: Ejecuta el método/función en el subárbol.
     void ejecutar(void metodo(T), NodoABB<T, menor, igual>* nodo_actual);
+    
+    // Pre: Debe tener sucesor o precesor, segun corresponda
+    // Post: Reemplaza nodo actual con sucesor (true) o precesor(false)
+    void reemplazar(bool sucesor,NodoABB<T, menor, igual>* nodo_actual);
+
+    // Pre: -
+    // Post: Devuelve precesor, o null si no tiene 
+    NodoABB<T, menor, igual>* precesor(NodoABB<T, menor, igual>* nodo_actual);
+
+    // Pre: -
+    // Post: Devuelve sucesor, o null si no tiene
+    NodoABB<T, menor, igual>* sucesor(NodoABB<T, menor, igual>* nodo_actual);
 
 public:
     // Constructor.
@@ -102,6 +114,66 @@ public:
     ~ABB();
 };
 
+/*
+template<typename T, bool menor(T, T), bool igual(T, T)>
+void ABB< T, menor, igual>::baja(T dato){
+    if (this->consulta(dato))
+        this->baja(dato, this->raiz);
+};
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+void ABB< T, menor, igual>::baja(T dato, NodoABB<T, menor, igual>* nodo_actual){
+    if (igual(dato,nodo_actual->dato)){
+        if (nodo_actual->hijo_derecho)
+            this->reemplazar(true,nodo_actual);
+        else if (nodo_actual->hijo_izquierdo)
+            this->reemplazar(false,nodo_actual);
+        
+        delete nodo_actual; 
+    }
+    else if (menor(dato,nodo_actual->dato))
+        this->baja(dato,nodo_actual->hijo_izquierdo);
+    else
+        this->baja(dato,nodo_actual->hijo_derecho);
+};
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+void ABB< T, menor, igual>::reemplazar(bool sucesor,NodoABB<T, menor, igual>* nodo_actual){
+    if (sucesor){
+        NodoABB<T, menor, igual> *nodo_sucesor = this->sucesor(true,nodo_actual);
+        if (nodo_sucesor->hijo_derecho);
+            this->reemplazar(true,nodo_sucesor->hijo_derecho);
+
+        nodo_sucesor->hijo_derecho = nodo_actual->hijo_derecho;
+        nodo_sucesor->hijo_izquierdo = nodo_actual->hijo_izquierdo;
+    }
+    else {
+        NodoABB<T, menor, igual> *nodo_precesor = this->precesor(nodo_actual);
+        if (nodo_precesor->hijo_izquierdo);
+            this->reemplazar(true,nodo_precesor->hijo_izquierdo);
+
+        nodo_precesor->hijo_derecho = nodo_actual->hijo_derecho;
+        nodo_precesor->hijo_izquierdo = nodo_actual->hijo_izquierdo;
+    }
+};
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+NodoABB<T, menor, igual>* ABB<T,menor,igual>::sucesor(NodoABB<T, menor, igual>* nodo_actual){
+    if (nodo_actual->hijo_izquierdo)
+        return this->sucesor(nodo_actual->hijo_izquierdo)
+    else
+        return this;
+};
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+NodoABB<T, menor, igual>* ABB<T,menor,igual>::precesor(NodoABB<T, menor, igual>* nodo_actual){
+    if (nodo_actual->hijo_derecho)
+        return this->sucesor(nodo_actual->hijo_derecho)
+    else
+        return this;
+};
+*/
+
 template<typename T, bool menor(T, T), bool igual(T, T)>
 std::vector<T> ABB< T, menor, igual>::ancho(){
     std::vector<T> resultado;
@@ -139,6 +211,5 @@ void ABB< T, menor, igual>::postorder(NodoABB<T, menor, igual>* nodo_actual, std
 
     datos.push_back(nodo_actual->dato);
 };
-
 
 #endif
