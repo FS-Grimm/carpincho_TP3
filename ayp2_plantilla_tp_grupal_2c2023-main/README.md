@@ -6,7 +6,7 @@ Trabajo Práctico Grupal de Algoritmos y Programación 2 2c2023.
 
 1. TESTA, Santiago - 108301  -  sttesta@fi.uba.ar
 2. CENICEROS, Valentino - 111054 - vceniceros@fi.uba.ar
-3. TAUREL, Felipe - Padron - Mail_FIUBA
+3. TAUREL, Felipe - 103361  - ftaurel@fi.uba.ar
 4. SANTELLAN, Felipe Martin - 109022 - fsantellan@fi.uba.com
 
 ### Corrector asignado:
