@@ -125,7 +125,9 @@ bool ABB<T, menor, igual>::consulta(T dato) {
 template<typename T, bool menor(T, T), bool igual(T, T)>
 bool ABB<T, menor, igual>::consulta(T dato, NodoABB<T, menor, igual> *nodo_actual) {
     bool encontrado = false;
-
+    if (nodo_actual == nullptr){
+        return false;
+    }
     if (igual(nodo_actual->dato, dato)){
         encontrado = true;
     }else if (menor (nodo_actual->dato, dato)){
