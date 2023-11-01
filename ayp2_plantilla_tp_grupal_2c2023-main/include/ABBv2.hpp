@@ -107,16 +107,33 @@ template<typename T, bool menor(T, T), bool igual(T, T)>
 bool ABB<T, menor, igual>::consulta(T dato) {
     bool encontrado = false;
     NodoABB<T, menor, igual>* nodo_actual = raiz;
-
-    while (encontrado == false || nodo_actual){
-        if (igual(nodo_actual->dato, dato)){
-            encontrado = true;
-        }else if(menor(nodo_actual->dato, dato)){
-            nodo_actual = nodo_actual->hijo_izquierdo;
-        }else {
-            nodo_actual = nodo_actual->hijo_derecho;
-        }
+    if (nodo_actual == nullptr){
+        return false;
     }
+    if (igual(nodo_actual->dato, dato)){
+        encontrado = true;
+    }else if(menor(nodo_actual->dato, dato)){ //chequear el orden de estos menores???
+        encontrado = consulta(dato, nodo_actual->hijo_izquierdo);
+    }else if (menor(dato, nodo_actual->dato)){
+        encontrado = consulta(dato, nodo_actual->hijo_derecho);
+    }
+
+
+    return encontrado;
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+bool ABB<T, menor, igual>::consulta(T dato, NodoABB<T, menor, igual> *nodo_actual) {
+    bool encontrado = false;
+
+    if (igual(nodo_actual->dato, dato)){
+        encontrado = true;
+    }else if (menor (nodo_actual->dato, dato)){
+        encontrado = consulta(dato, nodo_actual->hijo_izquierdo);
+    }else if (menor(dato, nodo_actual)){
+        encontrado = consulta(dato, nodo_actual->hijo_derecho);
+    }
+
 
     return encontrado;
 }
