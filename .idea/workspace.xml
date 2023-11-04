@@ -25,17 +25,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e2e146c-4f80-4a21-b7b1-afb5fed61706" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/include/ABBv2.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/include/ABBv2.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/ABB_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/ABB_tests.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-44745bd23e1311dc73b7.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.cmake/api/v1/reply/index-2023-10-31T22-56-11-0370.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/Google_Tests_run.dir/ABB_tests.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/Google_Tests_run.dir/ABB_tests.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/build.ninja" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,24 +53,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "cf.advertisement.text.has.clang-format": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "last_opened_file_path": "/home/ceni/Documentos/carpincho_TP1",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "structure.view.defaults.are.configured": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.advertisement.text.has.clang-format&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/ceni/Documentos/carpincho_TP1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Google Test.ABB_tests.postorder">
     <configuration name="ABB_tests.alta" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TDAs_tests" TARGET_NAME="Google_Tests_run" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="TDAs_tests" RUN_TARGET_NAME="Google_Tests_run" TEST_CLASS="ABB_tests" TEST_METHOD="alta" TEST_MODE="SUITE_TEST">
       <method v="2">
@@ -97,11 +88,6 @@
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="gmock" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TDAs_tests" TARGET_NAME="gmock" CONFIG_NAME="Debug">
@@ -150,6 +136,7 @@
       <updated>1698710406795</updated>
       <workItem from="1698710408062" duration="2847000" />
       <workItem from="1698788540892" duration="8097000" />
+      <workItem from="1698798232935" duration="824000" />
     </task>
     <servers />
   </component>

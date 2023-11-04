@@ -130,23 +130,6 @@ std::vector <T> ABB<T, menor, igual>::preorder() {
     preorder(raiz, datos);
     return  datos;
 }
-template<typename T, bool menor(T, T), bool igual(T, T)>
-bool ABB<T, menor, igual>::consulta(T dato) {
-    bool encontrado = false;
-    NodoABB<T, menor, igual>* nodo_actual = raiz;
-
-    while (encontrado == false || nodo_actual){
-        if (igual(nodo_actual->dato, dato)){
-            encontrado = true;
-        }else if(menor(nodo_actual->dato, dato)){
-            nodo_actual = nodo_actual->hijo_izquierdo;
-        }else {
-            nodo_actual = nodo_actual->hijo_derecho;
-        }
-    }
-
-    return encontrado;
-}
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 void ABB<T, menor, igual>::alta(T dato, NodoABB<T, menor, igual> *nodo_actual) {
     if(consulta(dato)) {
