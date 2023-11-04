@@ -136,22 +136,30 @@ std::size_t ABB<T, menor, igual>::tamanio() {
     return cantidad_datos;
 }
 
-template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
-void ABB<T, menor, igual>::preorder(NodoABB<T, menor, igual> *nodo_actual, std::vector <T> &datos) {
-    if(nodo_actual == nullptr){
-        return;
-    }
-    datos.push_back(nodo_actual->dato);
-    preorder(nodo_actual->hijo_izquierdo, datos);
-    preorder(nodo_actual->hijo_derecho, datos);
+template<typename T, bool menor(T, T), bool igual(T, T)>
+bool ABB<T, menor, igual>::consulta(T dato) {
+    if (this->raiz)
+        return consulta(dato,this->raiz);
+    else
+        return false;
 }
 
-
-template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
-std::vector <T> ABB<T, menor, igual>::preorder() {
-    std::vector<T> datos;
-    preorder(raiz, datos);
-    return  datos;
+template<typename T, bool menor(T, T), bool igual(T, T)>
+bool ABB<T, menor, igual>::consulta(T dato, NodoABB<T, menor, igual> *nodo_actual) {
+    if (igual(nodo_actual->dato, dato))
+        return true;
+    else if (menor (dato, nodo_actual->dato)){
+        if (nodo_actual->hijo_izquierdo)
+            return consulta(dato, nodo_actual->hijo_izquierdo);
+        else
+            return false;
+    }
+    else{
+        if (nodo_actual->hijo_derecho)
+            return consulta(dato, nodo_actual->hijo_derecho);
+        else
+            return false;
+    }
 }
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
@@ -193,7 +201,6 @@ NodoABB<T,menor,igual>* ABB<T, menor, igual>::crear_nodo(T dato, NodoABB<T,menor
     return nuevo;
 }
 
-
 template<typename T, bool menor(T, T), bool igual(T, T)>
 std::vector<T> ABB< T, menor, igual>::ancho(){
     std::vector<T> resultado;
@@ -216,48 +223,22 @@ std::vector<T> ABB< T, menor, igual>::ancho(){
     return resultado;
 };
 
-template<typename T, bool menor(T, T), bool igual(T, T)>
-std::vector<T> ABB< T, menor, igual>::postorder(){
-    std::vector <T> resultado;
-    if (this->raiz)
-        this->postorder(this->raiz, resultado);    
-    return resultado;
-};
-
-template<typename T, bool menor(T, T), bool igual(T, T)>
-void ABB< T, menor, igual>::postorder(NodoABB<T, menor, igual>* nodo_actual, std::vector<T>& datos){
-    if (nodo_actual->hijo_izquierdo)
-        this->postorder(nodo_actual->hijo_izquierdo, datos);
-    if (nodo_actual->hijo_derecho)
-        this->postorder(nodo_actual->hijo_derecho, datos);
-
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+void ABB<T, menor, igual>::preorder(NodoABB<T, menor, igual> *nodo_actual, std::vector <T> &datos) {
+    if(nodo_actual == nullptr){
+        return;
+    }
     datos.push_back(nodo_actual->dato);
-};
-
-template<typename T, bool menor(T, T), bool igual(T, T)>
-bool ABB<T, menor, igual>::consulta(T dato) {
-    if (this->raiz)
-        return consulta(dato,this->raiz);
-    else
-        return false;
+    preorder(nodo_actual->hijo_izquierdo, datos);
+    preorder(nodo_actual->hijo_derecho, datos);
 }
 
-template<typename T, bool menor(T, T), bool igual(T, T)>
-bool ABB<T, menor, igual>::consulta(T dato, NodoABB<T, menor, igual> *nodo_actual) {
-    if (igual(nodo_actual->dato, dato))
-        return true;
-    else if (menor (dato, nodo_actual->dato)){
-        if (nodo_actual->hijo_izquierdo)
-            return consulta(dato, nodo_actual->hijo_izquierdo);
-        else 
-            return false;
-    }
-    else{
-        if (nodo_actual->hijo_derecho)
-            return consulta(dato, nodo_actual->hijo_derecho);
-        else 
-            return false;
-    }
+
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+std::vector <T> ABB<T, menor, igual>::preorder() {
+    std::vector<T> datos;
+    preorder(raiz, datos);
+    return  datos;
 }
 
 template<typename T, bool menor(T, T), bool igual(T, T)>
@@ -276,6 +257,25 @@ void ABB<T, menor, igual>::inorder(NodoABB<T, menor, igual>* nodo_actual, std::v
     if (nodo_actual->hijo_derecho != nullptr)
         this->inorder(nodo_actual->hijo_derecho, datos);
 }
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+std::vector<T> ABB< T, menor, igual>::postorder(){
+    std::vector <T> resultado;
+    if (this->raiz)
+        this->postorder(this->raiz, resultado);    
+    return resultado;
+};
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+void ABB< T, menor, igual>::postorder(NodoABB<T, menor, igual>* nodo_actual, std::vector<T>& datos){
+    if (nodo_actual->hijo_izquierdo)
+        this->postorder(nodo_actual->hijo_izquierdo, datos);
+    if (nodo_actual->hijo_derecho)
+        this->postorder(nodo_actual->hijo_derecho, datos);
+
+    datos.push_back(nodo_actual->dato);
+};
+
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 void ABB<T, menor, igual>::borrar_postorder(NodoABB<T, menor, igual>* borrado) {
