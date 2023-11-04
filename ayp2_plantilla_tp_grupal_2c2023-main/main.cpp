@@ -3,6 +3,7 @@
 #include <iostream>
 
 void recorrer_vector(std::vector<Placa*> vector);
+void eliminar_placas(std::vector<Placa*> vector);
 
 int main() {
     ABB<Placa*, Placa::menor, Placa::igual> arbol_decifrador;
@@ -33,7 +34,13 @@ int main() {
         std::cout << "\n=======================================================\n" << std::endl;
     }
 
+    eliminar_placas(vector_placas);
     return 0;
+}
+
+void eliminar_placas(std::vector<Placa*> vector){
+    for (size_t i = 0; i < vector.size(); i++)
+        delete vector[i];
 }
 
 void recorrer_vector(std::vector<Placa*> vector){

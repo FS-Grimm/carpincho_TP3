@@ -81,10 +81,11 @@ TEST_F(ABB_tests, vacio) {
 }
 
 // Descomentar este test si el equipo implementa baja fisica. Usar sucesor.
-/*
 TEST_F(ABB_tests, baja) {
     cargar(arbol);
+    std::cout << "DENTRO BAJA" << std::endl;
     arbol.baja(10);
+    std::cout << "POST BAJA" << std::endl;
     ASSERT_THAT(arbol.inorder(), testing::ElementsAre(3, 7, 11, 13, 16));
     ASSERT_THAT(arbol.preorder(), testing::ElementsAre(11, 7, 3, 13, 16));
     ASSERT_THAT(arbol.postorder(), testing::ElementsAre(3, 7, 16, 13, 11));
@@ -112,4 +113,3 @@ TEST_F(ABB_tests, baja) {
     ASSERT_THAT(arbol.ancho(), testing::ElementsAre(11, 7, 3));
     ASSERT_EQ(arbol.tamanio(), 3);
 }
-*/

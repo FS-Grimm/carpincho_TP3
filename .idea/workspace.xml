@@ -26,7 +26,175 @@
   <component name="ChangeListManager">
     <list default="true" id="8e2e146c-4f80-4a21-b7b1-afb5fed61706" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/include/ABBv2.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/include/ABBv2.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/3.27.4/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/3.27.4/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/3.27.4/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/3.27.4/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/3.27.4/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/3.27.4/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/3.27.4/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/3.27.4/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/3.27.4/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/Google_Tests_run.dir/ABB_tests.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/Google_Tests_run.dir/ABB_tests.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/Google_Tests_run.dir/ABB_tests.cpp.o.d" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/Google_Tests_run.dir/ABB_tests.cpp.o.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/Google_Tests_run.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/Google_Tests_run.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/Google_Tests_run.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/Google_Tests_run.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/Google_Tests_run.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/Google_Tests_run.dir/compiler_depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/Google_Tests_run.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/Google_Tests_run.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/Google_Tests_run" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/Google_Tests_run" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.cmake/api/v1/query/cache-v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.cmake/api/v1/query/codemodel-v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.cmake/api/v1/query/toolchains-v1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.cmake/api/v1/reply/cache-v2-e8bedfad74b78c524dbe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-17ccba1d14b174bdf4f3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-4d91ab4e30c796c8b567.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.cmake/api/v1/reply/directory-gtest_lib-Debug-2659c31a7be2ad9a3ac6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.cmake/api/v1/reply/directory-gtest_lib.googlemock-Debug-350df0c4cd9dcec23db0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.cmake/api/v1/reply/directory-gtest_lib.googletest-Debug-9e0aae66456983b278ea.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.cmake/api/v1/reply/index-2023-11-04T00-52-14-0974.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.cmake/api/v1/reply/target-Google_Tests_run-Debug-b6367c9e2d47db41d0ab.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.cmake/api/v1/reply/target-gmock-Debug-5e7daab2f4268ca245f5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.cmake/api/v1/reply/target-gmock_main-Debug-5bc5f2e3a4b417f2c65a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.cmake/api/v1/reply/target-gtest-Debug-19eb57297a201fbc99b6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.cmake/api/v1/reply/target-gtest_main-Debug-056efd1b15b1aa04987d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-fd533d57c98c7bc39d3e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.ninja_deps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/.ninja_log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/3.24.2/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/3.24.2/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/3.24.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/3.24.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/3.24.2/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/3.24.2/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/3.24.2/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/3.24.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/3.24.2/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/Google_Tests_run.dir/ABB_tests.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/Google_Tests_run.dir/ABB_tests.cpp.o.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/Google_Tests_run.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/Google_Tests_run.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/Google_Tests_run.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/Google_Tests_run.dir/compiler_depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/Google_Tests_run.dir/compiler_depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/Google_Tests_run.dir/compiler_depend.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/Google_Tests_run.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/Google_Tests_run.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/Google_Tests_run.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/Google_Tests_run.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/Google_Tests_run" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/TDAs_tests.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/build.ninja" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/CTestTestfile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CMakeFiles/gmock.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CMakeFiles/gmock.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CMakeFiles/gmock.dir/cmake_clean_target.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CMakeFiles/gmock.dir/compiler_depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CMakeFiles/gmock.dir/compiler_depend.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CMakeFiles/gmock.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CMakeFiles/gmock.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CMakeFiles/gmock.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CMakeFiles/gmock.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CMakeFiles/gmock_main.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CMakeFiles/gmock_main.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CMakeFiles/gmock_main.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CMakeFiles/gmock_main.dir/cmake_clean_target.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CMakeFiles/gmock_main.dir/compiler_depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CMakeFiles/gmock_main.dir/compiler_depend.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CMakeFiles/gmock_main.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CMakeFiles/gmock_main.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CMakeFiles/gmock_main.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CMakeFiles/gmock_main.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/CTestTestfile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googlemock/gmock.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest-distribution.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/Export/5d445a69522011472a13f6464cd74fcd/GTestTargets-debug.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/Export/5d445a69522011472a13f6464cd74fcd/GTestTargets.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest.dir/cmake_clean_target.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest.dir/compiler_depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest.dir/compiler_depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest.dir/compiler_depend.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest_main.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest_main.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest_main.dir/cmake_clean_target.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest_main.dir/compiler_depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest_main.dir/compiler_depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest_main.dir/compiler_depend.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest_main.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest_main.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest_main.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest_main.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/CTestTestfile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/generated/GTestConfig.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/generated/GTestConfigVersion.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/generated/gmock.pc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/generated/gmock_main.pc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/generated/gtest.pc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/generated/gtest_main.pc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/gtest_lib/googletest/gtest.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/lib/libgtest.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake-build-debug/lib/libgtest_main.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/gtest_lib/googletest/generated/GTestConfigVersion.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/gtest_lib/googletest/generated/GTestConfigVersion.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/lib/libgmock.a" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/lib/libgmock.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/lib/libgmock_main.a" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/lib/libgmock_main.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/lib/libgtest.a" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/lib/libgtest.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/lib/libgtest_main.a" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/lib/libgtest_main.a" afterDir="false" />
+    </list>
+    <list id="026d2c8f-9402-45d4-a08b-78583e885a24" name="Changes by Felipe" comment="">
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/include/ABBv2.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/include/ABBv2.hpp" afterDir="false" />
+    </list>
+    <list id="84a7bc9d-aeb3-4b80-aa23-e2914093b97d" name="Changes by stesta" comment="">
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/include/ABBv2.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/include/ABBv2.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/ABB_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/tests/ABB_tests.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +208,28 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/ayp2_plantilla_tp_grupal_2c2023-main/include/ABBv2.hpp">
+      <ranges>
+        <range start1="26" end1="26" start2="26" end2="31" changelist="8e2e146c-4f80-4a21-b7b1-afb5fed61706" />
+        <range start1="48" end1="49" start2="53" end2="54" changelist="84a7bc9d-aeb3-4b80-aa23-e2914093b97d" />
+        <range start1="50" end1="50" start2="55" end2="56" changelist="84a7bc9d-aeb3-4b80-aa23-e2914093b97d" />
+        <range start1="120" end1="127" start2="126" end2="126" changelist="8e2e146c-4f80-4a21-b7b1-afb5fed61706" />
+        <range start1="201" end1="202" start2="200" end2="201" changelist="026d2c8f-9402-45d4-a08b-78583e885a24" />
+        <range start1="230" end1="231" start2="229" end2="230" changelist="026d2c8f-9402-45d4-a08b-78583e885a24" />
+        <range start1="268" end1="270" start2="267" end2="269" changelist="8e2e146c-4f80-4a21-b7b1-afb5fed61706" />
+        <range start1="271" end1="272" start2="270" end2="271" changelist="8e2e146c-4f80-4a21-b7b1-afb5fed61706" />
+        <range start1="273" end1="274" start2="272" end2="273" changelist="8e2e146c-4f80-4a21-b7b1-afb5fed61706" />
+        <range start1="283" end1="284" start2="282" end2="283" changelist="8e2e146c-4f80-4a21-b7b1-afb5fed61706" />
+        <range start1="285" end1="290" start2="284" end2="285" changelist="026d2c8f-9402-45d4-a08b-78583e885a24" />
+        <range start1="291" end1="291" start2="286" end2="353" changelist="8e2e146c-4f80-4a21-b7b1-afb5fed61706" />
+        <range start1="293" end1="302" start2="355" end2="361" changelist="8e2e146c-4f80-4a21-b7b1-afb5fed61706" />
+        <range start1="304" end1="304" start2="363" end2="372" changelist="8e2e146c-4f80-4a21-b7b1-afb5fed61706" />
+        <range start1="312" end1="313" start2="380" end2="380" changelist="8e2e146c-4f80-4a21-b7b1-afb5fed61706" />
+        <range start1="323" end1="324" start2="390" end2="391" changelist="026d2c8f-9402-45d4-a08b-78583e885a24" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -48,64 +238,70 @@
     <option name="majorVersion" value="2022" />
     <option name="minorVersion" value="3.3" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2XVNhbHFMZfRtpWrH2PKgUpnTlN" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;cf.advertisement.text.has.clang-format&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/ceni/Documentos/carpincho_TP1&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "cf.advertisement.text.has.clang-format": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "Desarrollo",
+    "last_opened_file_path": "/home/feli/Desktop/prog/TP2/ayp2_plantilla_tp2_2c2023",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "structure.view.defaults.are.configured": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="Google Test.ABB_tests.postorder">
-    <configuration name="ABB_tests.alta" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TDAs_tests" TARGET_NAME="Google_Tests_run" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="TDAs_tests" RUN_TARGET_NAME="Google_Tests_run" TEST_CLASS="ABB_tests" TEST_METHOD="alta" TEST_MODE="SUITE_TEST">
+}]]></component>
+  <component name="RunManager" selected="Google Test.ABB_tests">
+    <configuration name="ABB_tests" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TDAs_tests" TARGET_NAME="Google_Tests_run" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="TDAs_tests" RUN_TARGET_NAME="Google_Tests_run" TEST_CLASS="ABB_tests" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ABB_tests.postorder" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TDAs_tests" TARGET_NAME="Google_Tests_run" RUN_TARGET_PROJECT_NAME="TDAs_tests" RUN_TARGET_NAME="Google_Tests_run" TEST_CLASS="ABB_tests" TEST_METHOD="postorder" TEST_MODE="SUITE_TEST">
+    <configuration name="ABB_tests.alta" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TDAs_tests" TARGET_NAME="Google_Tests_run" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="TDAs_tests" RUN_TARGET_NAME="Google_Tests_run" TEST_CLASS="ABB_tests" TEST_METHOD="alta" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Google_Tests_run" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TDAs_tests" TARGET_NAME="Google_Tests_run" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="TDAs_tests" RUN_TARGET_NAME="Google_Tests_run" TEST_MODE="SUITE_TEST">
+    <configuration name="ABB_tests.postorder" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TDAs_tests" TARGET_NAME="Google_Tests_run" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="TDAs_tests" RUN_TARGET_NAME="Google_Tests_run" TEST_CLASS="ABB_tests" TEST_METHOD="postorder" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="gmock" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TDAs_tests" TARGET_NAME="gmock" CONFIG_NAME="Debug">
+    <configuration name="gmock" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TDAs_tests" TARGET_NAME="gmock" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="gmock_main" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TDAs_tests" TARGET_NAME="gmock_main" CONFIG_NAME="Debug">
+    <configuration name="gmock_main" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TDAs_tests" TARGET_NAME="gmock_main" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="gtest" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TDAs_tests" TARGET_NAME="gtest" CONFIG_NAME="Debug">
+    <configuration name="gtest" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TDAs_tests" TARGET_NAME="gtest" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="gtest_main" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TDAs_tests" TARGET_NAME="gtest_main" CONFIG_NAME="Debug">
+    <configuration name="gtest_main" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TDAs_tests" TARGET_NAME="gtest_main" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -115,12 +311,13 @@
       <item itemvalue="CMake Application.gmock_main" />
       <item itemvalue="CMake Application.gtest" />
       <item itemvalue="CMake Application.gtest_main" />
-      <item itemvalue="Google Test.Google_Tests_run" />
+      <item itemvalue="Google Test.ABB_tests" />
       <item itemvalue="Google Test.ABB_tests.postorder" />
       <item itemvalue="Google Test.ABB_tests.alta" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Google Test.ABB_tests" />
         <item itemvalue="Google Test.ABB_tests.postorder" />
         <item itemvalue="Google Test.ABB_tests.alta" />
       </list>
@@ -137,10 +334,21 @@
       <workItem from="1698710408062" duration="2847000" />
       <workItem from="1698788540892" duration="8097000" />
       <workItem from="1698798232935" duration="824000" />
+      <workItem from="1699116543719" duration="184000" />
+      <workItem from="1699116745444" duration="720000" />
+      <workItem from="1699120225219" duration="92000" />
+      <workItem from="1699120340919" duration="1945000" />
+      <workItem from="1699122662099" duration="4245000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticEditVcpkgJson value="false" />
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticFoundErrors value="true" />
   </component>
 </project>
