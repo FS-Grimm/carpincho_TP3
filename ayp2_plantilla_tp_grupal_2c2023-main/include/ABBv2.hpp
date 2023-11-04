@@ -22,7 +22,7 @@ private:
     // Pre: -
     // Post: Elimina el dato del árbol y devuelve la nueva raiz, de haberla.
     // NOTA: Ya se debería haber revisado si el dato está o no.
-    void baja(T dato, NodoABB<T, menor, igual>* nodo_actual);
+   // void baja(T dato, NodoABB<T, menor, igual>* nodo_actual);
 
     // Pre: -
     // Post: Devuelve true si el dato está en el subárbol.
@@ -42,19 +42,19 @@ private:
 
     // Pre: -
     // Post: Ejecuta el método/función en el subárbol.
-    void ejecutar(void metodo(T), NodoABB<T, menor, igual>* nodo_actual);
+    //void ejecutar(void metodo(T), NodoABB<T, menor, igual>* nodo_actual);
     
     // Pre: Debe tener sucesor o precesor, segun corresponda
     // Post: Reemplaza nodo actual con sucesor (true) o precesor(false)
-    void reemplazar(bool sucesor,NodoABB<T, menor, igual>* nodo_actual);
+    //void reemplazar(bool sucesor,NodoABB<T, menor, igual>* nodo_actual);
 
     // Pre: -
     // Post: Devuelve precesor, o null si no tiene 
-    NodoABB<T, menor, igual>* precesor(NodoABB<T, menor, igual>* nodo_actual);
+    //NodoABB<T, menor, igual>* precesor(NodoABB<T, menor, igual>* nodo_actual);
 
     // Pre: -
     // Post: Devuelve sucesor, o null si no tiene
-    NodoABB<T, menor, igual>* sucesor(NodoABB<T, menor, igual>* nodo_actual);
+   // NodoABB<T, menor, igual>* sucesor(NodoABB<T, menor, igual>* nodo_actual);
   
     void borrar_postorder(NodoABB<T, menor, igual>* borrado);
 
@@ -71,7 +71,7 @@ public:
     // Pre: -
     // Post: Elimina el dato del árbol. Si no existe, no hace nada.
     // NOTA: Si la raiz cambia (sin importar el caso), se debe reasignar correctamente.
-    void baja(T dato);
+   // void baja(T dato);
 
     // Pre: -
     // Post: Devuelve true si el dato está en el árbol. Si no hay datos, devuelve false.
@@ -98,7 +98,7 @@ public:
     // NOTA: No abusar de este método, está solamente para simplificar
     // algunas cosas, como liberar la memoria de los nodos de usar punteros
     // o imprimir por pantalla el contenido. Pueden usar cualquier recorrido.
-    void ejecutar(void metodo(T));
+    //void ejecutar(void metodo(T));
 
     // Pre: -
     // Post: Devuelve la cantidad de datos en el árbol.
@@ -117,9 +117,81 @@ public:
     // Destructor.
     ~ABB();
 
-
-
 };
+
+
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+ABB<T, menor, igual>::ABB() {
+    cantidad_datos=0;
+    raiz= nullptr;
+}
+
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+bool ABB<T, menor, igual>::vacio() {
+    return raiz== nullptr;
+}
+
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+std::size_t ABB<T, menor, igual>::tamanio() {
+    return cantidad_datos;
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+bool ABB<T, menor, igual>::consulta(T dato) {
+    return consulta(dato, raiz);
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+bool ABB<T, menor, igual>::consulta(T dato, NodoABB<T, menor, igual> *nodo_actual) {
+    if (nodo_actual == nullptr){
+        return false;
+    }else{
+        if (igual(nodo_actual->dato, dato)){
+            return true;
+        }else if (menor( nodo_actual->dato, dato)){
+            return consulta(dato, nodo_actual->hijo_derecho);
+        }else{
+            return consulta(dato, nodo_actual->hijo_izquierdo);
+        }
+    }
+}
+
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+void ABB<T, menor, igual>::alta(T dato, NodoABB<T, menor, igual> *nodo_actual) {
+    if(menor(dato,nodo_actual->dato)){
+        std::cout<<nodo_actual->dato;
+        if(nodo_actual->hijo_izquierdo == nullptr){
+            nodo_actual->hijo_izquierdo = new NodoABB<T, menor, igual>;
+            nodo_actual->hijo_izquierdo->dato = dato;
+            nodo_actual->hijo_izquierdo->padre = nodo_actual;
+        }else{
+            return alta(dato, nodo_actual->hijo_izquierdo);
+        }
+    }else{
+        if(nodo_actual->hijo_derecho == nullptr){
+            nodo_actual->hijo_derecho = new NodoABB<T, menor, igual>;
+            nodo_actual->hijo_derecho->dato = dato;
+            nodo_actual->hijo_derecho->padre = nodo_actual;
+        }else{
+            return alta(dato,nodo_actual->hijo_derecho);
+        }
+    }
+}
+
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+void ABB<T, menor, igual>::alta(T dato) {
+    if(consulta(dato)) {
+        throw ABB_exception();
+    }else {
+        if(this->raiz == nullptr){
+        raiz =  new NodoABB<T, menor, igual>;
+        raiz->dato = dato;
+        }else{
+            alta(dato, raiz);
+        }
+        cantidad_datos++;
+    }
+}
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 void ABB<T, menor, igual>::preorder(NodoABB<T, menor, igual> *nodo_actual, std::vector <T> &datos) {
@@ -130,6 +202,7 @@ void ABB<T, menor, igual>::preorder(NodoABB<T, menor, igual> *nodo_actual, std::
     preorder(nodo_actual->hijo_izquierdo, datos);
     preorder(nodo_actual->hijo_derecho, datos);
 }
+
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 std::vector <T> ABB<T, menor, igual>::preorder() {
@@ -187,7 +260,7 @@ std::vector<T> ABB< T, menor, igual>::ancho(){
     if (this->raiz)
         cola.push(this->raiz);
     while (!cola.empty()){
-        nodo_parcial = cola.front(); 
+        nodo_parcial = cola.front();
         cola.pop();
 
         resultado.push_back(nodo_parcial->dato);
@@ -295,7 +368,6 @@ ABB<T, menor, igual>::~ABB() {
     if (!raiz)
         return;
     else {
-        NodoABB<T, menor, igual>* borrado=raiz;
         borrar_postorder(raiz);
     }
 }
