@@ -136,63 +136,6 @@ std::size_t ABB<T, menor, igual>::tamanio() {
     return cantidad_datos;
 }
 
-template<typename T, bool menor(T, T), bool igual(T, T)>
-bool ABB<T, menor, igual>::consulta(T dato) {
-    return consulta(dato, raiz);
-}
-
-template<typename T, bool menor(T, T), bool igual(T, T)>
-bool ABB<T, menor, igual>::consulta(T dato, NodoABB<T, menor, igual> *nodo_actual) {
-    if (nodo_actual == nullptr){
-        return false;
-    }else{
-        if (igual(nodo_actual->dato, dato)){
-            return true;
-        }else if (menor( nodo_actual->dato, dato)){
-            return consulta(dato, nodo_actual->hijo_derecho);
-        }else{
-            return consulta(dato, nodo_actual->hijo_izquierdo);
-        }
-    }
-}
-
-template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
-void ABB<T, menor, igual>::alta(T dato, NodoABB<T, menor, igual> *nodo_actual) {
-    if(menor(dato,nodo_actual->dato)){
-        std::cout<<nodo_actual->dato;
-        if(nodo_actual->hijo_izquierdo == nullptr){
-            nodo_actual->hijo_izquierdo = new NodoABB<T, menor, igual>;
-            nodo_actual->hijo_izquierdo->dato = dato;
-            nodo_actual->hijo_izquierdo->padre = nodo_actual;
-        }else{
-            return alta(dato, nodo_actual->hijo_izquierdo);
-        }
-    }else{
-        if(nodo_actual->hijo_derecho == nullptr){
-            nodo_actual->hijo_derecho = new NodoABB<T, menor, igual>;
-            nodo_actual->hijo_derecho->dato = dato;
-            nodo_actual->hijo_derecho->padre = nodo_actual;
-        }else{
-            return alta(dato,nodo_actual->hijo_derecho);
-        }
-    }
-}
-
-template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
-void ABB<T, menor, igual>::alta(T dato) {
-    if(consulta(dato)) {
-        throw ABB_exception();
-    }else {
-        if(this->raiz == nullptr){
-        raiz =  new NodoABB<T, menor, igual>;
-        raiz->dato = dato;
-        }else{
-            alta(dato, raiz);
-        }
-        cantidad_datos++;
-    }
-}
-
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 void ABB<T, menor, igual>::preorder(NodoABB<T, menor, igual> *nodo_actual, std::vector <T> &datos) {
     if(nodo_actual == nullptr){
@@ -332,24 +275,6 @@ void ABB<T, menor, igual>::inorder(NodoABB<T, menor, igual>* nodo_actual, std::v
     datos.push_back(nodo_actual->dato);
     if (nodo_actual->hijo_derecho != nullptr)
         this->inorder(nodo_actual->hijo_derecho, datos);
-}
-
-
-template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
-ABB<T, menor, igual>::ABB() {
-    cantidad_datos=0;
-    raiz= nullptr;
-}
-
-
-template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
-bool ABB<T, menor, igual>::vacio() {
-    return ( !this->raiz );
-}
-
-template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
-std::size_t ABB<T, menor, igual>::tamanio() {
-    return cantidad_datos;
 }
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
