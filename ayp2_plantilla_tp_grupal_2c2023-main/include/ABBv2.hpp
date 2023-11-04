@@ -120,6 +120,43 @@ public:
 
 };
 
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+void ABB<T, menor, igual>::preorder(NodoABB<T, menor, igual> *nodo_actual, std::vector <T> &datos) {
+    if(nodo_actual == nullptr){
+        return;
+    }
+    datos.push_back(nodo_actual->dato);
+    preorder(nodo_actual->hijo_izquierdo, datos);
+    preorder(nodo_actual->hijo_derecho, datos);
+
+}
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+std::vector <T> ABB<T, menor, igual>::preorder() {
+    std::vector<T> datos;
+    preorder(raiz, datos);
+    return  datos;
+}
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+void ABB<T, menor, igual>::alta(T dato, NodoABB<T, menor, igual> *nodo_actual) {
+    if(consulta(dato)) {
+        ABB_exception();
+    }
+    if(nodo_actual == nullptr){
+        nodo_actual = new NodoABB<T, menor, igual>;
+        nodo_actual->dato = dato;
+        cantidad_datos++;
+    }else if(menor(dato,nodo_actual->dato)){.
+        alta(dato, nodo_actual->hijo_izquierdo);
+    }else{
+        alta(dato,nodo_actual->hijo_izquierdo);
+    }
+}
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+void ABB<T, menor, igual>::alta(T dato) {
+    alta(dato, raiz);
+}
+
+
 template<typename T, bool menor(T, T), bool igual(T, T)>
 std::vector<T> ABB< T, menor, igual>::ancho(){
     std::vector<T> resultado;
