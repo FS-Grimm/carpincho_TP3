@@ -4,46 +4,60 @@
 #include <exception>
 #include "NodoABBv2.hpp"
 
+#include <queue>
 class ABB_exception : public std::exception {
 };
 template<typename T, bool menor(T, T), bool igual(T, T)>
 class ABB {
 private:
-    typedef NodoABB<T, menor, igual>* NodoABB;
-    NodoABB raiz;
+  
+    NodoABB<T, menor, igual>* raiz;
     std::size_t cantidad_datos;
 
     // Pre: -
     // Post: Agrega el dato al árbol.
     // NOTA: Ya se debería haber revisado si el dato está o no.
-    void alta(T dato, NodoABB nodo_actual);
+    void alta(T dato, NodoABB<T, menor, igual>* nodo_actual);
 
     // Pre: -
     // Post: Elimina el dato del árbol y devuelve la nueva raiz, de haberla.
     // NOTA: Ya se debería haber revisado si el dato está o no.
-    void baja(T dato, NodoABB nodo_actual);
+    void baja(T dato, NodoABB<T, menor, igual>* nodo_actual);
 
     // Pre: -
     // Post: Devuelve true si el dato está en el subárbol.
-    bool consulta(T dato, NodoABB nodo_actual);
+    bool consulta(T dato, NodoABB<T, menor, igual>* nodo_actual);
 
     // Pre: -
     // Post: Carga los datos, respetando el recorrido inorder.
-    void inorder(NodoABB nodo_actual, std::vector<T>& datos);
+    void inorder(NodoABB<T, menor, igual>* nodo_actual, std::vector<T>& datos);
 
     // Pre: -
     // Post: Carga los datos, respetando el recorrido preorder.
-    void preorder(NodoABB nodo_actual, std::vector<T>& datos);
+    void preorder(NodoABB<T, menor, igual>* nodo_actual, std::vector<T>& datos);
 
     // Pre: -
     // Post: Carga los datos, respetando el recorrido postorder.
-    void postorder(NodoABB nodo_actual, std::vector<T>& datos);
+    void postorder(NodoABB<T, menor, igual>* nodo_actual, std::vector<T>& datos);
 
     // Pre: -
     // Post: Ejecuta el método/función en el subárbol.
-    void ejecutar(void metodo(T), NodoABB nodo_actual);
+    void ejecutar(void metodo(T), NodoABB<T, menor, igual>* nodo_actual);
+    
+    // Pre: Debe tener sucesor o precesor, segun corresponda
+    // Post: Reemplaza nodo actual con sucesor (true) o precesor(false)
+    void reemplazar(bool sucesor,NodoABB<T, menor, igual>* nodo_actual);
 
-    void borrar_postorder(NodoABB borrado);
+    // Pre: -
+    // Post: Devuelve precesor, o null si no tiene 
+    NodoABB<T, menor, igual>* precesor(NodoABB<T, menor, igual>* nodo_actual);
+
+    // Pre: -
+    // Post: Devuelve sucesor, o null si no tiene
+    NodoABB<T, menor, igual>* sucesor(NodoABB<T, menor, igual>* nodo_actual);
+
+  
+    void borrar_postorder(NodoABB<T, menor, igual>* borrado);
 
 public:
     // Constructor.
@@ -105,6 +119,45 @@ public:
 
 
 };
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+std::vector<T> ABB< T, menor, igual>::ancho(){
+    std::vector<T> resultado;
+    std::queue< NodoABB< T, menor , igual>* > cola;
+    NodoABB<T,menor,igual>* nodo_parcial;
+
+    cola.push(this->raiz);
+    while (!cola.empty()){
+        nodo_parcial = cola.front(); 
+        cola.pop();
+
+        resultado.push_back(nodo_parcial->dato);
+        if (nodo_parcial->hijo_izquierdo)
+            cola.push(nodo_parcial->hijo_izquierdo);
+        if (nodo_parcial->hijo_derecho)
+            cola.push(nodo_parcial->hijo_derecho);
+    }
+
+    return resultado;
+};
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+std::vector<T> ABB< T, menor, igual>::postorder(){
+    std::vector <T> resultado;
+    this->postorder(this->raiz, resultado);    
+    return resultado;
+};
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+void ABB< T, menor, igual>::postorder(NodoABB<T, menor, igual>* nodo_actual, std::vector<T>& datos){
+    if (nodo_actual->hijo_izquierdo)
+        this->postorder(nodo_actual->hijo_izquierdo, datos);
+    if (nodo_actual->hijo_derecho)
+        this->postorder(nodo_actual->hijo_derecho, datos);
+
+    datos.push_back(nodo_actual->dato);
+};
+
 
 
 
@@ -181,7 +234,7 @@ std::size_t ABB<T, menor, igual>::tamanio() {
 }
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
-void ABB<T, menor, igual>::borrar_postorder(NodoABB borrado) {
+void ABB<T, menor, igual>::borrar_postorder(NodoABB<T, menor, igual>* borrado) {
     if (!borrado){
         return;
     } else {
@@ -196,11 +249,10 @@ ABB<T, menor, igual>::~ABB() {
     if (!raiz)
         return;
     else {
-        NodoABB borrado=raiz;
+        NodoABB<T, menor, igual>* borrado=raiz;
         borrar_postorder(raiz);
     }
 }
 
 
 #endif
-
