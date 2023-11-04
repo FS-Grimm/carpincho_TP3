@@ -118,6 +118,7 @@ public:
 
 };
 
+
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 ABB<T, menor, igual>::ABB() {
     cantidad_datos=0;
