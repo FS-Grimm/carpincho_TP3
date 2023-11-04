@@ -326,7 +326,6 @@ void ABB<T, menor, igual>::baja(NodoABB<T, menor, igual>* nodo_actual){
         // sucesor->dato=aux_dato
         this->baja(sucesor);
 
-
     } else if (nodo_actual->hijo_izquierdo || nodo_actual->hijo_derecho){
         std::cout << "1 HIJOS" << std::endl;
         NodoABB<T,menor,igual>* hijo = nodo_actual->hijo_derecho;
@@ -336,7 +335,6 @@ void ABB<T, menor, igual>::baja(NodoABB<T, menor, igual>* nodo_actual){
         nodo_actual->hijo_derecho = nullptr;
         delete nodo_actual; // Matamos
     }
-
 }
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>

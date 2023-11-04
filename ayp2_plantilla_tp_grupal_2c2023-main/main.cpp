@@ -39,8 +39,8 @@ int main() {
 }
 
 void eliminar_placas(std::vector<Placa*> vector){
-    for (size_t i = 0; i < vector.size(); i++)
-        delete vector[i];
+    for (Placa* i:vector)
+        delete i;
 }
 
 void recorrer_vector(std::vector<Placa*> vector){
