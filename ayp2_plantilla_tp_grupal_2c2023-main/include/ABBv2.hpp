@@ -22,7 +22,7 @@ private:
     // Pre: -
     // Post: Elimina el dato del árbol y devuelve la nueva raiz, de haberla.
     // NOTA: Ya se debería haber revisado si el dato está o no.
-   // void baja(T dato, NodoABB<T, menor, igual>* nodo_actual);
+    void baja(T dato, NodoABB<T, menor, igual>* nodo_actual);
 
     // Pre: -
     // Post: Devuelve true si el dato está en el subárbol.
@@ -46,18 +46,18 @@ private:
     
     // Pre: Debe tener sucesor o precesor, segun corresponda
     // Post: Reemplaza nodo actual con sucesor (true) o precesor(false)
-    //void reemplazar(bool sucesor,NodoABB<T, menor, igual>* nodo_actual);
-
-    // Pre: -
-    // Post: Devuelve precesor, o null si no tiene 
-    //NodoABB<T, menor, igual>* precesor(NodoABB<T, menor, igual>* nodo_actual);
+    void reemplazar(bool sucesor,NodoABB<T, menor, igual>* nodo_actual);
 
     // Pre: -
     // Post: Devuelve sucesor, o null si no tiene
-   // NodoABB<T, menor, igual>* sucesor(NodoABB<T, menor, igual>* nodo_actual);
-  
+    NodoABB<T, menor, igual>* sucesor(NodoABB<T, menor, igual>* nodo_actual);
+
+    // Pre: -
+    // Post: Elimina nodos alocados
     void borrar_postorder(NodoABB<T, menor, igual>* borrado);
 
+    // Pre: -
+    // Post: Crea nodo nuevo, asignando dato y padre
     NodoABB<T, menor, igual>* crear_nodo(T dato, NodoABB<T,menor,igual>* padre);
 
 public:
@@ -71,7 +71,7 @@ public:
     // Pre: -
     // Post: Elimina el dato del árbol. Si no existe, no hace nada.
     // NOTA: Si la raiz cambia (sin importar el caso), se debe reasignar correctamente.
-   // void baja(T dato);
+    void baja(T dato);
 
     // Pre: -
     // Post: Devuelve true si el dato está en el árbol. Si no hay datos, devuelve false.
@@ -118,6 +118,13 @@ public:
     ~ABB();
 
 };
+
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+NodoABB<T, menor, igual> *ABB<T, menor, igual>::sucesor(NodoABB<T, menor, igual> *nodo_actual) {
+    if(nodo_actual == nullptr){
+        return;
+    }else(menor(nodo_actual->dato, nodo_actual.))
+}
 
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
@@ -276,6 +283,25 @@ void ABB< T, menor, igual>::postorder(NodoABB<T, menor, igual>* nodo_actual, std
     datos.push_back(nodo_actual->dato);
 };
 
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+void ABB<T, menor, igual>::baja(T dato) {
+    if (consulta(dato))
+        return baja(dato, this->raiz);
+}
+
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+void ABB<T, menor, igual>::baja(T dato, NodoABB<T, menor, igual>* nodo_actual){
+    if (nodo_actual->hijo_izquierdo){
+
+        if (nodo_actual->hijo_derecho){}
+    }
+    else if (nodo_actual->hijo_derecho){
+
+        if (nodo_actual->hijo_izquierdo){}
+    }else {
+
+    }
+}
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 void ABB<T, menor, igual>::borrar_postorder(NodoABB<T, menor, igual>* borrado) {
@@ -284,6 +310,7 @@ void ABB<T, menor, igual>::borrar_postorder(NodoABB<T, menor, igual>* borrado) {
     } else {
         borrar_postorder(borrado->hijo_izquierdo);
         borrar_postorder(borrado->hijo_derecho);
+//        delete borrado->dato;     Es un pecado, pero con esto liberamos las placas
         delete borrado;
     }
 }
@@ -292,10 +319,8 @@ template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 ABB<T, menor, igual>::~ABB() {
     if (!raiz)
         return;
-    else {
+    else
         borrar_postorder(raiz);
-    }
-}
-
+};
 
 #endif
