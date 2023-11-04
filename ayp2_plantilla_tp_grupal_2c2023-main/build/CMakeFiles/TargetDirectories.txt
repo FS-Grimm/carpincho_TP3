@@ -1,3 +1,3 @@
-/home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/build/CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir
-/home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/build/CMakeFiles/edit_cache.dir
-/home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/build/CMakeFiles/rebuild_cache.dir
+/home/stesta/Desktop/UBA/AYP2/TP3/octava/ayp2_plantilla_tp_grupal_2c2023-main/build/CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir
+/home/stesta/Desktop/UBA/AYP2/TP3/octava/ayp2_plantilla_tp_grupal_2c2023-main/build/CMakeFiles/edit_cache.dir
+/home/stesta/Desktop/UBA/AYP2/TP3/octava/ayp2_plantilla_tp_grupal_2c2023-main/build/CMakeFiles/rebuild_cache.dir

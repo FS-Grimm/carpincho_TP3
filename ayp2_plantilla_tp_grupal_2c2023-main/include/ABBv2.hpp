@@ -310,14 +310,14 @@ void ABB<T, menor, igual>::reapuntar(NodoABB<T, menor, igual>* nodo_actual, Nodo
 }
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 void ABB<T, menor, igual>::baja(NodoABB<T, menor, igual>* nodo_actual){
-    std::cout << "IM IN BAJA" << std::endl;
+    //std::cout << "IM IN BAJA" << std::endl;
 
     if (nodo_actual->hijo_derecho == nullptr && nodo_actual->hijo_izquierdo == nullptr){
         this->reapuntar(nodo_actual, nullptr);
-        std::cout << "NO TENGO HIJOS" << std::endl;
+      //  std::cout << "NO TENGO HIJOS" << std::endl;
         delete nodo_actual; // Matamos
     } else if (nodo_actual->hijo_izquierdo && nodo_actual->hijo_derecho){
-        std::cout << "DOS HIJOS" << std::endl;
+        //std::cout << "DOS HIJOS" << std::endl;
         NodoABB<T,menor,igual>* sucesor = this->sucesor(nodo_actual->hijo_derecho); // Encontramos sucesor
 
         //Si se precisa devolver dato.
@@ -327,7 +327,7 @@ void ABB<T, menor, igual>::baja(NodoABB<T, menor, igual>* nodo_actual){
         this->baja(sucesor);
 
     } else if (nodo_actual->hijo_izquierdo || nodo_actual->hijo_derecho){
-        std::cout << "1 HIJOS" << std::endl;
+        //std::cout << "1 HIJOS" << std::endl;
         NodoABB<T,menor,igual>* hijo = nodo_actual->hijo_derecho;
 
         this->reapuntar(nodo_actual, hijo);

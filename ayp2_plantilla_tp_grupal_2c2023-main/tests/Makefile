@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/feli/Desktop/prog/carpincho_TP3/ayp2_plantilla_tp_grupal_2c2023-main/tests
+CMAKE_SOURCE_DIR = /home/stesta/Desktop/UBA/AYP2/TP3/octava/ayp2_plantilla_tp_grupal_2c2023-main/tests
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/feli/Desktop/prog/carpincho_TP3/ayp2_plantilla_tp_grupal_2c2023-main/tests
+CMAKE_BINARY_DIR = /home/stesta/Desktop/UBA/AYP2/TP3/octava/ayp2_plantilla_tp_grupal_2c2023-main/tests
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,9 +132,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/feli/Desktop/prog/carpincho_TP3/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles /home/feli/Desktop/prog/carpincho_TP3/ayp2_plantilla_tp_grupal_2c2023-main/tests//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/stesta/Desktop/UBA/AYP2/TP3/octava/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles /home/stesta/Desktop/UBA/AYP2/TP3/octava/ayp2_plantilla_tp_grupal_2c2023-main/tests//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/feli/Desktop/prog/carpincho_TP3/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/stesta/Desktop/UBA/AYP2/TP3/octava/ayp2_plantilla_tp_grupal_2c2023-main/tests/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
