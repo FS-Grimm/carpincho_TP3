@@ -128,18 +128,18 @@ public:
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 ABB<T, menor, igual>::ABB() {
-    cantidad_datos = 0;
-    raiz = nullptr;
+    this->cantidad_datos = 0;
+    this->raiz = nullptr;
 }
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 bool ABB<T, menor, igual>::vacio() {
-    return !raiz;
+    return !this->raiz;
 }
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 std::size_t ABB<T, menor, igual>::tamanio() {
-    return cantidad_datos;
+    return this->cantidad_datos;
 }
 
 template<typename T, bool menor(T, T), bool igual(T, T)>
@@ -188,12 +188,12 @@ void ABB<T, menor, igual>::alta(T dato) {
     if(consulta(dato)) 
         throw ABB_exception();
     
-    if (this->raiz != nullptr)
-        alta(dato, raiz);
+    if (this->raiz)
+        alta(dato, this->raiz);
     else
         this->raiz = this->crear_nodo(dato,nullptr);
 
-    cantidad_datos++;
+    this->cantidad_datos++;
 }
 
 template<typename T, bool menor(T, T), bool igual(T, T)>
@@ -338,7 +338,7 @@ template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 void ABB<T, menor, igual>::baja(T dato) {
     if (consulta(dato)){
         baja(dato, this->raiz);
-        cantidad_datos -= 1;
+        this->cantidad_datos -= 1;
     }
 }
 
@@ -356,10 +356,10 @@ void ABB<T, menor, igual>::borrar_postorder(NodoABB<T, menor, igual>* borrado) {
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 ABB<T, menor, igual>::~ABB() {
-    if (!raiz)
+    if (!this->raiz)
         return;
     else
-        borrar_postorder(raiz);
+        borrar_postorder(this->raiz);
 }
 
 #endif
