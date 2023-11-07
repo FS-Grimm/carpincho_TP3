@@ -1,6 +1,13 @@
 # ninja log v5
-0	380	1699117402948498688	CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/src/Placa.cpp.o	7e57c1b0d9d33058
-2	395	1699117488828993220	CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/bGVjdG9y/bGVjdG9y.cpp.o	feb5b845f4bce25e
-396	464	1699117488895993606	/home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/main	c62e06aab3e5e12b
-1	278	1699117402846498100	CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/bGVjdG9y/ZGVjb2Rl.cpp.o	d600fc8db825731d
-1	241	1699117488673992328	CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/main.cpp.o	7a0c3a1619890c4
+0	344	1699389701934957435	CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/src/Placa.cpp.o	7e57c1b0d9d33058
+2	617	1699390834074020540	CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/bGVjdG9y/bGVjdG9y.cpp.o	feb5b845f4bce25e
+513	587	1699391002386964572	/home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/main	9a0eb2d9a4846ce4
+2	359	1699391002159963257	CMakeFiles/TP3_Carpincho.dir/bGVjdG9y/ZGVjb2Rl.cpp.o	3a7bc8d8fa77fa97
+2	513	1699391002313964149	CMakeFiles/TP3_Carpincho.dir/main.cpp.o	c35e78070a64d7cd
+1	357	1699389701948957488	CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/bGVjdG9y/ZGVjb2Rl.cpp.o	d600fc8db825731d
+0	408	1699391002209963546	CMakeFiles/TP3_Carpincho.dir/src/Placa.cpp.o	573ddf27b67ba6c4
+1	687	1699390834144020886	CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/main.cpp.o	7a0c3a1619890c4
+1	508	1699391002308964120	CMakeFiles/TP3_Carpincho.dir/bGVjdG9y/bGVjdG9y.cpp.o	14a368f84f8c2fcf
+1	362	1699393343401877960	CMakeFiles/TP3_Carpincho.dir/bGVjdG9y/bGVjdG9y.cpp.o	14a368f84f8c2fcf
+1	433	1699393343472878430	CMakeFiles/TP3_Carpincho.dir/main.cpp.o	c35e78070a64d7cd
+433	495	1699393343533878834	/home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/main	9a0eb2d9a4846ce4

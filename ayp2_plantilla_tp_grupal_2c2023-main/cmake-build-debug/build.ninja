@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: ayp2_plantilla_tp_grupal_2c2023
+# Project: TP3_Carpincho
 # Configurations: Debug
 # =============================================================================
 
@@ -41,53 +41,53 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target ayp2_plantilla_tp_grupal_2c2023
+# Object build statements for EXECUTABLE target TP3_Carpincho
 
 
 #############################################
-# Order-only phony target for ayp2_plantilla_tp_grupal_2c2023
+# Order-only phony target for TP3_Carpincho
 
-build cmake_object_order_depends_target_ayp2_plantilla_tp_grupal_2c2023: phony || CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir
+build cmake_object_order_depends_target_TP3_Carpincho: phony || CMakeFiles/TP3_Carpincho.dir
 
-build CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/src/Placa.cpp.o: CXX_COMPILER__ayp2_plantilla_tp_grupal_2c2023_Debug /home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/src/Placa.cpp || cmake_object_order_depends_target_ayp2_plantilla_tp_grupal_2c2023
-  DEP_FILE = CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/src/Placa.cpp.o.d
+build CMakeFiles/TP3_Carpincho.dir/src/Placa.cpp.o: CXX_COMPILER__TP3_Carpincho_Debug /home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/src/Placa.cpp || cmake_object_order_depends_target_TP3_Carpincho
+  DEP_FILE = CMakeFiles/TP3_Carpincho.dir/src/Placa.cpp.o.d
   FLAGS = -Wall -Werror -Wconversion -g -fdiagnostics-color=always -Wall -Werror -Wconversion
   INCLUDES = -I/home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/include -I/home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/src -I/home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/bGVjdG9y
-  OBJECT_DIR = CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir
-  OBJECT_FILE_DIR = CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/src
+  OBJECT_DIR = CMakeFiles/TP3_Carpincho.dir
+  OBJECT_FILE_DIR = CMakeFiles/TP3_Carpincho.dir/src
 
-build CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/bGVjdG9y/bGVjdG9y.cpp.o: CXX_COMPILER__ayp2_plantilla_tp_grupal_2c2023_Debug /home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/bGVjdG9y/bGVjdG9y.cpp || cmake_object_order_depends_target_ayp2_plantilla_tp_grupal_2c2023
-  DEP_FILE = CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/bGVjdG9y/bGVjdG9y.cpp.o.d
+build CMakeFiles/TP3_Carpincho.dir/bGVjdG9y/bGVjdG9y.cpp.o: CXX_COMPILER__TP3_Carpincho_Debug /home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/bGVjdG9y/bGVjdG9y.cpp || cmake_object_order_depends_target_TP3_Carpincho
+  DEP_FILE = CMakeFiles/TP3_Carpincho.dir/bGVjdG9y/bGVjdG9y.cpp.o.d
   FLAGS = -Wall -Werror -Wconversion -g -fdiagnostics-color=always -Wall -Werror -Wconversion
   INCLUDES = -I/home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/include -I/home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/src -I/home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/bGVjdG9y
-  OBJECT_DIR = CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir
-  OBJECT_FILE_DIR = CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/bGVjdG9y
+  OBJECT_DIR = CMakeFiles/TP3_Carpincho.dir
+  OBJECT_FILE_DIR = CMakeFiles/TP3_Carpincho.dir/bGVjdG9y
 
-build CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/bGVjdG9y/ZGVjb2Rl.cpp.o: CXX_COMPILER__ayp2_plantilla_tp_grupal_2c2023_Debug /home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/bGVjdG9y/ZGVjb2Rl.cpp || cmake_object_order_depends_target_ayp2_plantilla_tp_grupal_2c2023
-  DEP_FILE = CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/bGVjdG9y/ZGVjb2Rl.cpp.o.d
+build CMakeFiles/TP3_Carpincho.dir/bGVjdG9y/ZGVjb2Rl.cpp.o: CXX_COMPILER__TP3_Carpincho_Debug /home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/bGVjdG9y/ZGVjb2Rl.cpp || cmake_object_order_depends_target_TP3_Carpincho
+  DEP_FILE = CMakeFiles/TP3_Carpincho.dir/bGVjdG9y/ZGVjb2Rl.cpp.o.d
   FLAGS = -Wall -Werror -Wconversion -g -fdiagnostics-color=always -Wall -Werror -Wconversion
   INCLUDES = -I/home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/include -I/home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/src -I/home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/bGVjdG9y
-  OBJECT_DIR = CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir
-  OBJECT_FILE_DIR = CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/bGVjdG9y
+  OBJECT_DIR = CMakeFiles/TP3_Carpincho.dir
+  OBJECT_FILE_DIR = CMakeFiles/TP3_Carpincho.dir/bGVjdG9y
 
-build CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/main.cpp.o: CXX_COMPILER__ayp2_plantilla_tp_grupal_2c2023_Debug /home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/main.cpp || cmake_object_order_depends_target_ayp2_plantilla_tp_grupal_2c2023
-  DEP_FILE = CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/main.cpp.o.d
+build CMakeFiles/TP3_Carpincho.dir/main.cpp.o: CXX_COMPILER__TP3_Carpincho_Debug /home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/main.cpp || cmake_object_order_depends_target_TP3_Carpincho
+  DEP_FILE = CMakeFiles/TP3_Carpincho.dir/main.cpp.o.d
   FLAGS = -Wall -Werror -Wconversion -g -fdiagnostics-color=always -Wall -Werror -Wconversion
   INCLUDES = -I/home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/include -I/home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/src -I/home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/bGVjdG9y
-  OBJECT_DIR = CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir
-  OBJECT_FILE_DIR = CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir
+  OBJECT_DIR = CMakeFiles/TP3_Carpincho.dir
+  OBJECT_FILE_DIR = CMakeFiles/TP3_Carpincho.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target ayp2_plantilla_tp_grupal_2c2023
+# Link build statements for EXECUTABLE target TP3_Carpincho
 
 
 #############################################
 # Link the executable /home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/main
 
-build /home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/main: CXX_EXECUTABLE_LINKER__ayp2_plantilla_tp_grupal_2c2023_Debug CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/src/Placa.cpp.o CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/bGVjdG9y/bGVjdG9y.cpp.o CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/bGVjdG9y/ZGVjb2Rl.cpp.o CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir/main.cpp.o
+build /home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/main: CXX_EXECUTABLE_LINKER__TP3_Carpincho_Debug CMakeFiles/TP3_Carpincho.dir/src/Placa.cpp.o CMakeFiles/TP3_Carpincho.dir/bGVjdG9y/bGVjdG9y.cpp.o CMakeFiles/TP3_Carpincho.dir/bGVjdG9y/ZGVjb2Rl.cpp.o CMakeFiles/TP3_Carpincho.dir/main.cpp.o
   FLAGS = -Wall -Werror -Wconversion -g
-  OBJECT_DIR = CMakeFiles/ayp2_plantilla_tp_grupal_2c2023.dir
+  OBJECT_DIR = CMakeFiles/TP3_Carpincho.dir
   POST_BUILD = :
   PRE_LINK = :
   TARGET_FILE = /home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/main
@@ -119,7 +119,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build ayp2_plantilla_tp_grupal_2c2023: phony /home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/main
+build TP3_Carpincho: phony /home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/main
 
 build main: phony /home/ceni/Documentos/carpincho_TP1/ayp2_plantilla_tp_grupal_2c2023-main/main
 
