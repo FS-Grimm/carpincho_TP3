@@ -1,3 +1,4 @@
+
 #include "bGVjdG9y/bGVjdG9y.hpp"
 #include "bGVjdG9y/ZGVjb2Rl.hpp"
 #include <iostream>
@@ -49,4 +50,5 @@ while (input != "N") {
 eliminar_placas(vector_placas);
 return 0;
 }
+
 

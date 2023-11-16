@@ -22,12 +22,14 @@ private:
     // Pre: -
     // Post: Elimina el dato del árbol y devuelve la nueva raiz, de haberla.
     // NOTA: Ya se debería haber revisado si el dato está o no.
+
     void baja(T dato, NodoABB<T, menor, igual>* nodo_actual);
 
     // Pre: -
     // Post: Elimina el dato del árbol y devuelve la nueva raiz, de haberla.
     // NOTA: Ya se debería haber revisado si el dato está o no.
     void baja(NodoABB<T, menor, igual>* nodo_actual);
+
 
     // Pre: -
     // Post: Devuelve true si el dato está en el subárbol.
@@ -51,9 +53,8 @@ private:
     
     // Pre: Debe tener sucesor o precesor, segun corresponda
     // Post: Reemplaza nodo actual con sucesor (true) o precesor(false)
-//    void reemplazar(bool sucesor,NodoABB<T, menor, igual>* nodo_actual);
-
     void reapuntar(NodoABB<T, menor, igual>* nodo_actual, NodoABB<T, menor, igual>* hijo);
+    
     // Pre: -
     // Post: Devuelve sucesor, o null si no tiene
     NodoABB<T, menor, igual>* sucesor(NodoABB<T, menor, igual>* nodo_actual);
@@ -64,6 +65,7 @@ private:
 
     // Pre: -
     // Post: Crea nodo nuevo, asignando dato y padre
+
     NodoABB<T, menor, igual>* crear_nodo(T dato, NodoABB<T,menor,igual>* padre);
 
 public:
@@ -77,7 +79,9 @@ public:
     // Pre: -
     // Post: Elimina el dato del árbol. Si no existe, no hace nada.
     // NOTA: Si la raiz cambia (sin importar el caso), se debe reasignar correctamente.
+
     void baja(T dato);
+
 
     // Pre: -
     // Post: Devuelve true si el dato está en el árbol. Si no hay datos, devuelve false.
@@ -130,16 +134,19 @@ template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 ABB<T, menor, igual>::ABB() {
     this->cantidad_datos = 0;
     this->raiz = nullptr;
+
 }
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 bool ABB<T, menor, igual>::vacio() {
     return !this->raiz;
+
 }
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 std::size_t ABB<T, menor, igual>::tamanio() {
     return this->cantidad_datos;
+
 }
 
 template<typename T, bool menor(T, T), bool igual(T, T)>
@@ -188,16 +195,18 @@ void ABB<T, menor, igual>::alta(T dato) {
     if(consulta(dato)) 
         throw ABB_exception();
     
+
     if (this->raiz)
         alta(dato, this->raiz);
     else
-        this->raiz = this->crear_nodo(dato,nullptr);
+        this->raiz = crear_nodo(dato,nullptr);
 
     this->cantidad_datos++;
 }
 
 template<typename T, bool menor(T, T), bool igual(T, T)>
 NodoABB<T,menor,igual>* ABB<T, menor, igual>::crear_nodo(T dato, NodoABB<T,menor,igual>* padre){
+//TAREA: HACER INTERNO DE NODO
     auto nuevo = new NodoABB<T,menor,igual>;
     nuevo->dato = dato;
     nuevo->padre = padre;
@@ -233,9 +242,10 @@ template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 void ABB<T, menor, igual>::preorder(NodoABB<T, menor, igual> *nodo_actual, std::vector <T> &datos) {
     datos.push_back(nodo_actual->dato);
     if (nodo_actual->hijo_izquierdo)
-        this->preorder(nodo_actual->hijo_izquierdo, datos);
+        preorder(nodo_actual->hijo_izquierdo, datos);
     if (nodo_actual->hijo_derecho)
-        this->preorder(nodo_actual->hijo_derecho, datos);
+        preorder(nodo_actual->hijo_derecho, datos);
+
 }
 
 
@@ -243,26 +253,31 @@ template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 std::vector <T> ABB<T, menor, igual>::preorder() {
     std::vector<T> datos;
     if(this->raiz)
-        this->preorder(this->raiz, datos);
+        preorder(this->raiz, datos);
+
     return  datos;
 }
 
 template<typename T, bool menor(T, T), bool igual(T, T)>
+
 void ABB<T, menor, igual>::inorder(NodoABB<T, menor, igual>* nodo_actual, std::vector<T>& datos) {
     if (nodo_actual->hijo_izquierdo)
-        this->inorder(nodo_actual->hijo_izquierdo, datos);
+        inorder(nodo_actual->hijo_izquierdo, datos);
     datos.push_back(nodo_actual->dato);
     if (nodo_actual->hijo_derecho)
+
         this->inorder(nodo_actual->hijo_derecho, datos);
 }
 
 template<typename T, bool menor(T, T), bool igual(T, T)>
+
 std::vector<T> ABB<T, menor, igual>::inorder() {
     std::vector<T> datos;
     if (this->raiz)
-        this->inorder(this->raiz, datos);
+        inorder(this->raiz, datos);
     return datos;
 }
+
 
 template<typename T, bool menor(T, T), bool igual(T, T)>
 void ABB< T, menor, igual>::postorder(NodoABB<T, menor, igual>* nodo_actual, std::vector<T>& datos){
@@ -270,6 +285,7 @@ void ABB< T, menor, igual>::postorder(NodoABB<T, menor, igual>* nodo_actual, std
         this->postorder(nodo_actual->hijo_izquierdo, datos);
     if (nodo_actual->hijo_derecho)
         this->postorder(nodo_actual->hijo_derecho, datos);
+
     datos.push_back(nodo_actual->dato);
 }
 
@@ -342,9 +358,9 @@ void ABB<T, menor, igual>::baja(T dato) {
     }
 }
 
-
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 void ABB<T, menor, igual>::borrar_postorder(NodoABB<T, menor, igual>* borrado) {
+
     if (!borrado)
         return;
      else {
@@ -356,10 +372,10 @@ void ABB<T, menor, igual>::borrar_postorder(NodoABB<T, menor, igual>* borrado) {
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 ABB<T, menor, igual>::~ABB() {
+
     if (!this->raiz)
         return;
     else
         borrar_postorder(this->raiz);
 }
-
 #endif
