@@ -16,12 +16,17 @@ include_directories(include)
 include_directories(src)
 include_directories(bGVjdG9y)
 
-add_executable(TP3_Carpincho)
-{
+add_executable(TP3_Carpincho
         src/Placa.cpp
+        src/Menu.cpp
+        src/Grafo.cpp
+        src/Dijkstra.cpp
+        src/Floyd.cpp
+        src/Matriz.cpp
         bGVjdG9y/bGVjdG9y.cpp
         bGVjdG9y/ZGVjb2Rl.cpp
         main.cpp
+        src/InventarioArmas.cpp
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "main")
