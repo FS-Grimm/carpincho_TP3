@@ -34,7 +34,7 @@ private:
     // Hacer, por ejemplo, size_t i = 0; i - 1; produce un underflow.
 public:
     // Constructor.
-    Heap();
+    Heap() = default;
 
     // Pre: -
     // Post: Agrega el dato al Heap.
@@ -63,7 +63,72 @@ public:
     void operator=(const Heap& heap) = delete;
 
     // Destructor.
-    ~Heap();
+    ~Heap() = default;
 };
+
+template<typename T, bool comp(T, T)>
+size_t Heap<T, comp>::tamanio(){
+    return datos.size();
+}
+
+template<typename T, bool comp(T, T)>
+bool Heap<T, comp>::vacio(){
+    return (tamanio() == 0);
+}
+
+template<typename T, bool comp(T, T)>
+T Heap<T, comp>::primero(){
+    if (vacio()){
+        throw Heap_exception();
+    }
+
+    return datos[0];
+}
+
+template<typename T, bool comp(T, T)>
+T Heap<T, comp>::baja(){
+    T resultado = primero();
+
+    swap( 0, datos.size() - 1 );
+    datos.pop_back();
+    downheap(0);
+}
+
+template<typename T, bool comp(T, T)>
+void Heap<T, comp>::downheap(size_t& index){
+    size_t swap_index = index;
+
+    if ( 2*index + 2 < datos.size() ){      // 2 Hijos
+
+        bool comp_izquierdo = comp(datos[index],datos[2*index + 1]);
+        bool comp_derecho = comp(datos[index],datos[2*index + 2]);
+
+        if (comp_izquierdo && comp_derecho){
+            if (comp(datos[2*index + 1],datos[2*index + 2])){
+                swap_index = 2*index + 1;
+            }
+            else {
+                swap_index = 2*index + 2;
+            }
+        }
+        else if (comp_izquierdo){
+            swap_index = 2*index + 1;
+        }
+        else if (comp_derecho){
+            swap_index = 2*index + 2;
+        }
+    }
+    else if (2*index + 1 < datos.size() ){ // 1 Hijo Izquierdo 
+        if (comp(datos[index],datos[2*index + 1])){
+            swap_index = 2*index + 1;
+        }
+    }
+
+    if (swap_index != index){
+            swap(index,swap_index);
+            downheap(swap_index);
+    }
+}
+
 
 #endif
