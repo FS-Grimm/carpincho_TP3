@@ -1,4 +1,4 @@
-#ifndef ABB_H
+    #ifndef ABB_H
 #define ABB_H
 
 #include <exception>
