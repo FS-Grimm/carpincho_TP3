@@ -67,6 +67,5 @@ void InventarioArmas::consulta() {
 }
 
 InventarioArmas::~InventarioArmas() {
-    while (!activo_esta_vacio())
-       delete baja();
+
 }
