@@ -17,6 +17,7 @@ private:
     // Post: Intercambia de lugar los datos de los indices indicados.
     void swap(size_t index_1, size_t index_2);
 
+
     // Pre: Ambos índices deben ser menor que la cantidad de datos.
     // Post: Realiza un "upheap" sobre los índices indicados.
     // (El dato "sube" en el heap.)
@@ -66,32 +67,18 @@ public:
     ~Heap() = default;
 };
 
-template<typename T, bool comp(T, T)>
-size_t Heap<T, comp>::tamanio(){
-    return datos.size();
+
+
+template<typename T, bool (*comp)(T, T)>
+void Heap<T, comp>::swap(size_t index_1, size_t index_2) {
+        T dato_aux1 = datos[index_1];
+        datos[index_1] = datos[index_2];
+        datos[index_2] = dato_aux1;
 }
 
-template<typename T, bool comp(T, T)>
-bool Heap<T, comp>::vacio(){
-    return (tamanio() == 0);
-}
-
-template<typename T, bool comp(T, T)>
-T Heap<T, comp>::primero(){
-    if (vacio()){
-        throw Heap_exception();
-    }
-
-    return datos[0];
-}
-
-template<typename T, bool comp(T, T)>
-T Heap<T, comp>::baja(){
-    T resultado = primero();
-
-    swap( 0, datos.size() - 1 );
-    datos.pop_back();
-    downheap(0);
+template<typename T, bool (*comp)(T, T)>
+void Heap<T, comp>::upheap(size_t &index_insertado, size_t index_padre) {
+    
 }
 
 template<typename T, bool comp(T, T)>
@@ -118,16 +105,51 @@ void Heap<T, comp>::downheap(size_t& index){
             swap_index = 2*index + 2;
         }
     }
-    else if (2*index + 1 < datos.size() ){ // 1 Hijo Izquierdo 
+    else if (2*index + 1 < datos.size() ){ // 1 Hijo Izquierdo
         if (comp(datos[index],datos[2*index + 1])){
             swap_index = 2*index + 1;
         }
     }
 
     if (swap_index != index){
-            swap(index,swap_index);
-            downheap(swap_index);
+        swap(index,swap_index);
+        downheap(swap_index);
     }
+}
+
+template<typename T, bool comp(T, T)>
+size_t Heap<T, comp>::tamanio(){
+    return datos.size();
+}
+
+template<typename T, bool comp(T, T)>
+bool Heap<T, comp>::vacio(){
+    return (tamanio() == 0);
+}
+
+template<typename T, bool comp(T, T)>
+T Heap<T, comp>::primero(){
+    if (vacio()){
+        throw Heap_exception();
+    }
+
+    return datos[0];
+}
+
+template<typename T, bool comp(T, T)>
+T Heap<T, comp>::baja(){
+    T resultado = primero();
+    swap( 0, datos.size() - 1 );
+    datos.pop_back();
+    downheap(0);
+}
+
+template<typename T, bool (*comp)(T, T)>
+void Heap<T, comp>::alta(T dato) {
+    datos.push_back(dato);
+    size_t index_insertado = datos.size() - 1;
+    size_t index_padre = (index_insertado - 1) / 2;
+    upheap(index_insertado, index_padre);
 }
 
 
