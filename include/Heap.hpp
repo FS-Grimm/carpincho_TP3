@@ -78,7 +78,10 @@ void Heap<T, comp>::swap(size_t index_1, size_t index_2) {
 
 template<typename T, bool (*comp)(T, T)>
 void Heap<T, comp>::upheap(size_t &index_insertado, size_t index_padre) {
-    
+    if(comp(datos[index_insertado], datos[index_padre])){
+        swap(index_insertado, index_padre);
+        upheap(index_padre, (index_padre - 1) / 2);
+    }
 }
 
 template<typename T, bool comp(T, T)>
@@ -142,6 +145,8 @@ T Heap<T, comp>::baja(){
     swap( 0, datos.size() - 1 );
     datos.pop_back();
     downheap(0);
+    return resultado;
+
 }
 
 template<typename T, bool (*comp)(T, T)>
