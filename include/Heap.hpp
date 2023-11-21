@@ -71,9 +71,9 @@ public:
 
 template<typename T, bool (*comp)(T, T)>
 void Heap<T, comp>::swap(size_t index_1, size_t index_2) {
-    T dato_aux1 = datos[index_1];
-    datos[index_1] = datos[index_2];
-    datos[index_2] = dato_aux1;
+        T dato_aux1 = datos[index_1];
+        datos[index_1] = datos[index_2];
+        datos[index_2] = dato_aux1;
 }
 
 template<typename T, bool (*comp)(T, T)>
@@ -153,12 +153,12 @@ T Heap<T, comp>::baja(){
 }
 
 template<typename T, bool (*comp)(T, T)>
-void Heap<T, comp>::alta(T dato) {
+void Heap<T, comp>::alta(T dato) {;
     datos.push_back(dato);
     size_t index_insertado = datos.size() - 1;
     size_t index_padre = (index_insertado) / 2;
     upheap(index_insertado, index_padre);
-}
+};
 
 
 #endif

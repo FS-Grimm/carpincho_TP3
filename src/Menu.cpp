@@ -53,9 +53,11 @@ void Menu::cambiar_prioridad() {
 }
 void Menu::alta() {
     cout << SOLICITUD_ARMA << endl;
-    string nombre_arma; size_t potencia_arma;
-    getline(cin,nombre_arma);
-    getline(, potencia_arma);
+    string nombre_arma,recolector_basura;
+    size_t potencia_arma;
+    getline(cin, nombre_arma);
+    cin>>potencia_arma;
+    getline(cin,recolector_basura);
     auto arma=new Arma(nombre_arma, potencia_arma);
     inventario->alta(arma);
     cout<<CREACION_ARMA_EXITOSA<<endl;
