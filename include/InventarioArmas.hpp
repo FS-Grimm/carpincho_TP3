@@ -14,19 +14,20 @@ class InventarioArmas {
 private:
 
 
-    Heap<Arma *, Arma::mayor> *heap_mejor_arma;
-    Heap<Arma *, Arma::menor> *heap_peor_arma;
-
+    Heap<Arma*,Arma::mayor> *heap_mejor_arma;
+    Heap<Arma*,Arma::menor> *heap_peor_arma;
     bool prioridad;
 
 
-    //Pre:-
-    //Post: Devuelve true si el heap en uso, indicado por la prioridad, esta vació
-    bool activo_esta_vacio();
 
 public:
     //Constructor
     InventarioArmas();
+
+
+    //Pre:-
+    //Post: Devuelve true si el heap en uso, el indicado por la prioridad, esta vació
+    bool vacio();
 
     //Pre:-
     //Post: Guarda un Arma en el inventario, la organiza según la prioridad indicada.

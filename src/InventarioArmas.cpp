@@ -28,18 +28,17 @@ Arma * InventarioArmas::baja() {
 }
 
 
-bool InventarioArmas::activo_esta_vacio() {
-    bool vacio;
+bool InventarioArmas::vacio() {
+    bool vacio=
+            vacio=heap_peor_arma->vacio();;
     if(prioridad)
         vacio=heap_mejor_arma->vacio();
-    else
-        vacio=heap_peor_arma->vacio();
     return vacio;
 }
 
 
 void InventarioArmas::cambiar_prioridad() {
-   while(!activo_esta_vacio()){
+   while(!vacio()){
        if(prioridad)
            heap_peor_arma->alta(heap_mejor_arma->baja());
        else
@@ -49,6 +48,7 @@ void InventarioArmas::cambiar_prioridad() {
 }
 
 void InventarioArmas::alta(Arma *arma) {
+
     if(prioridad)
         heap_mejor_arma->alta(arma);
     else
@@ -67,5 +67,5 @@ void InventarioArmas::consulta() {
 }
 
 InventarioArmas::~InventarioArmas() {
-
+    delete heap_peor_arma; delete heap_mejor_arma;
 }
