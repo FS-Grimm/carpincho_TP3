@@ -46,12 +46,12 @@ std::vector<size_t> Dijkstra::obtener_camino(size_t origen, size_t destino) {
     if (distancia[destino] >= INFINITO){
         throw Indice_no_valido_exception();
     }
-    camino.push_back(origen);
     size_t actual = destino;
-    while (actual != origen){
+    while (actual != origen) {
+        camino.insert(camino.begin(), actual);
         actual = recorrido[actual];
-        camino.push_back(actual);
     }
+    camino.insert(camino.begin(), origen);
     return camino;
 }
 
