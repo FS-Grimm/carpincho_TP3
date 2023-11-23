@@ -65,8 +65,11 @@ private:
 
     // Pre: -
     // Post: Crea nodo nuevo, asignando dato y padre
-
     NodoABB<T, menor, igual>* crear_nodo(T dato, NodoABB<T,menor,igual>* padre);
+
+    // Pre: Nodo Valido 
+    // Post: Devuelve altura del sub-arbol
+    size_t altura(NodoABB<T,menor,igual>* nodo);
 
 public:
     // Constructor.
@@ -117,6 +120,10 @@ public:
     // Pre: -
     // Post: Devuelve true si el árbol está vacio.
     bool vacio();
+
+    // Pre: -
+    // Post: Devuelve altura del arbol
+    size_t altura();
 
     // El constructor de copia está deshabilitado.
     ABB(const ABB& abb) = delete;
@@ -368,6 +375,30 @@ void ABB<T, menor, igual>::borrar_postorder(NodoABB<T, menor, igual>* borrado) {
         borrar_postorder(borrado->hijo_derecho);
         delete borrado;
     }
+}
+
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+size_t ABB<T, menor, igual>::altura(){
+    if (this->vacio())
+        return 0;
+    else
+        return altura(raiz);
+}
+
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+size_t ABB<T, menor, igual>::altura(NodoABB<T,menor,igual>* nodo){
+    if (!nodo)
+        throw ABB_exception();
+
+    size_t altura_izq = 1;
+    size_t altura_der = 1;
+
+    if (nodo->hijo_izquierdo)
+        altura_izq += altura(nodo->hijo_izquierdo);
+    if (nodo->hijo_derecho)
+        altura_der += altura(nodo->hijo_derecho);
+
+    return (altura_izq > altura_der) ? altura_izq : altura_der;
 }
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>

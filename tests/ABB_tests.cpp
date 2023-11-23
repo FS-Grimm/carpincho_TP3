@@ -113,3 +113,14 @@ TEST_F(ABB_tests, baja) {
     ASSERT_EQ(arbol.tamanio(), 3);
 }
 
+
+TEST_F(ABB_tests, altura) {
+    cargar(arbol);
+    ASSERT_EQ(arbol.altura(), 3);
+    arbol.baja(10);
+    ASSERT_EQ(arbol.altura(), 3);
+    arbol.alta(20);
+    ASSERT_EQ(arbol.altura(), 4);
+    arbol.alta(30);
+    ASSERT_EQ(arbol.altura(), 5);
+}
