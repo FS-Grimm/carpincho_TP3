@@ -39,7 +39,7 @@ Floyd::calcular_camino_minimo(Matriz adyacencia, size_t vertices, size_t origen,
                     distancia_total = matriz_adyacencia.elemento(i, k) + matriz_adyacencia.elemento(k, j);
                     if (distancia_total < matriz_adyacencia.elemento(i,j)) {
                         matriz_adyacencia.elemento(i, j) = distancia_total;
-                        matriz_caminos.elemento(i,j)=matriz_caminos.elemento(i,k);
+                        matriz_caminos.elemento(i,j) = matriz_caminos.elemento(i,k);
                     }
                 }
             }
