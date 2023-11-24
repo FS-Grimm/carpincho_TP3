@@ -6,8 +6,6 @@
 #include <iostream>
 using namespace std;
 
-std::string CONSULTA_NO_ARMAS="No hay armas en el inventario";
-std::string CONSULTA_ARMA="El arma de mayor prioridad en el inventario es: ";
 InventarioArmas::InventarioArmas() {
     heap_peor_arma=new Heap<Arma*,Arma::menor>;
     heap_mejor_arma=new Heap<Arma*,Arma::mayor>;

@@ -6,7 +6,6 @@
 #include "MenuInventario.hpp"
 
 
-
 using namespace std;
 
 
@@ -65,8 +64,7 @@ void MenuInventario::alta() {
     getline(cin, nombre_arma);
     cout<<SOLICITUD_POTENCIA_ARMA<<endl;
     cout<<ADVERTENCIA_POTENCIA_ARMA<<endl;
-
-    cin>>potencia_arma;
+    potencia_arma=(size_t)cin.get();
     getline(cin,recolector_basura);
     auto arma=new Arma(nombre_arma, potencia_arma);
     inventario->alta(arma);
@@ -74,12 +72,19 @@ void MenuInventario::alta() {
 }
 
 Arma MenuInventario::baja() {
-    string prioridad_actual=pasar_prioridad_string(inventario->obtener_prioridad());
-    cout<<INFORME_BAJA<<prioridad_actual<<"."<<endl;
-    Arma* arma_aux=inventario->baja();
-    Arma arma=*arma_aux;
-    Arma::liberar(arma_aux);
-    cout<<BAJA_EXITOSA_UNO<<arma<<BAJA_EXITOSA_DOS<<endl;
+    Arma arma;
+    if (inventario->vacio()) {
+        arma=Arma(NOMBRE_ARMA_INVALIDO,POTENCIA_ARMA_INVALIDA);
+        cout << ERROR_INVENTARIO_VACIO<<endl;
+//      Arma no tiene asignacion a NULL por lo que no puedo codear sin retornar un arma cargada con  basura
+    } else {
+        string prioridad_actual = pasar_prioridad_string(inventario->obtener_prioridad());
+        cout << INFORME_BAJA << prioridad_actual << "." << endl;
+        Arma *arma_aux = inventario->baja();
+        arma = *arma_aux;
+        Arma::liberar(arma_aux);
+        cout << BAJA_EXITOSA_UNO << arma << BAJA_EXITOSA_DOS << endl;
+    }
     return arma;
 }
 

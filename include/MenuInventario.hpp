@@ -23,13 +23,16 @@ const std::string BAJA_EXITOSA_UNO="La baja del arma ";
 const std::string BAJA_EXITOSA_DOS="  ocurrió sin problemas nwn";
 
 const std::string  SOLICITUD_NOMBRE_ARMA="Por favor, ingrese un nombre para el arma";
-const std::string  SOLICITUD_POTENCIA_ARMA="Por favor, ingrese una potencia";
-const std::string  ADVERTENCIA_POTENCIA_ARMA="Advertencia:\nIngresar potencias negativas dañara el funcionamiento correcto del inventario.";
+const std::string  SOLICITUD_POTENCIA_ARMA="Por favor, ingrese una potencia, solo se tomaran positivas";
+const std::string  ADVERTENCIA_POTENCIA_ARMA="Advertencia:\n Ingresar algo diferente de numeros positivos dañara el ordenamiento de prioridad del inventario.";
 
 const std::string CREACION_ARMA_EXITOSA="El arma fue agregada al inventario";
 
 const std::string MENSAJE_CONSULTA="La ";
 const std::string MENSAJE_CONSULTA_DOS=" actualmente es:";
+
+
+const std::string ERROR_INVENTARIO_VACIO="¡Error de Inventario! El inventario esta vacio.";
 
 
 const std::string SOLICITUD_COMANDO_INVENTARIO_UNO="\nPor favor, ingrese un comando que desea usar, los comandos son: \n";
@@ -49,7 +52,8 @@ const size_t CAMBIAR_PRIORIDAD_ENTERO=4;
 const size_t M_INVENTARIO_SALIR_ENTERO=14;
 
 const std::string CERRADO="El inventario se cerro exitosamente.";
-
+const std::string NOMBRE_ARMA_INVALIDO="404";
+const int POTENCIA_ARMA_INVALIDA=404;
 class MenuInventario {
 
 
@@ -79,7 +83,7 @@ class MenuInventario {
 
 
     //Pre:-
-    //Post: Guarda un Arma en el inventario si el usuario ingreso un nombre y una potencia no nula
+    //Post: Guarda un Arma en el inventario si el usuario ingreso un nombre y como potencia aun numero positivo
     void alta();
     //Pre:-
     //Post: Saca el arma de mayor priodad del inventario y la devuelve
