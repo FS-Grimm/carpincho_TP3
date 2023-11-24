@@ -16,11 +16,19 @@ include_directories(include)
 include_directories(src)
 include_directories(bGVjdG9y)
 
-add_executable(TP3_Carpincho)
-{
+add_executable(TP3_Carpincho
         src/Placa.cpp
+        src/Arma.cpp
+        src/InventarioArmas.cpp
+        src/MenuInventario.cpp
+        src/Matriz.cpp
+        src/Grafo.cpp
+        src/Dijkstra.cpp
+        src/Floyd.cpp
+        src/MenuGrafo.cpp
         bGVjdG9y/bGVjdG9y.cpp
         bGVjdG9y/ZGVjb2Rl.cpp
+        src/Menu.cpp
         main.cpp
 )
 
