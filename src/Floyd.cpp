@@ -18,7 +18,7 @@ std::vector<size_t> Floyd::obtener_camino(size_t origen, size_t destino) {
     size_t i = origen;
     camino.push_back(origen);
     while(i!=destino){
-        i = matriz_caminos.elemento(i,destino);
+        i = (size_t)matriz_caminos.elemento(i,destino);
         if (i>=INFINITO)
             throw Indice_no_valido_exception();
         camino.push_back(i);

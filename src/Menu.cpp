@@ -1,113 +1,72 @@
 //
-// Created by Felipe on 18/11/2023.
+// Created by Felipe on 23/11/2023.
 //
 
 #include <iostream>
 #include "Menu.hpp"
 
-
-
 using namespace std;
 
-string Menu::pasar_prioridad_string(bool prioridad) {
-    string prioridad_s=MEJOR;
-    if (prioridad)
-        prioridad_s=PEOR;
-    return prioridad_s;
+
+void Menu::bienvenida() {
+    cout << MENU_BIENVENIDA_UNO << MENU_BIENVENIDA_DOS << MENU_BIENVENIDA_TRES << endl;
 }
 
-
-void Menu::guardar_comando_entero(const std::string& comando_s) {
-    if (comando_s == COMANDO_ALTA) {
-        comando=ALTA_ENTERO;
-    } else if (comando_s == COMANDO_BAJA) {
-        comando=BAJA_ENTERO;
-    } else if (comando_s == COMANDO_CONSULTA) {
-        comando = CONSULTAR_ENTERO;
-    }else if (comando_s == COMANDO_SALIR){
-        this->comando=SALIR_ENTERO;
-    } else if(comando_s==COMANDO_CAMBIAR_PRIORIDAD) {
-        comando=CAMBIAR_PRIORIDAD_ENTERO;
-    }else{
-            comando=INVALIDO;
-    }
+Menu::Menu() {
+    menu_inventario=new MenuInventario;
+    menu_grafo=new MenuGrafo;
 }
 
+void Menu::guardar_comando_entero(const std::string &comando_s) {
+
+    if (comando_s == COMANDO_MENU_INVENTARIO)
+        comando = MENU_INVENTARIO_ENTERO;
+    else if (comando_s == COMANDO_MENU_GRAFO)
+        comando = MENU_GRAFO_ENTERO;
+    else if (comando_s == M_GRAFO_COMANDO_SALIR)
+        comando = MENU_SALIR_ENTERO;
+    else
+        comando = MENU_INVALIDO;
+}
 
 void Menu::solicitar_comando() {
-    cout<<SOLICITUD_COMANDO_UNO<<endl;
-    cout<<COMANDO_ALTA<<", "<<COMANDO_BAJA<<", "<<COMANDO_CONSULTA<<" o "<<COMANDO_SALIR<<SOLICITUD_COMANDO_DOS<<endl;
+    cout<<SOLICITUD_MENU_UNO<<endl;
+    cout << COMANDO_MENU_INVENTARIO << " o " << COMANDO_MENU_GRAFO << SOLICITUD_MENU_DOS << M_GRAFO_COMANDO_SALIR << SOLICITUD_MENU_TRES << endl;
     string comando_s;
     getline(cin,comando_s);
     guardar_comando_entero(comando_s);
 }
 
-bool Menu::quiere_salir() const{
-    return comando==SALIR_ENTERO;
-}
-void Menu::cambiar_prioridad() {
-    string prioridad_actual= pasar_prioridad_string(!inventario->obtener_prioridad());
-    string prioridad_nueva= pasar_prioridad_string(!inventario->obtener_prioridad());
-    inventario->cambiar_prioridad();
-    cout << MENSAJE_CAMBIO_PRIORIDAD_UNO << prioridad_actual << MENSAJE_CAMBIO_PRIORIDAD_DOS << prioridad_nueva << MENSAJE_CAMBIO_PRIORIDAD_TRES << endl;
-}
-void Menu::alta() {
-    cout << SOLICITUD_ARMA << endl;
-    string nombre_arma,recolector_basura;
-    size_t potencia_arma;
-    getline(cin, nombre_arma);
-    cin>>potencia_arma;
-    getline(cin,recolector_basura);
-    auto arma=new Arma(nombre_arma, potencia_arma);
-    inventario->alta(arma);
-    cout<<CREACION_ARMA_EXITOSA<<endl;
-}
-
-Arma Menu::baja() {
-    string prioridad_actual=pasar_prioridad_string(inventario->obtener_prioridad());
-    cout<<INFORME_BAJA<<prioridad_actual<<"."<<endl;
-    Arma* arma_aux=inventario->baja();
-    Arma arma=*arma_aux;
-    delete arma_aux;
-    cout<<BAJA_EXITOSA<<endl;
-    return arma;
-}
-
-void Menu::consultar() {
-    cout<<MENSAJE_CONSULTA<< pasar_prioridad_string(inventario->obtener_prioridad())<<MENSAJE_CONSULTA_DOS<<endl;
-    inventario->consulta();
-}
-
-
-
-
 void Menu::procesar_comando() {
-    switch (comando){
-        case ALTA_ENTERO:
-            alta();
+    switch (comando) {
+        case MENU_GRAFO_ENTERO:
+            menu_grafo->bienvenida();
+            while (!menu_grafo->quiere_salir()){
+                menu_grafo->ejecutar_menu();
+            }
             break;
-        case BAJA_ENTERO:
-            baja();
+        case MENU_INVENTARIO_ENTERO:
+            menu_inventario->bienvenida();
+            while (!menu_inventario->quiere_salir()){
+                menu_inventario->ejecutar_menu();
+            }
             break;
-        case CONSULTAR_ENTERO:
-            consultar();
-            break;
-        case CAMBIAR_PRIORIDAD_ENTERO:
-            cambiar_prioridad();
     }
-
 }
 
 void Menu::ejecutar_menu() {
     solicitar_comando();
     procesar_comando();
+
+}
+
+bool Menu::quiere_salir() const {
+    return comando==MENU_SALIR_ENTERO;
 }
 
 Menu::~Menu() {
-    while(!inventario->vacio()){
-        delete inventario->baja();
-    }
-    cout << CERRADO << endl;
-    delete inventario;
+    delete menu_grafo;
+    delete menu_inventario;
 }
+
 

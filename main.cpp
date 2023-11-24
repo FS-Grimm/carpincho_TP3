@@ -9,6 +9,7 @@
 
 int main(){
     auto menu=new Menu;
+    Menu::bienvenida();
     while(menu->quiere_salir()){
         menu->ejecutar_menu();
     }

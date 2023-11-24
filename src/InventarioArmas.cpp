@@ -29,8 +29,7 @@ Arma * InventarioArmas::baja() {
 
 
 bool InventarioArmas::vacio() {
-    bool vacio=
-            vacio=heap_peor_arma->vacio();;
+    bool vacio=heap_peor_arma->vacio();
     if(prioridad)
         vacio=heap_mejor_arma->vacio();
     return vacio;
@@ -48,7 +47,6 @@ void InventarioArmas::cambiar_prioridad() {
 }
 
 void InventarioArmas::alta(Arma *arma) {
-
     if(prioridad)
         heap_mejor_arma->alta(arma);
     else
