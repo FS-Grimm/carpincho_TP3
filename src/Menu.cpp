@@ -30,8 +30,7 @@ void Menu::guardar_comando_entero(const std::string &comando_s) {
 }
 
 void Menu::solicitar_comando() {
-    cout<<SOLICITUD_MENU_UNO<<endl;
-    cout << COMANDO_MENU_INVENTARIO << " o " << COMANDO_MENU_GRAFO << SOLICITUD_MENU_DOS << M_GRAFO_COMANDO_SALIR << SOLICITUD_MENU_TRES << endl;
+    cout<<SOLICITUD_MENU_UNO<< COMANDO_MENU_INVENTARIO << " o " << COMANDO_MENU_GRAFO << SOLICITUD_MENU_DOS << M_GRAFO_COMANDO_SALIR << SOLICITUD_MENU_TRES << endl;
     string comando_s;
     getline(cin,comando_s);
     guardar_comando_entero(comando_s);
@@ -40,16 +39,18 @@ void Menu::solicitar_comando() {
 void Menu::procesar_comando() {
     switch (comando) {
         case MENU_GRAFO_ENTERO:
-            menu_grafo->bienvenida();
-            while (!menu_grafo->quiere_salir()){
+            MenuGrafo::bienvenida();
+            do{
                 menu_grafo->ejecutar_menu();
-            }
+            } while (!menu_grafo->quiere_salir());
+            cout<<MENU_SALIDA_GRAFO<<endl;
             break;
         case MENU_INVENTARIO_ENTERO:
-            menu_inventario->bienvenida();
-            while (!menu_inventario->quiere_salir()){
+            MenuInventario::bienvenida();
+            do{
                 menu_inventario->ejecutar_menu();
-            }
+            } while (!menu_inventario->quiere_salir());
+            cout<<MENU_SALIDA_INVENTARIO<<endl;
             break;
     }
 }

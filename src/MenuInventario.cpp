@@ -20,7 +20,7 @@ MenuInventario::MenuInventario() {
 
 string MenuInventario::pasar_prioridad_string(bool prioridad) {
     string prioridad_s=MEJOR;
-    if (prioridad)
+    if (!prioridad)
         prioridad_s=PEOR;
     return prioridad_s;
 }
@@ -43,8 +43,7 @@ void MenuInventario::guardar_comando_entero(const std::string& comando_s) {
 
 
 void MenuInventario::solicitar_comando() {
-    cout << SOLICITUD_COMANDO_INVENTARIO_UNO << endl;
-    cout << COMANDO_ALTA << ", " << COMANDO_BAJA << ", " << COMANDO_CONSULTA << " o " << M_INVENTARIO_COMANDO_SALIR << SOLICITUD_COMANDO_INVENTARIO_DOS << endl;
+    cout << SOLICITUD_COMANDO_INVENTARIO_UNO << COMANDO_ALTA << ", " << COMANDO_BAJA << ", " << COMANDO_CONSULTA <<". "<<COMANDO_CAMBIAR_PRIORIDAD<< " o " << M_INVENTARIO_COMANDO_SALIR << SOLICITUD_COMANDO_INVENTARIO_DOS << endl;
     string comando_s;
     getline(cin,comando_s);
     guardar_comando_entero(comando_s);
@@ -54,16 +53,19 @@ bool MenuInventario::quiere_salir() const{
     return comando==M_INVENTARIO_SALIR_ENTERO;
 }
 void MenuInventario::cambiar_prioridad() {
-    string prioridad_actual= pasar_prioridad_string(!inventario->obtener_prioridad());
+    string prioridad_actual= pasar_prioridad_string(inventario->obtener_prioridad());
     string prioridad_nueva= pasar_prioridad_string(!inventario->obtener_prioridad());
     inventario->cambiar_prioridad();
     cout << MENSAJE_CAMBIO_PRIORIDAD_UNO << prioridad_actual << MENSAJE_CAMBIO_PRIORIDAD_DOS << prioridad_nueva << MENSAJE_CAMBIO_PRIORIDAD_TRES << endl;
 }
 void MenuInventario::alta() {
-    cout << SOLICITUD_ARMA << endl;
+    cout << SOLICITUD_NOMBRE_ARMA << endl;
     string nombre_arma,recolector_basura;
     size_t potencia_arma;
     getline(cin, nombre_arma);
+    cout<<SOLICITUD_POTENCIA_ARMA<<endl;
+    cout<<ADVERTENCIA_POTENCIA_ARMA<<endl;
+
     cin>>potencia_arma;
     getline(cin,recolector_basura);
     auto arma=new Arma(nombre_arma, potencia_arma);
@@ -77,7 +79,7 @@ Arma MenuInventario::baja() {
     Arma* arma_aux=inventario->baja();
     Arma arma=*arma_aux;
     Arma::liberar(arma_aux);
-    cout<<BAJA_EXITOSA<<endl;
+    cout<<BAJA_EXITOSA_UNO<<arma<<BAJA_EXITOSA_DOS<<endl;
     return arma;
 }
 

@@ -55,7 +55,6 @@ void InventarioArmas::alta(Arma *arma) {
 
 void InventarioArmas::consulta() {
     if (!heap_mejor_arma->vacio() || !heap_peor_arma->vacio()) {
-        cout<<CONSULTA_ARMA<<endl;
         if (prioridad)
             cout<<heap_mejor_arma->primero()<<endl;
         else

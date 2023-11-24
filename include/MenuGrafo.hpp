@@ -15,7 +15,7 @@ const std::string BIENVENIDA_GRAFO_UNO= "¡Bienvenido al uso de camino minimo fa
 const std::string BIENVENIDA_GRAFO_DOS="A continuacion, se le indicara como usar el camino minimo en el Grafo";
 const std::string ADVERTENCIA="ADVERTENCIA: Este menu actualmente no tiene uso, ya que no hay manera de cargar el grafo, los trabajadores aseguramos que sera implementado en futuras iteracions nwn";
 
-const std::string SOLICITUD_CAMINO_MINIMO_UNO= "Por favor ingrese el tipo de camino minimo que desea usar, las opciones son: ";
+const std::string SOLICITUD_CAMINO_MINIMO_UNO= "\nPor favor ingrese el tipo de camino minimo que desea usar, las opciones son: ";
 const std::string SOLICITUD_CAMINO_MINIMO_DOS= " para salir.";
 const std::string COMANDO_FLOYD="Floyd";
 const std::string COMANDO_DIJKSTRA="Dijkstra";

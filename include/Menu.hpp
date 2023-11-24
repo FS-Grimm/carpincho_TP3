@@ -11,10 +11,10 @@ const std::string MENU_BIENVENIDA_UNO="Bienvenido al menu  de Camino Minimo e in
 const std::string MENU_BIENVENIDA_DOS=" a continuacion se le solicitaran comandos para elegir el menu a usar, ";
 const std::string MENU_BIENVENIDA_TRES="puede salir de cualquiera de los menus para volver a este y entrar otro, esperamos que la pase bien  :D";
 
-const std::string SOLICITUD_MENU_UNO="Por favor ingrese uno de los comandos validos, estos son: \n";
+const std::string SOLICITUD_MENU_UNO="\nPor favor ingrese uno de los comandos validos, estos son: \n";
 const std::string COMANDO_MENU_GRAFO="Menu Grafo";
 const std::string COMANDO_MENU_INVENTARIO="Menu Inventario";
-const std::string SOLICITUD_MENU_DOS=" para elegir un menu o ";
+const std::string SOLICITUD_MENU_DOS=" para elegir un Menu o ";
 const std::string SOLICITUD_MENU_TRES=" para salir del programa.";
 
 const size_t MENU_INVENTARIO_ENTERO=1;
@@ -22,6 +22,9 @@ const size_t MENU_GRAFO_ENTERO=2;
 const size_t MENU_SALIR_ENTERO=14;
 const size_t MENU_INVALIDO=404;
 
+
+const std::string MENU_SALIDA_GRAFO="Ha salido exitosamente del Menu del Grafo.";
+const std::string MENU_SALIDA_INVENTARIO="Ha salido exitosamente del Menu del Inventario.";
 
 class Menu {
     size_t comando;

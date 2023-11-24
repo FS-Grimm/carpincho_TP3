@@ -12,28 +12,32 @@ const std::string PEOR="peor arma";
 
 
 const std::string BIENVENIDA_INVENTARIO_UNO= "¡Bienvenido a el inventario favorito de los niños de algoritmos dos! ";
-const std::string BIENVENIDA_INVENTARIO_DOS="A continuacion, se le indicara como iniciar el inventario";
+const std::string BIENVENIDA_INVENTARIO_DOS="A continuacion, se le indicara como usar el inventario";
 
 const std::string MENSAJE_CAMBIO_PRIORIDAD_UNO="El inventario paso de priorizar a la ";
 const std::string MENSAJE_CAMBIO_PRIORIDAD_DOS=" a priorizar la ";
 const std::string MENSAJE_CAMBIO_PRIORIDAD_TRES=" exitosamente.";
 
 const std::string INFORME_BAJA="Se realizara una baja de la ";
-const std::string BAJA_EXITOSA="La baja ocurrió sin problemas nwn";
+const std::string BAJA_EXITOSA_UNO="La baja del arma ";
+const std::string BAJA_EXITOSA_DOS="  ocurrió sin problemas nwn";
 
-const std::string  SOLICITUD_ARMA="Por favor, ingrese un nombre y una potencia para el arma, la potencia no puede ser negativa";
+const std::string  SOLICITUD_NOMBRE_ARMA="Por favor, ingrese un nombre para el arma";
+const std::string  SOLICITUD_POTENCIA_ARMA="Por favor, ingrese una potencia";
+const std::string  ADVERTENCIA_POTENCIA_ARMA="Advertencia:\nIngresar potencias negativas dañara el funcionamiento correcto del inventario.";
+
 const std::string CREACION_ARMA_EXITOSA="El arma fue agregada al inventario";
 
 const std::string MENSAJE_CONSULTA="La ";
 const std::string MENSAJE_CONSULTA_DOS=" actualmente es:";
 
 
-const std::string SOLICITUD_COMANDO_INVENTARIO_UNO="Por favor, ingrese un comando que desea usar, los comandos son: \n";
+const std::string SOLICITUD_COMANDO_INVENTARIO_UNO="\nPor favor, ingrese un comando que desea usar, los comandos son: \n";
 
 const std::string COMANDO_ALTA="Alta";
 const std::string COMANDO_BAJA="Baja";
 const std::string COMANDO_CONSULTA="Consulta";
-const std::string COMANDO_CAMBIAR_PRIORIDAD="Cambiar prioridad";
+const std::string COMANDO_CAMBIAR_PRIORIDAD="Cambiar Prioridad";
 const std::string M_INVENTARIO_COMANDO_SALIR="Salir";
 const std::string SOLICITUD_COMANDO_INVENTARIO_DOS=" para terminar el programa";
 
