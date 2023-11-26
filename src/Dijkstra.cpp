@@ -7,6 +7,10 @@ Dijkstra::Dijkstra() {
 }
 
 void Dijkstra::inicializar_arreglos(size_t origen) {
+    delete[] vertices_visitados;
+    delete[] distancia;
+    delete[] recorrido;
+
     vertices_visitados = new bool[cantidad_vertices];
     distancia = new int[cantidad_vertices];
     recorrido = new size_t[cantidad_vertices];
@@ -18,6 +22,7 @@ void Dijkstra::inicializar_arreglos(size_t origen) {
     }
     vertices_visitados[origen] = true;
 }
+
 
 size_t Dijkstra::vertice_minima_distancia() {
     int distancia_minima = INFINITO;
