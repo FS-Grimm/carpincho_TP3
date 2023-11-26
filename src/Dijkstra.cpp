@@ -1,4 +1,5 @@
 #include "Dijkstra.hpp"
+#include <iostream>
 
 Dijkstra::Dijkstra() {
     vertices_visitados = nullptr;
@@ -26,7 +27,7 @@ void Dijkstra::inicializar_arreglos(size_t origen) {
 
 size_t Dijkstra::vertice_minima_distancia() {
     int distancia_minima = INFINITO;
-    size_t vertice_minimo;
+    size_t vertice_minimo = 0;
     for (size_t i = 0; i < cantidad_vertices; i++) {
         if (!vertices_visitados[i] && distancia[i] <= distancia_minima) {
             distancia_minima = distancia[i];
@@ -52,11 +53,18 @@ std::vector<size_t> Dijkstra::obtener_camino(size_t origen, size_t destino) {
         throw Indice_no_valido_exception();
     }
     size_t actual = destino;
-    while (actual != origen) {
+    size_t intentos = 0;
+    while ( (actual != origen) && intentos < 100 ) {
         camino.insert(camino.begin(), actual);
         actual = recorrido[actual];
+        intentos += 1;
     }
-    camino.insert(camino.begin(), origen);
+    if (intentos < 100)
+        camino.insert(camino.begin(), origen);
+    else {
+        camino.clear();
+        camino.push_back(origen);
+    }
     return camino;
 }
 

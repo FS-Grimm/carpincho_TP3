@@ -75,7 +75,10 @@ std::pair<std::vector<size_t>, int> Grafo::obtener_camino_minimo(size_t origen, 
         if (origen < vertices && destino < vertices) {
             camino.first = algoritmo_camino_minimo->calcular_camino_minimo(matriz_adyacencia, vertices, origen,
                                                                            destino, hay_cambios);
-            camino.second = obtener_peso_camino(camino.first);
+            if (camino.first.size() > 1)                                                                 
+                camino.second = obtener_peso_camino(camino.first);
+            else
+                camino.second = INFINITO;
             hay_cambios = false;
         } else {
             std::cout << "ERROR: Los vértices no son válidos." << std::endl;
