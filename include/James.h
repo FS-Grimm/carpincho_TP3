@@ -18,7 +18,15 @@ public:
     //Post: Devuelve true si james tiene armas en el inventario.
     bool tiene_armas();
 
-    //Pre: James no tiene un arma equipada y tiene armas disponibles.
+    //Pre: -
+    //Post: Devuelve verdadero si james esta vivo.
+    bool esta_vivo();
+
+    //Pre: James esta vivo
+    //Post: James muere :c
+    void morir();
+
+    //Pre: James esta vivo, no tiene un arma equipada y tiene armas disponibles.
     //Post: Equipa la de mayor prioridad;
     void equipar_arma();
 
@@ -26,15 +34,15 @@ public:
     //Post: Devuelve true si james tiene un arma equipada.
     bool tiene_arma_equipada();
 
-    //Pre: James tiene un arma equipada
+    //Pre: James esta vivo y tiene un arma equipada
     //Post: Desequipa el arma a james.
     void desequipar_arma();
 
-    //Pre: -
+    //Pre: James esta vivo
     //Post: Da un arma de potencia aleatoria a james.
     void dar_arma();
 
-    //Pre: -
+    //Pre: James esta vivo
     //Post: Da una placa  de ID aleatoria a james.
     void dar_placa();
 
@@ -42,13 +50,14 @@ public:
     //Post: Devuelve la altura del arbol de placas.
     size_t obtener_altura_placas();
 
-    //Pre: Hay armas en el inventario, hay una equipada,
+    //Pre: James esata vivo, tiene armas en el inventario, hay una equipada,
     //Post: Usa el arma de mayor prioridad.
     void usar_arma();
 
     //Pre: -
     //Post: Cambia la prioridad del inventario.
     void cambiar_prioridad();
+
 
 
 };

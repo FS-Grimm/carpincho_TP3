@@ -18,11 +18,13 @@ bool InventarioArmas::obtener_prioridad() const {
 }
 
 Arma * InventarioArmas::baja() {
-    Arma* arma;
-    if(prioridad)
-        arma=heap_mejor_arma->baja();
-    else
-        arma=heap_peor_arma->baja();
+    Arma* arma=nullptr;
+    if (!vacio()) {
+        if (prioridad)
+            arma = heap_mejor_arma->baja();
+        else
+            arma = heap_peor_arma->baja();
+    }
     return arma;
 }
 
@@ -52,14 +54,16 @@ void InventarioArmas::alta(Arma *arma) {
         heap_peor_arma->alta(arma);
 }
 
-void InventarioArmas::consulta() {
+Arma * InventarioArmas::consulta() {
+    Arma* arma_consultada=nullptr;
     if (!heap_mejor_arma->vacio() || !heap_peor_arma->vacio()) {
-        if (prioridad)
-            cout<<heap_mejor_arma->primero()<<endl;
-        else
-            cout<<heap_peor_arma->primero()<<endl;
-    } else
-        cout << CONSULTA_NO_ARMAS <<endl;
+        if (prioridad) {
+            arma_consultada=heap_mejor_arma->primero();
+        } else {
+            arma_consultada=heap_peor_arma->primero();
+        }
+    }
+    return arma_consultada;
 }
 
 InventarioArmas::~InventarioArmas() {

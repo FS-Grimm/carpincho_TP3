@@ -30,7 +30,7 @@ add_executable(TP3_Carpincho
         bGVjdG9y/ZGVjb2Rl.cpp
         src/Menu.cpp
         main.cpp
-        src/AccionesUsuario.cpp
+        src/Juego.cpp
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "main")
