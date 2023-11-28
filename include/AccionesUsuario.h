@@ -3,7 +3,7 @@
 
 #ifndef TP3_CARPINCHO_ACCIONESUSUARIO_H
 #define TP3_CARPINCHO_ACCIONESUSUARIO_H
-#include "James.h"
+#include "James.hpp"
 #include "Tablero.h"
 /*
 const size_t MINIMA_ID_PLACAS=100;;
