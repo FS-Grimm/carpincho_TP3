@@ -38,14 +38,14 @@ void Juego::alternar_prioridad() {
 void Juego::equipar_arma() {
     if (!james->tiene_arma_equipada()) {
         james->equipar_arma();
-        tablero->alternar_estado();
+        tablero->alternar_estado(true);
     }
 }
 
 void Juego::desequipar_arma() {
     if (james->tiene_armas() && james->tiene_arma_equipada()) {
         james->desequipar_arma();
-        tablero->alternar_estado();
+        tablero->alternar_estado(false);
     }
 }
 
@@ -121,7 +121,7 @@ void Juego::mover_james_hacia(size_t direccion) {
 
 
 void Juego::mostrar_mejor_camino() {
-    vector<size_t> camino=tablero->obtener_mejor_camino(pos_james_1,pos_james_1).first;
+    vector<size_t> camino=tablero->obtener_mejor_camino(pos_james_1,pos_james_2).first;
     mostrar_camino(camino);
 }
 
