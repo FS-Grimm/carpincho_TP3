@@ -49,11 +49,11 @@ private:
     void cargar_grafo();
     // Pre: Posición válida
     // Post: Asigna peso a aristas
-    void cargar_pesos_aristas(size_t x, size_t y);
+    void cargar_pesos_aristas(size_t x, size_t y, int peso, bool saliente);
     // Pre: Posicion válida y siguiente válido 
-    // Post: Carga peso de arista especifica, vertical/horizontal - siguiente/anterior
+    // Post: Carga peso de arista especifica, vertical/horizontal - siguiente/anterior - aristas entrantes/salientes
     // Ejemplo: x = 0 no tiene anterior, x = 8 no tiene siguiente
-    void cargar_peso_arista(size_t x, size_t y, int peso, bool horizontal, bool siguiente);
+    void cargar_peso_arista(size_t x, size_t y, int peso, bool horizontal, bool siguiente, bool saliente);
     // Pre: - 
     // Post: Carga pyramids en tablero
     void cargar_pyramids();
@@ -61,8 +61,11 @@ private:
     // Post: Devuelve posición válida aleatoria equiprobable para el ph
     std::pair<size_t,size_t>  posicion_pyramid();
     // Pre: -
-    // Post: Alterna pyramids
+    // Post: Alterna pyramid en cuestión
     void alternar_pyramids(bool pyramid_1, bool tiene_arma);
+    // Pre: -
+    // Post: Alterna pyramids
+    void alternar_pyramids(bool tiene_arma);
     //Pre: -
     //Post: Quita el pyramid head de la posicion indicada 
     void quitar_pyramid(bool pyramid_1);

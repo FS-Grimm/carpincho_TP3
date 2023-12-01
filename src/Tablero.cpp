@@ -56,35 +56,43 @@ void Tablero::cargar_grafo(){
 
     for (size_t i = 0; i < CANT_COLUMNAS; i++){
         for (size_t ii = 0; ii < CANT_FILAS; ii++){
-            cargar_pesos_aristas(i,ii);
+            cargar_pesos_aristas(i,ii, (int)PESO_BASE, true);
         }
     }
 }
 
-void Tablero::cargar_pesos_aristas(size_t x, size_t y){
+void Tablero::cargar_pesos_aristas(size_t x, size_t y, int peso, bool saliente){
     if ( tablero[x][y] != PARED ){  // Si es una pared. No hay que conectarle nada 
         if ( x > 0 ){ 
-            cargar_peso_arista(x,y,(int)PESO_BASE,true,false);
+            cargar_peso_arista(x,y,peso,true,false,saliente);
         }
         if ( x + 1 < CANT_COLUMNAS ){
-            cargar_peso_arista(x,y,(int)PESO_BASE,true,true);
+            cargar_peso_arista(x,y,peso,true,true,saliente);
         }
 
         if ( y > 0 ){
-            cargar_peso_arista(x,y,(int)PESO_BASE,false,false);
+            cargar_peso_arista(x,y,peso,false,false,saliente);
         }
         if ( y + 1 < CANT_FILAS ){
-            cargar_peso_arista(x,y,(int)PESO_BASE,false,true);
+            cargar_peso_arista(x,y,peso,false,true,saliente);
         }
     }
 }
 
-void Tablero::cargar_peso_arista(size_t x, size_t y, int peso, bool horizontal, bool siguiente){
+void Tablero::cargar_peso_arista(size_t x, size_t y, int peso, bool horizontal, bool siguiente, bool saliente){
     int incremento = (siguiente) ? 1 : -1;
-    if ( horizontal && ( tablero[x + incremento][y] != PARED ) ){
-        grafo.cambiar_arista( x + y*CANT_FILAS, ( x + incremento )+ y*CANT_FILAS, peso );
-    } else if ( tablero[x][y + incremento] != PARED ) {
-        grafo.cambiar_arista( x + y*CANT_FILAS, x + (y + incremento)*CANT_FILAS, peso );
+    if (saliente){  // Cambiamos arista de vertice origen a vertice contiguo
+        if ( horizontal && ( tablero[x + incremento][y] != PARED ) ){
+            grafo.cambiar_arista( x + y*CANT_FILAS, ( x + incremento )+ y*CANT_FILAS, peso );
+        } else if ( tablero[x][y + incremento] != PARED ) {
+            grafo.cambiar_arista( x + y*CANT_FILAS, x + (y + incremento)*CANT_FILAS, peso );
+        }
+    } else {        // Cambiamos arista de vertice contiguo a vertice origen
+        if ( horizontal && ( tablero[x + incremento][y] != PARED ) ){
+            grafo.cambiar_arista( ( x + incremento ) + y*CANT_FILAS, x + y*CANT_FILAS, peso );
+        } else if ( tablero[x][y + incremento] != PARED ) {
+            grafo.cambiar_arista( x + (y + incremento)*CANT_FILAS, x + y*CANT_FILAS, peso );
+        }
     }
 }
 
@@ -127,8 +135,7 @@ void Tablero::cargar_pyramids(){
 
 void Tablero::alternar_estado(bool tiene_arma){
     if ( this->tiene_arma != tiene_arma ){
-        alternar_pyramids(true,tiene_arma);
-        alternar_pyramids(false,tiene_arma);
+        alternar_pyramids(tiene_arma);
         this->tiene_arma = tiene_arma;
     }
 }
@@ -136,35 +143,52 @@ void Tablero::alternar_estado(bool tiene_arma){
 void Tablero::alternar_pyramids(bool pyramid_1, bool tiene_arma){
     size_t x = (pyramid_1) ? pyramid_head1.first : pyramid_head2.first; 
     size_t y = (pyramid_1) ? pyramid_head1.second : pyramid_head2.second; 
-
-    if (tiene_arma){
-        if ( x > 0 ){
-            grafo.cambiar_arista( x - 1 + y*CANT_FILAS, x + y*CANT_FILAS, PESO_BASE );
-        }
-        if ( x + 1 <  CANT_COLUMNAS ){
-            grafo.cambiar_arista( x + 1 + y*CANT_FILAS, x + y*CANT_FILAS, PESO_BASE );
-        }
-        if ( y > 0 ){
-            grafo.cambiar_arista( x + (y - 1)*CANT_FILAS, x + y*CANT_FILAS, PESO_BASE );           
-        }
-        if ( y + 1 < CANT_FILAS ) { 
-            grafo.cambiar_arista( x + (y + 1)*CANT_FILAS, x + y*CANT_FILAS, PESO_BASE );           
-        }
-    } else {
-        if ( x > 0 ){   // Solo cambiamos aristas incidentes en los pyramid
-            grafo.cambiar_arista( x - 1 + y*CANT_FILAS, x + y*CANT_FILAS, INFINITO );
-        }
-        if ( x + 1 <  CANT_COLUMNAS ){
-            grafo.cambiar_arista( x + 1 + y*CANT_FILAS, x + y*CANT_FILAS, INFINITO );
-        }
-        if ( y > 0 ){
-            grafo.cambiar_arista( x + (y - 1)*CANT_FILAS, x + y*CANT_FILAS, INFINITO );           
-        }
-        if ( y + 1 < CANT_FILAS ) { 
-            grafo.cambiar_arista( x + (y + 1)*CANT_FILAS, x + y*CANT_FILAS, INFINITO );           
-        }
+    int peso_pyramid = (tiene_arma) ? PESO_BASE : INFINITO;
+    int peso_contiguo = (tiene_arma) ? PESO_BASE : PESO_BASE*MULTIPLICADOR_PYRAMID_HEAD ;
+    
+    // Cambiamos las aristas desde vertice contiguo hacia vertice del pyramid 
+    cargar_pesos_aristas(x,y,peso_pyramid,false);
+    // Cambiamos las aristas incidentes en vertices contiguos al pyramid 
+    if (x > 0){
+        cargar_pesos_aristas(x - 1, y, peso_contiguo, false);
+        grafo.cambiar_arista(x - 1 + y*CANT_FILAS, x + y*CANT_FILAS, PESO_BASE);
     }
+    if (x + 1 < CANT_COLUMNAS){
+        cargar_pesos_aristas(x + 1, y, peso_contiguo, false);
+        grafo.cambiar_arista(x + 1 + y*CANT_FILAS, x + y*CANT_FILAS, PESO_BASE);
+    }
+    if ( y > 0 ){
+        cargar_pesos_aristas(x, y - 1, peso_contiguo, false);
+        grafo.cambiar_arista(x + (y - 1)*CANT_FILAS, x + y*CANT_FILAS, PESO_BASE);
+    }
+    if (y + 1 < CANT_FILAS){
+        cargar_pesos_aristas(x, y + 1, peso_contiguo, false);
+        grafo.cambiar_arista(x + (y + 1)*CANT_FILAS, x + y*CANT_FILAS, PESO_BASE);
+    }
+
+/*  DEBUG - Miedo que no funcione 
+    if ( x > 0 ){   
+        cargar_peso_arista(x, y, peso, true, false, false);
+    }
+    if ( x + 1 <  CANT_COLUMNAS ){
+        cargar_peso_arista(x, y, peso, true, true, false);
+    }
+    if ( y > 0 ){
+        cargar_peso_arista(x, y, peso, true, false, false);
+    }
+    if ( y + 1 < CANT_FILAS ) { 
+        cargar_peso_arista(x, y, peso, true, true, false);
+    }
+*/
+
+
 }
+
+void Tablero::alternar_pyramids(bool tiene_arma){
+    alternar_pyramids(true,tiene_arma);    
+    alternar_pyramids(false,tiene_arma);
+}
+
 
 void Tablero::quitar_pyramid(size_t x, size_t y){
     if ( ( x == pyramid_head1.first ) && ( y == pyramid_head1.second ) ){
@@ -175,5 +199,14 @@ void Tablero::quitar_pyramid(size_t x, size_t y){
 }
 
 void Tablero::quitar_pyramid(bool pyramid1){
-    
+    alternar_pyramids(pyramid1, true);  // Eliminamos pyramid de grafo 
+    if (pyramid1){                      // Eliminamos pyramid de matriz 
+        tablero[pyramid_head1.first][pyramid_head1.second] = PASILLO;
+        pyramid_head1.first = CANT_COLUMNAS;
+        pyramid_head1.first = CANT_FILAS;
+    } else {
+        tablero[pyramid_head2.first][pyramid_head2.second] = PASILLO;
+        pyramid_head2.first = CANT_COLUMNAS;
+        pyramid_head2.first = CANT_FILAS;
+    }
 }
