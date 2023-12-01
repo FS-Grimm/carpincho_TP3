@@ -210,3 +210,49 @@ void Tablero::quitar_pyramid(bool pyramid1){
         pyramid_head2.first = CANT_FILAS;
     }
 }
+
+
+
+bool Tablero::hay_pyramid_head_en(size_t x,size_t y,size_t direccion){
+    int x_final = (int) x;
+    int y_final = (int) y;
+
+    switch (direccion){
+        case DIRECCION_ABAJO:       y_final -= 1; break;
+        case DIRECCION_ARRIBA:      y_final += 1; break;
+        case DIRECCION_IZQUIERDA:   x_final -= 1; break;
+        case DIRECCION_DERECHA:     x_final += 1; break;
+    }
+
+    if ( ( x_final < 0 ) || ( x_final >= CANT_COLUMNAS ) ){
+        return false;
+    }
+    else if ( ( y_final < 0 ) || ( y_final  >= CANT_FILAS ) ){
+        return false;
+    }
+    else {
+        return ( tablero[x_final][y_final] == PYRAMID_HEAD);
+    }
+}
+
+bool Tablero::puede_moverse_a(size_t x,size_t y,size_t direccion){
+    int x_final = (int) x;
+    int y_final = (int) y;
+
+    switch (direccion){
+        case DIRECCION_ABAJO:       y_final -= 1; break;
+        case DIRECCION_ARRIBA:      y_final += 1; break;
+        case DIRECCION_IZQUIERDA:   x_final -= 1; break;
+        case DIRECCION_DERECHA:     x_final += 1; break;
+    }
+
+    if ( ( x_final < 0 ) || ( x_final >= CANT_COLUMNAS ) ){
+        return false;
+    }
+    else if ( ( y_final < 0 ) || ( y_final  >= CANT_FILAS ) ){
+        return false;
+    }
+    else {
+        return ( ( tiene_arma && hay_pyramid_head_en(x,y,direccion) ) || tablero[x_final][y_final] == PASILLO );
+    }
+}

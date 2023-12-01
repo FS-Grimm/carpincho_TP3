@@ -96,11 +96,11 @@ public:
 
     //Pre: El tablero ya fue cargado
     //Post: Indica si se puede mover al personaje en la direccion deseada.
-    bool puede_moverse_a(size_t pos_personaje1,size_t pos_personaje2,size_t direccion);
+    bool puede_moverse_a(size_t x,size_t y,size_t direccion);
 
     //Pre: El tablero ya fue cargado
     //Post: Devuelve verdadero si hay un Pyramid Head en la direccion deseada
-    bool hay_pyramid_head_en(size_t pos_personaje1,size_t pos_personaje2,size_t direccion);
+    bool hay_pyramid_head_en(size_t x,size_t y,size_t direccion);
 
     //Pre: El tablero ya fue cargado
     //Post: Devuelve verdadero si hay un Pyramid Head en el camino indicado
