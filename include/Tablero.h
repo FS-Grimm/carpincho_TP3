@@ -38,6 +38,7 @@ private:
     size_t tablero[CANT_FILAS][CANT_COLUMNAS];  // Tablero[x][y]
     bool tiene_arma = true;
 
+    std::pair<size_t,size_t> pos_james = std::pair<size_t,size_t>(CANT_COLUMNAS,CANT_FILAS);
     std::pair<size_t,size_t> pyramid_head1 = std::pair<size_t,size_t>(CANT_COLUMNAS,CANT_FILAS);
     std::pair<size_t,size_t> pyramid_head2 = std::pair<size_t,size_t>(CANT_COLUMNAS,CANT_FILAS);
 
@@ -92,7 +93,7 @@ public:
 
     //Pre: El tablero ya fue cargado
     //Post: Devuelve un vector con el mejor camino para el personaje y su peso.
-    std::pair<std::vector<size_t>, int> obtener_mejor_camino(size_t pos_personaje1,size_t pos_personaje2);
+    //std::pair<std::vector<size_t>, int> obtener_mejor_camino(size_t pos_personaje1,size_t pos_personaje2);
 
     //Pre: El tablero ya fue cargado
     //Post: Indica si se puede mover al personaje en la direccion deseada.
@@ -110,6 +111,13 @@ public:
     //Post: Devuelve verdadero si hay un camino posible desde la posicion a la salida en el estado actual.
     bool hay_camino(size_t x,size_t y);
 
+    //pre: El tablero ya fue cargado
+    //post: devuelve en un pair el vector que contiene el recorrido minimo y el peso de ese camino
+    std::pair<std::vector<size_t>, int> obtener_mejor_camino();
+
+    //pre: el tablero fue cargado,y tiene que ser capaz de moverse en esa direccion
+    //post: modifica la posicion de james
+    void mover_james(size_t direccion);
 };
 
 
