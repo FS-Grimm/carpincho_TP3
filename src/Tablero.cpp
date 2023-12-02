@@ -41,6 +41,7 @@ void Tablero::cargar_tablero(std::string ruta_archivo){
     }
     
     if (!archivo_valido) {      // Pero no imaginé, que evitando la ley, en la trampa caería yo
+                                //negro: JAJAJ q decis flaco
         for (size_t i = POSICION_INICIAL; i < CANT_FILAS; i++){
             for (size_t ii = POSICION_INICIAL; i < CANT_COLUMNAS; ii++){
                 tablero[i][ii] = 0;
@@ -52,6 +53,7 @@ void Tablero::cargar_tablero(std::string ruta_archivo){
 }
 
 void Tablero::cargar_grafo(){
+    pos_james = std::pair<size_t, size_t>(0,0); // no se si tiene que ir aca?
     grafo = Grafo(CANT_COLUMNAS * CANT_FILAS);
 
     for (size_t i = 0; i < CANT_COLUMNAS; i++){
@@ -80,7 +82,7 @@ void Tablero::cargar_pesos_aristas(size_t x, size_t y, int peso, bool saliente){
 }
 
 void Tablero::cargar_peso_arista(size_t x, size_t y, int peso, bool horizontal, bool siguiente, bool saliente){
-    int incremento = (siguiente) ? 1 : -1;
+    int incremento = (siguiente) ? 1 : -1; //creo q aca la suma no va a funcionar con un negativo porq no existe size_t = -1 (es unsigned)
     if (saliente){  // Cambiamos arista de vertice origen a vertice contiguo
         if ( horizontal && ( tablero[x + incremento][y] != PARED ) ){
             grafo.cambiar_arista( x + y*CANT_FILAS, ( x + incremento )+ y*CANT_FILAS, peso );
@@ -255,4 +257,47 @@ bool Tablero::puede_moverse_a(size_t x,size_t y,size_t direccion){
     else {
         return ( ( tiene_arma && hay_pyramid_head_en(x,y,direccion) ) || tablero[x_final][y_final] == PASILLO );
     }
+}
+std::pair<std::vector<size_t>, int> Tablero::obtener_mejor_camino() {
+
+    size_t x = pos_james.first;
+    size_t y = pos_james.second; //estuve 25 anios(no tengo enie) para decidir si hacer esto un atributo privado de tablero q bronca
+    size_t pos = x + y*CANT_FILAS;
+    grafo.usar_dijkstra();
+    std::pair<std::vector<size_t>, int> resultado = grafo.obtener_camino_minimo(pos, CANT_FILAS * CANT_COLUMNAS);
+
+
+    return resultado;
+}
+
+void Tablero::mover_james(size_t direccion){
+    if (puede_moverse_a(pos_james.first, pos_james.second, direccion)) { //tambien se chequea esto en juego.cpp linea 116, cual deberia irse?
+        switch (direccion) {
+            case DIRECCION_ARRIBA:
+                pos_james.second += 1;
+                break;
+
+            case DIRECCION_ABAJO:
+                pos_james.second -= 1;
+                break;
+
+            case DIRECCION_DERECHA:
+                pos_james.first += 1;
+                break;
+
+            case DIRECCION_IZQUIERDA:
+                pos_james.first -= 1;
+                break;
+
+        }
+    }
+}
+
+bool Tablero::hay_camino(size_t x, size_t y) { //Terminan siendo medio redundantes los metodos hay camino y obtener mejor camino no??? seguro
+    //hay una forma mejor de hacerlo
+
+    size_t pos_james_actual = pos_james.first + pos_james.second * CANT_FILAS;
+    std::vector<size_t> inicio;
+    inicio.push_back(pos_james_actual);
+    return (obtener_mejor_camino().first != inicio); // porque el dijkstra solo te deberia devolver un vector con el inicio si no hay camino posible
 }

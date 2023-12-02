@@ -36,7 +36,11 @@
 cmake-build-debug/
 .vscode/
 build/
-
+./tests/CMakeFiles/
+./tests/CMakeCache.txt
+./tests/Makefile
+./tests/cmake-build-debug
+./tests/Google_Tests_run
 # Compilado
 main
 Google_Tests_run

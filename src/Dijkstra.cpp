@@ -71,7 +71,7 @@ std::vector<size_t> Dijkstra::obtener_camino(size_t origen, size_t destino) {
 std::vector<size_t>
 Dijkstra::calcular_camino_minimo(Matriz adyacencia, size_t vertices, size_t origen, size_t destino,
                                  bool hay_cambios) {
-    if (hay_cambios) {
+    //saque el if (hay_cambios) porque juli me dijo que era innecesario
         matriz_adyacencia = adyacencia;
         cantidad_vertices = vertices;
         inicializar_arreglos(origen);
@@ -81,7 +81,7 @@ Dijkstra::calcular_camino_minimo(Matriz adyacencia, size_t vertices, size_t orig
             vertices_visitados[vertice_actual] = true;
             actualizar_distancia(vertice_actual);
         }
-    }
+
     return obtener_camino(origen, destino);
 }
 
