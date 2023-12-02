@@ -1,13 +1,9 @@
 #include "Tablero.h"
 
 void Tablero::usar_layout_uno(){
-    std::cout << "0" << std::endl;
     cargar_tablero(ruta_layout1);
-    std::cout << "1" << std::endl;    
     cargar_grafo();
-    std::cout << "2" << std::endl;
     cargar_pyramids();
-    std::cout << "3" << std::endl;
 }
 
 void Tablero::usar_layout_dos(){
@@ -33,7 +29,6 @@ void Tablero::cargar_tablero(std::string ruta_archivo){
                 } else if ( ( linea[indice] == '0' ) || ( linea[indice] == '1' )){
                     tablero[indice/2][lineas] = (linea[indice] == '0') ? PARED : PASILLO;
                 } else {
-                    std::cout << "No me gusto" << std::endl;
                     archivo_valido = false;
                 }
                 indice++;
