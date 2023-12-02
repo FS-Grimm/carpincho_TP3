@@ -1,9 +1,13 @@
-#include "Tablero.h"
+#include "Tablero.hpp"
 
 void Tablero::usar_layout_uno(){
+    std::cout << "0" << std::endl;
     cargar_tablero(ruta_layout1);
+    std::cout << "1" << std::endl;    
     cargar_grafo();
+    std::cout << "2" << std::endl;
     cargar_pyramids();
+    std::cout << "3" << std::endl;
 }
 
 void Tablero::usar_layout_dos(){
@@ -23,12 +27,13 @@ void Tablero::cargar_tablero(std::string ruta_archivo){
 
         while (archivo_valido && getline(archivo,linea)){
             indice = 0;
-            while ( archivo_valido && linea[indice] != '\n' ){
+            while ( archivo_valido && linea[indice] != '\0' ){
                 if ( indice % 2 == 1 ){
-                    archivo_valido = ( ( linea[indice] == ',' ) || ( linea[indice] == '\n') );
+                    archivo_valido = ( ( linea[indice] == ',' ) || ( linea[indice] == '\0'));
                 } else if ( ( linea[indice] == '0' ) || ( linea[indice] == '1' )){
                     tablero[indice/2][lineas] = (linea[indice] == '0') ? PARED : PASILLO;
                 } else {
+                    std::cout << "No me gusto" << std::endl;
                     archivo_valido = false;
                 }
                 indice++;
@@ -42,7 +47,8 @@ void Tablero::cargar_tablero(std::string ruta_archivo){
     
     if (!archivo_valido) {      // Pero no imaginé, que evitando la ley, en la trampa caería yo
         for (size_t i = POSICION_INICIAL; i < CANT_FILAS; i++){
-            for (size_t ii = POSICION_INICIAL; i < CANT_COLUMNAS; ii++){
+            for (size_t ii = POSICION_INICIAL; ii < CANT_COLUMNAS; ii++){
+//                std::cout << "i: " << i << " ii: " << ii << std::endl;
                 tablero[i][ii] = 0;
             }
         }
@@ -54,44 +60,43 @@ void Tablero::cargar_tablero(std::string ruta_archivo){
 void Tablero::cargar_grafo(){
     grafo = Grafo(CANT_COLUMNAS * CANT_FILAS);
 
-    for (size_t i = 0; i < CANT_COLUMNAS; i++){
-        for (size_t ii = 0; ii < CANT_FILAS; ii++){
-            cargar_pesos_aristas(i,ii, (int)PESO_BASE, true);
+    for (size_t x = POSICION_INICIAL; x < CANT_COLUMNAS; x++){
+        for (size_t y = POSICION_INICIAL; y < CANT_FILAS; y++){
+            cargar_pesos_aristas(x,y, (int)PESO_BASE, true);
         }
     }
 }
 
 void Tablero::cargar_pesos_aristas(size_t x, size_t y, int peso, bool saliente){
     if ( tablero[x][y] != PARED ){  // Si es una pared. No hay que conectarle nada 
-        if ( x > 0 ){ 
+        if ( x > POSICION_INICIAL ){ 
             cargar_peso_arista(x,y,peso,true,false,saliente);
         }
-        if ( x + 1 < CANT_COLUMNAS ){
+        if ( x < POSICION_FINAL ){
             cargar_peso_arista(x,y,peso,true,true,saliente);
         }
-
-        if ( y > 0 ){
+        if ( y > POSICION_INICIAL ){
             cargar_peso_arista(x,y,peso,false,false,saliente);
         }
-        if ( y + 1 < CANT_FILAS ){
+        if ( y < POSICION_FINAL ){
             cargar_peso_arista(x,y,peso,false,true,saliente);
         }
-    }
+    }    
 }
 
 void Tablero::cargar_peso_arista(size_t x, size_t y, int peso, bool horizontal, bool siguiente, bool saliente){
     int incremento = (siguiente) ? 1 : -1;
     if (saliente){  // Cambiamos arista de vertice origen a vertice contiguo
         if ( horizontal && ( tablero[x + incremento][y] != PARED ) ){
-            grafo.cambiar_arista( x + y*CANT_FILAS, ( x + incremento )+ y*CANT_FILAS, peso );
-        } else if ( tablero[x][y + incremento] != PARED ) {
-            grafo.cambiar_arista( x + y*CANT_FILAS, x + (y + incremento)*CANT_FILAS, peso );
+            grafo.cambiar_arista( x + y*(CANT_FILAS), ( x + incremento ) + y*(CANT_FILAS), peso);
+        } else if ( !horizontal && tablero[x][y + incremento] != PARED ) {
+            grafo.cambiar_arista( x + y*(CANT_FILAS), x + ( y + incremento )*(CANT_FILAS), peso );
         }
     } else {        // Cambiamos arista de vertice contiguo a vertice origen
         if ( horizontal && ( tablero[x + incremento][y] != PARED ) ){
-            grafo.cambiar_arista( ( x + incremento ) + y*CANT_FILAS, x + y*CANT_FILAS, peso );
-        } else if ( tablero[x][y + incremento] != PARED ) {
-            grafo.cambiar_arista( x + (y + incremento)*CANT_FILAS, x + y*CANT_FILAS, peso );
+            grafo.cambiar_arista( ( x + incremento ) + y*(CANT_FILAS), x + y*(CANT_FILAS), peso );
+        } else if ( !horizontal && tablero[x][y + incremento] != PARED ) {
+            grafo.cambiar_arista( x + (y + incremento)*(CANT_FILAS), x + y*(CANT_FILAS), peso );
         }
     }
 }
@@ -224,10 +229,10 @@ bool Tablero::hay_pyramid_head_en(size_t x,size_t y,size_t direccion){
         case DIRECCION_DERECHA:     x_final += 1; break;
     }
 
-    if ( ( x_final < 0 ) || ( x_final >= CANT_COLUMNAS ) ){
+    if ( ( x_final < 0 ) || ( x_final >= (int)CANT_COLUMNAS ) ){
         return false;
     }
-    else if ( ( y_final < 0 ) || ( y_final  >= CANT_FILAS ) ){
+    else if ( ( y_final < 0 ) || ( y_final  >= (int)CANT_FILAS ) ){
         return false;
     }
     else {
@@ -246,13 +251,27 @@ bool Tablero::puede_moverse_a(size_t x,size_t y,size_t direccion){
         case DIRECCION_DERECHA:     x_final += 1; break;
     }
 
-    if ( ( x_final < 0 ) || ( x_final >= CANT_COLUMNAS ) ){
+    if ( ( x_final < 0 ) || ( x_final >= (int)CANT_COLUMNAS ) ){
         return false;
     }
-    else if ( ( y_final < 0 ) || ( y_final  >= CANT_FILAS ) ){
+    else if ( ( y_final < 0 ) || ( y_final  >= (int)CANT_FILAS ) ){
         return false;
     }
     else {
         return ( ( tiene_arma && hay_pyramid_head_en(x,y,direccion) ) || tablero[x_final][y_final] == PASILLO );
     }
 }
+
+/*
+void Tablero::imprimir(){
+    for (int y = CANT_COLUMNAS - 1; y > -1; y--){
+        for (size_t x = 0; x < CANT_COLUMNAS; x++)
+            std::cout << "[" << tablero[x][y] << "]";
+        std::cout << std::endl;
+    }
+
+}
+
+void Tablero::imprimir_grafo(){
+    this->grafo.imprimir();
+}*/
