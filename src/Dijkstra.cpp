@@ -49,29 +49,28 @@ void Dijkstra::actualizar_distancia(size_t vertice) {
 
 std::vector<size_t> Dijkstra::obtener_camino(size_t origen, size_t destino) {
     std::vector<size_t> camino;
-    if (distancia[destino] >= INFINITO){
-        throw Indice_no_valido_exception();
-    }
+
     size_t actual = destino;
     size_t intentos = 0;
-    while ( (actual != origen) && intentos < 100 ) {
+    while ( (actual != origen) && distancia[destino] < INFINITO) {
         camino.insert(camino.begin(), actual);
         actual = recorrido[actual];
         intentos += 1;
-    }
+    }/*
     if (intentos < 100)
         camino.insert(camino.begin(), origen);
     else {
         camino.clear();
         camino.push_back(origen);
-    }
+    }*/
+    camino.insert(camino.begin(), origen);
     return camino;
 }
 
 std::vector<size_t>
 Dijkstra::calcular_camino_minimo(Matriz adyacencia, size_t vertices, size_t origen, size_t destino,
                                  bool hay_cambios) {
-    //saque el if (hay_cambios) porque juli me dijo que era innecesario
+
         matriz_adyacencia = adyacencia;
         cantidad_vertices = vertices;
         inicializar_arreglos(origen);
