@@ -43,6 +43,10 @@ private:
     //Pre: James esta vivo, james esta en la posicion de un pyramid head.
     //Post: James asusta al pyramid si tiene arma equipada, muere si no.
     void james_pelea_pyramid_head();
+
+
+    void mostrar_camino(std::vector<size_t> vector1);
+
 public:
     //CONSTRUCTOR
     Juego();
@@ -91,8 +95,6 @@ public:
 
     //DESTRUCTOR
     ~Juego();
-
-    void mostrar_camino(std::vector<size_t> vector1);
 
 };
 
