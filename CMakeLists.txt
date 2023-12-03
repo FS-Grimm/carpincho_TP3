@@ -19,18 +19,12 @@ include_directories(bGVjdG9y)
 add_executable(TP3_Carpincho
         src/Placa.cpp
         src/Arma.cpp
-        src/InventarioArmas.cpp
-        src/MenuInventario.cpp
         src/Matriz.cpp
         src/Grafo.cpp
         src/Dijkstra.cpp
         src/Floyd.cpp
-        src/MenuGrafo.cpp
-        bGVjdG9y/bGVjdG9y.cpp
-        bGVjdG9y/ZGVjb2Rl.cpp
-        src/Menu.cpp
         main.cpp
-        src/Juego.cpp
+        src/Tablero.cpp
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "main")

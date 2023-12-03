@@ -1,69 +1,28 @@
 
-#include "bGVjdG9y/bGVjdG9y.hpp"
-#include "bGVjdG9y/ZGVjb2Rl.hpp"
 #include <iostream>
-#include "Menu.hpp"
+#include "Tablero.h"
 
 
+int iterar_mostrar(std::pair<std::vector<size_t>, int> input){
+    for (size_t i = 0; i < input.first.size(); i++){
+        std::cout << "x: " << input.first[i]%9 << ", y: " << input.first[i]/9 << "\n";
+    }
+    std::cout << "\nPeso total: " << input.second << std::endl;
 
+    return 0; 
+}
 
 int main(){
-    auto menu=new Menu;
-    Menu::bienvenida();
-    while(!menu->quiere_salir()){
-        menu->ejecutar_menu();
-    }
-    delete menu;
+    Tablero tablero = Tablero();
+    tablero.usar_layout_uno();
+    tablero.imprimir();
+    
+    tablero.alternar_estado(true);  std::cout << "----------- ARMADO -----------" << std::endl;
+    iterar_mostrar(tablero.obtener_mejor_camino());
+    tablero.alternar_estado(false);  std::cout << "----------- DES ARMADO -----------" << std::endl;
+    iterar_mostrar(tablero.obtener_mejor_camino());
+
+    tablero.prueba_matar_ph(true); std::cout << "----------- DES ARMADO menos 1-----------" << std::endl;
+    iterar_mostrar(tablero.obtener_mejor_camino());
+
 }
-
-/*
-void recorrer_vector(std::vector<Placa*> vector);
-void eliminar_placas(std::vector<Placa*> vector);
-
-void eliminar_placas(std::vector<Placa*> vector){
-    for (Placa* i:vector)
-        delete i;
-}
-
-void recorrer_vector(std::vector<Placa*> vector){
-    for (size_t i = 0; i < vector.size(); i++)
-        std::cout << vector[i];
-}
-int main() {
-    ABB<Placa*, Placa::menor, Placa::igual> arbol_decifrador;
-    bGVjdG9y::Y2FyZ2Fy(arbol_decifrador);
-
-    std::string input = "Algo random para que itere";
-    std::vector<Placa *> vector_placas;
-
-    std::cout << "=======================================================" << std::endl;
-    while (input != "N") {
-        std::cout << "Ingrese opcion: ";
-        getline(std::cin, input);
-
-        if (input == "P")
-            vector_placas = arbol_decifrador.preorder();
-
-        else if (input == "I")
-            vector_placas = arbol_decifrador.inorder();
-
-        else if (input == "O")
-            vector_placas = arbol_decifrador.postorder();
-
-        else if (input == "A")
-            vector_placas = arbol_decifrador.ancho();
-
-        else if (input != "N")
-            std::cout << "PIFIASTE. BOCA BOCA" << std::endl;
-
-        if ((input == "P") || (input == "I") || (input == "O") || (input == "A"))
-            recorrer_vector(vector_placas);
-
-        std::cout << "\n=======================================================\n" << std::endl;
-    }
-    eliminar_placas(vector_placas);
-    return 0;
-}
-
-
-*/

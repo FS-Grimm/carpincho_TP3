@@ -118,6 +118,9 @@ public:
     //pre: el tablero fue cargado,y tiene que ser capaz de moverse en esa direccion
     //post: modifica la posicion de james
     void mover_james(size_t direccion);
+
+    void imprimir();
+    void prueba_matar_ph(bool pyramid);
 };
 
 

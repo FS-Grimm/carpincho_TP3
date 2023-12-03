@@ -268,19 +268,6 @@ bool Tablero::puede_moverse_a(size_t x,size_t y,size_t direccion){
     }
 }
 
-/*
-void Tablero::imprimir(){
-    for (int y = CANT_COLUMNAS - 1; y > -1; y--){
-        for (size_t x = 0; x < CANT_COLUMNAS; x++)
-            std::cout << "[" << tablero[x][y] << "]";
-        std::cout << std::endl;
-    }
-
-}
-
-void Tablero::imprimir_grafo(){
-    this->grafo.imprimir();
-}*/
 std::pair<std::vector<size_t>, int> Tablero::obtener_mejor_camino() {
 
     size_t x = pos_james.first;
@@ -323,4 +310,21 @@ bool Tablero::hay_camino(size_t x, size_t y) { //Terminan siendo medio redundant
     std::vector<size_t> inicio;
     inicio.push_back(pos_james_actual);
     return (obtener_mejor_camino().first != inicio); // porque el dijkstra solo te deberia devolver un vector con el inicio si no hay camino posible
+}
+
+void Tablero::imprimir(){
+    for (int y = CANT_COLUMNAS - 1; y > -1; y--){
+        for (size_t x = 0; x < CANT_COLUMNAS; x++)
+            std::cout << "[" << tablero[x][y] << "]";
+        std::cout << std::endl;
+    }
+
+}
+
+void Tablero::prueba_matar_ph(bool pyramid){
+    if (pyramid)
+        std::cout << "Muerto x: " << pyramid_head1.first << " y: " pyramid_head1.second << std::endl;
+    else
+        std::cout << "Muerto x: " << pyramid_head2.first << " y: " pyramid_head2.second << std::endl;
+    this->quitar_pyramid(pyramid);
 }
