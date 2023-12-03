@@ -4,9 +4,11 @@
 
 #ifndef TP3_CARPINCHO_TABLERO_H
 #define TP3_CARPINCHO_TABLERO_H
+
 #include "Grafo.hpp"
 #include "Random.hpp"
 #include <fstream>
+#include <iostream>
 #include <string>
 
 const size_t DIRECCION_ARRIBA=1;
@@ -49,7 +51,7 @@ private:
     // Post Carga grafo base (Pyramids pero con arma equipada)
     void cargar_grafo();
     // Pre: Posición válida
-    // Post: Asigna peso a aristas
+    // Post: Asigna peso a aristas entrantes o salientes de la posicion
     void cargar_pesos_aristas(size_t x, size_t y, int peso, bool saliente);
     // Pre: Posicion válida y siguiente válido 
     // Post: Carga peso de arista especifica, vertical/horizontal - siguiente/anterior - aristas entrantes/salientes
@@ -117,6 +119,9 @@ public:
 
     //pre: el tablero fue cargado,y tiene que ser capaz de moverse en esa direccion
     //post: modifica la posicion de james
+
+    void imprimir();
+    void prueba_matar_ph(bool pyramid);
     //void mover_james(size_t direccion);
 };
 
