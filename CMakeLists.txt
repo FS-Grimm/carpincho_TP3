@@ -17,14 +17,22 @@ include_directories(src)
 include_directories(bGVjdG9y)
 
 add_executable(TP3_Carpincho
-        src/Placa.cpp
+        src/ArbolPlacas.cpp
         src/Arma.cpp
-        src/Matriz.cpp
-        src/Grafo.cpp
         src/Dijkstra.cpp
         src/Floyd.cpp
-        main.cpp
+        src/Grafo.cpp
+        src/InventarioArmas.cpp
+        src/James.cpp
+        src/Juego.cpp
+        src/Matriz.cpp
+        src/Menu.cpp
+        src/MenuGrafo.cpp
+        src/MenuInventario.cpp
+        src/Placa.cpp
+        src/Random.cpp
         src/Tablero.cpp
+        main.cpp
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "main")
