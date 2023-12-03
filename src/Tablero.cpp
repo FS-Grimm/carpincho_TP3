@@ -67,7 +67,7 @@ void Tablero::cargar_grafo(){
 }
 
 void Tablero::cargar_pesos_aristas(size_t x, size_t y, int peso, bool saliente){
-    if ( tablero[x][y] != PARED ){  // Si es una pared. No hay que conectarle nada 
+    if ( tablero[x][y] != PARED ){      // Si es una pared. No hay que conectarle nada 
         if ( x > POSICION_INICIAL ){ 
             cargar_peso_arista(x,y,peso,true,false,saliente);
         }
@@ -148,30 +148,32 @@ void Tablero::alternar_estado(bool tiene_arma){
 }
 
 void Tablero::alternar_pyramids(bool pyramid_1, bool tiene_arma){
-    size_t x = (pyramid_1) ? pyramid_head1.first : pyramid_head2.first; 
+    size_t x = (pyramid_1) ? pyramid_head1.first  : pyramid_head2.first ; 
     size_t y = (pyramid_1) ? pyramid_head1.second : pyramid_head2.second; 
     int peso_pyramid = (tiene_arma) ? PESO_BASE : INFINITO;
-    int peso_contiguo = (tiene_arma) ? PESO_BASE : PESO_BASE*MULTIPLICADOR_PYRAMID_HEAD ;
+    int peso_contiguo = (tiene_arma) ? PESO_BASE : PESO_BASE * MULTIPLICADOR_PYRAMID_HEAD ;
     
-    // Cambiamos las aristas desde vertice contiguo hacia vertice del pyramid 
+    // Cambiamos las aristas que inciden en el pyramid
     cargar_pesos_aristas(x,y,peso_pyramid,false);
     // Cambiamos las aristas incidentes en vertices contiguos al pyramid 
     if (x > 0){
         cargar_pesos_aristas(x - 1, y, peso_contiguo, false);
-        grafo.cambiar_arista(x - 1 + y*CANT_FILAS, x + y*CANT_FILAS, PESO_BASE);
+//        grafo.cambiar_arista(x - 1 + y*CANT_FILAS, x + y*CANT_FILAS, PESO_BASE);
     }
     if (x + 1 < CANT_COLUMNAS){
         cargar_pesos_aristas(x + 1, y, peso_contiguo, false);
-        grafo.cambiar_arista(x + 1 + y*CANT_FILAS, x + y*CANT_FILAS, PESO_BASE);
+//        grafo.cambiar_arista(x + 1 + y*CANT_FILAS, x + y*CANT_FILAS, PESO_BASE);
     }
     if ( y > 0 ){
         cargar_pesos_aristas(x, y - 1, peso_contiguo, false);
-        grafo.cambiar_arista(x + (y - 1)*CANT_FILAS, x + y*CANT_FILAS, PESO_BASE);
+//        grafo.cambiar_arista(x + (y - 1)*CANT_FILAS, x + y*CANT_FILAS, PESO_BASE);
     }
     if (y + 1 < CANT_FILAS){
         cargar_pesos_aristas(x, y + 1, peso_contiguo, false);
-        grafo.cambiar_arista(x + (y + 1)*CANT_FILAS, x + y*CANT_FILAS, PESO_BASE);
+//        grafo.cambiar_arista(x + (y + 1)*CANT_FILAS, x + y*CANT_FILAS, PESO_BASE);
     }
+
+    cargar_pesos_aristas(x,y,PESO_BASE,true);
 
 /*  DEBUG - Miedo que no funcione 
     if ( x > 0 ){   
@@ -192,25 +194,38 @@ void Tablero::alternar_pyramids(bool pyramid_1, bool tiene_arma){
 }
 
 void Tablero::alternar_pyramids(bool tiene_arma){
-    if ((pyramid_head1.first != CANT_COLUMNAS ) && ( pyramid_head1.second != CANT_FILAS )){
-        alternar_pyramids(true,tiene_arma);    
+    if ( ( pyramid_head1.first != CANT_COLUMNAS ) && ( pyramid_head1.second != CANT_FILAS ) ){
+        alternar_pyramids(true, tiene_arma);    
     }
-    if ((pyramid_head2.first != CANT_COLUMNAS ) && ( pyramid_head2.second != CANT_FILAS )){
-        alternar_pyramids(false,tiene_arma);    
+    if ( ( pyramid_head2.first != CANT_COLUMNAS ) && ( pyramid_head2.second != CANT_FILAS ) ){
+        alternar_pyramids(false, tiene_arma);    
     }
 }
 
-
 void Tablero::quitar_pyramid(size_t x, size_t y){
-    if ( ( x == pyramid_head1.first ) && ( y == pyramid_head1.second ) ){
+    bool posicion_valida = ( x != CANT_COLUMNAS ) && ( y != CANT_FILAS );
+    bool posicion_pyramid_head1 = ( x == pyramid_head1.first ) && ( y == pyramid_head1.second ) ;
+    bool posicion_pyramid_head2 = ( x == pyramid_head2.first ) && ( y == pyramid_head2.second ) ;
+
+    if ( posicion_pyramid_head1 && posicion_valida ){
         quitar_pyramid(true);
-    } else if ( ( x == pyramid_head2.first ) && ( y == pyramid_head2.second ) ){
+    } else if ( posicion_pyramid_head2 && posicion_valida ){
         quitar_pyramid(false);
     }
 }
 
 void Tablero::quitar_pyramid(bool pyramid1){
-    alternar_pyramids(pyramid1, true);  // Eliminamos pyramid de grafo 
+    bool pyramid_en_juego;
+    if (pyramid1){
+        pyramid_en_juego = ( pyramid_head1.first != CANT_COLUMNAS ) && ( pyramid_head1.second != CANT_FILAS );
+    } else {
+        pyramid_en_juego = ( pyramid_head2.first != CANT_COLUMNAS ) && ( pyramid_head2.second != CANT_FILAS );
+    }
+
+    if ( pyramid_en_juego ){
+        alternar_pyramids(pyramid1, true);  // Eliminamos pyramid de grafo 
+    }
+
     if (pyramid1){                      // Eliminamos pyramid de matriz 
         tablero[pyramid_head1.first][pyramid_head1.second] = PASILLO;
         pyramid_head1.first = CANT_COLUMNAS;
@@ -323,8 +338,8 @@ void Tablero::imprimir(){
 
 void Tablero::prueba_matar_ph(bool pyramid){
     if (pyramid)
-        std::cout << "Muerto x: " << pyramid_head1.first << " y: " pyramid_head1.second << std::endl;
+        std::cout << "Muerto x: " << pyramid_head1.first << " y: " << pyramid_head1.second << std::endl;
     else
-        std::cout << "Muerto x: " << pyramid_head2.first << " y: " pyramid_head2.second << std::endl;
+        std::cout << "Muerto x: " << pyramid_head2.first << " y: " << pyramid_head2.second << std::endl;
     this->quitar_pyramid(pyramid);
 }
