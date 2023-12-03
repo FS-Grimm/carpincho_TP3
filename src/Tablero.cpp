@@ -106,9 +106,9 @@ std::pair<size_t,size_t> Tablero::posicion_pyramid(){
 
     bool iterar = true;
     do {
-        random = (size_t)Random::random(1,CANT_COLUMNAS*CANT_FILAS - 1);
+        random = (size_t) Random::random(1,CANT_COLUMNAS*CANT_FILAS - 1);
         iter++;
-        iterar = ( tablero[ random % CANT_FILAS ][ random / CANT_FILAS ] != PASILLO ) && ( tablero[ random % CANT_FILAS ][ random / CANT_FILAS ] != PYRAMID_HEAD ) && (iter < ITER_MAX );
+        iterar = ( tablero[ random % CANT_FILAS ][ random / CANT_FILAS ] != PASILLO ) && (iter < ITER_MAX );
     } while ( iterar ) ;    
     
     size_t x,y;
@@ -126,6 +126,8 @@ std::pair<size_t,size_t> Tablero::posicion_pyramid(){
 void Tablero::cargar_pyramids(){
     if ( Random::random(0,1) == 0 ){   // Pyramids!!!
         pyramid_head1 = posicion_pyramid();
+    }
+    if ( Random::random(0,1) == 0 ){   // Pyramids!!!
         pyramid_head2 = posicion_pyramid();
     }
 
