@@ -5,13 +5,13 @@
 #ifndef TP3_CARPINCHO_JAMES_H
 #define TP3_CARPINCHO_JAMES_H
 #include "InventarioArmas.hpp"
-//Aca quizas deberia ir "ARBOL DE PLACAS", idk.
+#include "Random.hpp"
 #include "ABB.hpp"
 #include "vector"
 #include "Placa.hpp"
 #include "InventarioArmas.hpp"
 #include "ArbolPlacas.hpp"
-#include "random"
+
 
 const std::vector<std::string> ARMAS_BAJA_POTENCIA = {"cuchillo", "palo", "tuberia_oxidada", "crowbar"};
 const std::vector<std::string> ARMAS_MEDIA_POTENCIA = {"pistola_9mm", "revolver_22", "recortada_12"};
@@ -76,6 +76,7 @@ public:
     //Post: Da una placa  de ID aleatoria a james.
     void obtener_placa();
 
+    ~James();
 
 };
 

@@ -11,7 +11,7 @@ size_t ArbolPlacas::altura() {
     return this->arbol_placas->altura();
 }
 
-size_t ArbolPlacas::tamaño() {
+size_t ArbolPlacas::tamanio() {
     return arbol_placas->tamanio();
 }
 
