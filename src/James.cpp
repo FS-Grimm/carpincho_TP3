@@ -7,6 +7,7 @@ James::James() {
     this->inventario_armas = new InventarioArmas;
     this->arbol_placas = new ArbolPlacas;
     this->arma_equipada = nullptr;
+    this->vivo = true;
 }
 
 
@@ -67,4 +68,13 @@ void James::usar_arma() {
             equipar_arma();
         }
     }
+}
+
+bool James::esta_vivo() {
+    return this->vivo;
+}
+
+void James::morir() {
+    if(vivo)
+        this->vivo = false;
 }

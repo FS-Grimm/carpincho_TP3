@@ -22,6 +22,7 @@ private:
     InventarioArmas* inventario_armas;
     ArbolPlacas* arbol_placas;
     Arma* arma_equipada;
+    bool vivo;
 public:
     //constructor
     James();

@@ -38,14 +38,14 @@ void Juego::alternar_prioridad() {
 void Juego::equipar_arma() {
     if (!james->tiene_arma_equipada()) {
         james->equipar_arma();
-        tablero->alternar_estado();
+        tablero->alternar_estado(true);
     }
 }
 
 void Juego::desequipar_arma() {
     if (james->tiene_armas() && james->tiene_arma_equipada()) {
         james->desequipar_arma();
-        tablero->alternar_estado();
+        tablero->alternar_estado(false);
     }
 }
 
@@ -81,18 +81,22 @@ void Juego::cambiar_pos_james(size_t direccion) {
     switch(direccion){
         case DIRECCION_ARRIBA:
             pos_james_1++;
+            tablero->mover_james(direccion);
             break;
 
         case DIRECCION_ABAJO:
             pos_james_1--;
+            tablero->mover_james(direccion);
             break;
 
         case DIRECCION_DERECHA:
             pos_james_2++;
+            tablero->mover_james(direccion);
             break;
 
         case DIRECCION_IZQUIERDA:
             pos_james_2--;
+            tablero->mover_james(direccion);
             break;
 
     }
@@ -113,7 +117,7 @@ void Juego::mover_james_hacia(size_t direccion) {
         cambiar_pos_james(direccion);
         if(tablero->hay_pyramid_head_en(pos_james_1,pos_james_2,direccion)){
             james_pelea_pyramid_head();
-        }else if(pos_james_1==pos_james_2==POSICION_FINAL){
+        }else if((pos_james_1==pos_james_2) && (pos_james_2==POSICION_FINAL)){ // lo cambie yo(negro) porq creo q habia un error de sintaxis A CHEQUEAR
                 finalizar_nivel();
         }
     }
@@ -121,7 +125,7 @@ void Juego::mover_james_hacia(size_t direccion) {
 
 
 void Juego::mostrar_mejor_camino() {
-    vector<size_t> camino=tablero->obtener_mejor_camino(pos_james_1,pos_james_1).first;
+    vector<size_t> camino=tablero->obtener_mejor_camino().first;
     mostrar_camino(camino);
 }
 
@@ -138,7 +142,7 @@ void Juego::derrota() {
 
 void Juego::moverse_por_el_mejor_camino() {
     if(tablero->hay_camino(pos_james_1,pos_james_2)){
-        costo_total += tablero->obtener_mejor_camino(pos_james_1,pos_james_2).second;
+        costo_total += tablero->obtener_mejor_camino().second;
         finalizar_nivel();
     }else{
         cout<<NO_CAMINO_DISPONIBLE<<endl;
