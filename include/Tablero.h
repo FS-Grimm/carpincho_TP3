@@ -5,7 +5,7 @@
 #ifndef TP3_CARPINCHO_TABLERO_H
 #define TP3_CARPINCHO_TABLERO_H
 #include "Grafo.hpp"
-#include <cstdlib>
+#include "Random.hpp"
 #include <fstream>
 #include <string>
 

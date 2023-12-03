@@ -3,14 +3,12 @@
 void Tablero::usar_layout_uno(){
     cargar_tablero(ruta_layout1);
     cargar_grafo();
-    srand ((unsigned int)time(NULL));
     cargar_pyramids();
 }
 
 void Tablero::usar_layout_dos(){
     cargar_tablero(ruta_layout2);
     cargar_grafo();
-    srand ((unsigned int)time(NULL));
     cargar_pyramids();
 }
 
@@ -108,7 +106,7 @@ std::pair<size_t,size_t> Tablero::posicion_pyramid(){
 
     bool iterar = true;
     do {
-        random = (size_t)rand() % ( CANT_COLUMNAS*CANT_FILAS - 2 ) + 1; // Numero entre 1 y 79
+        random = (size_t)Random::random(1,CANT_COLUMNAS*CANT_FILAS - 1);
         iter++;
         iterar = ( tablero[ random % CANT_FILAS ][ random / CANT_FILAS ] != PASILLO ) && ( tablero[ random % CANT_FILAS ][ random / CANT_FILAS ] != PYRAMID_HEAD ) && (iter < ITER_MAX );
     } while ( iterar ) ;    
@@ -126,7 +124,7 @@ std::pair<size_t,size_t> Tablero::posicion_pyramid(){
 }
 
 void Tablero::cargar_pyramids(){
-    if ( rand() % 2 == 0 ){   // Pyramids!!!
+    if ( Random::random(0,1) == 0 ){   // Pyramids!!!
         pyramid_head1 = posicion_pyramid();
         pyramid_head2 = posicion_pyramid();
     }

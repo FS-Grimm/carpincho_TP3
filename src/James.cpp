@@ -32,11 +32,11 @@ void James::dar_arma() {
     std::string arma;
     size_t potencia = static_cast<size_t>(Random::random(10, 100));
     if(potencia >= 10 && potencia < 40)
-        arma = ARMAS_BAJA_POTENCIA[rand() % ARMAS_BAJA_POTENCIA.size()];
+        arma = ARMAS_BAJA_POTENCIA[static_cast<size_t>(Random::random(0, ARMAS_BAJA_POTENCIA.size()))];
     else if(potencia >= 40 && potencia < 70)
-        arma = ARMAS_MEDIA_POTENCIA[rand() % ARMAS_MEDIA_POTENCIA.size()];
+        arma = ARMAS_MEDIA_POTENCIA[static_cast<size_t>(Random::random(0, ARMAS_MEDIA_POTENCIA.size()))];
     else
-        arma = ARMAS_ALTA_POTENCIA[rand() % ARMAS_ALTA_POTENCIA.size()];
+        arma = ARMAS_ALTA_POTENCIA[static_cast<size_t>(Random::random(0, ARMAS_ALTA_POTENCIA.size()))];
     Arma* nueva_arma = new Arma(arma, potencia);
     inventario_armas->alta(nueva_arma);
 }
