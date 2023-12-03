@@ -283,7 +283,7 @@ std::pair<std::vector<size_t>, int> Tablero::obtener_mejor_camino() {
     size_t y = pos_james.second; //estuve 25 anios(no tengo enie) para decidir si hacer esto un atributo privado de tablero q bronca
     size_t pos = x + y*CANT_FILAS;
     grafo.usar_dijkstra();
-    std::pair<std::vector<size_t>, int> resultado = grafo.obtener_camino_minimo(pos, CANT_FILAS * CANT_COLUMNAS);
+    std::pair<std::vector<size_t>, int> resultado = grafo.obtener_camino_minimo(pos, CANT_FILAS * CANT_COLUMNAS - 1);
 
 
     return resultado;
