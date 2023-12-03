@@ -19,7 +19,7 @@ public:
 
     //PRE:
     //POST: devuelve tamaño del arbol
-    size_t tamaño();
+    size_t tamanio();
 
 
     //PRE:
