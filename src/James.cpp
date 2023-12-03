@@ -80,7 +80,5 @@ void James::morir() {
 }
 
 James::~James() {
-    delete inventario_armas;
-    delete arbol_placas;
-    delete arma_equipada;
+    delete inventario_armas; delete arbol_placas; delete arma_equipada;
 }
