@@ -76,6 +76,7 @@ public:
     //Post: Da una placa  de ID aleatoria a james.
     void obtener_placa();
 
+    ~James();
 
 };
 

@@ -78,3 +78,9 @@ void James::morir() {
     if(vivo)
         this->vivo = false;
 }
+
+James::~James() {
+    delete inventario_armas;
+    delete arbol_placas;
+    delete arma_equipada;
+}
