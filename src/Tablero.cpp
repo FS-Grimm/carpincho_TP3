@@ -3,12 +3,14 @@
 void Tablero::usar_layout_uno(){
     cargar_tablero(ruta_layout1);
     cargar_grafo();
+    srand ((unsigned int)time(NULL));
     cargar_pyramids();
 }
 
 void Tablero::usar_layout_dos(){
     cargar_tablero(ruta_layout2);
     cargar_grafo();
+    srand ((unsigned int)time(NULL));
     cargar_pyramids();
 }
 
@@ -103,25 +105,28 @@ std::pair<size_t,size_t> Tablero::posicion_pyramid(){
     size_t random = 1; 
     size_t iter = 0;
     size_t ITER_MAX = 100; 
+
+    bool iterar = true;
     do {
-        random = rand() % ( CANT_COLUMNAS*CANT_FILAS - 2 ) + 1; // Numero entre 1 y 79
+        random = (size_t)rand() % ( CANT_COLUMNAS*CANT_FILAS - 2 ) + 1; // Numero entre 1 y 79
         iter++;
-    }
-    while ( ( tablero[ random % CANT_FILAS ][ random / CANT_FILAS ] != PASILLO ) && (iter < ITER_MAX)) ;    
+        iterar = ( tablero[ random % CANT_FILAS ][ random / CANT_FILAS ] != PASILLO ) && ( tablero[ random % CANT_FILAS ][ random / CANT_FILAS ] != PYRAMID_HEAD ) && (iter < ITER_MAX );
+    } while ( iterar ) ;    
     
-    std::pair<size_t,size_t> result;
+    size_t x,y;
     if ((iter < ITER_MAX) && (tablero[ random % CANT_FILAS ][ random / CANT_FILAS ] == PASILLO)){
-        result = std::pair<size_t,size_t>((random % CANT_FILAS),(random / CANT_FILAS));
-    }
-    else {
-        result = std::pair<size_t,size_t>((CANT_FILAS),(CANT_COLUMNAS));
+        x = random % CANT_FILAS;
+        y = random / CANT_FILAS;
+    } else {
+        x = CANT_COLUMNAS;
+        y = CANT_FILAS;
     }
 
-    return result;
+    return std::pair<size_t,size_t>(x,y);
 }
 
 void Tablero::cargar_pyramids(){
-    if ( rand()%2 == 0 ){   // Pyramids!!!
+    if ( rand() % 2 == 0 ){   // Pyramids!!!
         pyramid_head1 = posicion_pyramid();
         pyramid_head2 = posicion_pyramid();
     }
