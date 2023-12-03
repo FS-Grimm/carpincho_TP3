@@ -5,7 +5,10 @@
 
 int iterar_mostrar(std::pair<std::vector<size_t>, int> input){
     for (size_t i = 0; i < input.first.size(); i++){
-        std::cout << "x: " << input.first[i]%9 << ", y: " << input.first[i]/9 << "\n";
+        std::cout << "(" << input.first[i]%9 << ", " << input.first[i]/9 << ")";
+
+        if ( i + 1 != input.first.size() )
+            std::cout << "->" ;
     }
     std::cout << "\nPeso total: " << input.second << std::endl;
 
