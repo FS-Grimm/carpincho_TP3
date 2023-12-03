@@ -192,8 +192,12 @@ void Tablero::alternar_pyramids(bool pyramid_1, bool tiene_arma){
 }
 
 void Tablero::alternar_pyramids(bool tiene_arma){
-    alternar_pyramids(true,tiene_arma);    
-    alternar_pyramids(false,tiene_arma);
+    if ((pyramid_head1.first != CANT_COLUMNAS ) && ( pyramid_head1.second != CANT_FILAS )){
+        alternar_pyramids(true,tiene_arma);    
+    }
+    if ((pyramid_head2.first != CANT_COLUMNAS ) && ( pyramid_head2.second != CANT_FILAS )){
+        alternar_pyramids(false,tiene_arma);    
+    }
 }
 
 
