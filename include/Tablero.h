@@ -29,7 +29,7 @@ const size_t PESO_BASE = 10;
 const size_t MULTIPLICADOR_PYRAMID_HEAD = 5;
 
 const std::string ruta_layout1 = "config/layout1.csv";
-const std::string ruta_layout2 = "config/layout1.csv";
+const std::string ruta_layout2 = "config/layout2.sv";
 
 class Tablero {
 
