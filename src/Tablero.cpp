@@ -56,7 +56,7 @@ void Tablero::cargar_tablero(std::string ruta_archivo){
 }
 
 void Tablero::cargar_grafo(){
-    pos_james = std::pair<size_t, size_t>(0,0); // no se si tiene que ir aca?
+    //pos_james = std::pair<size_t, size_t>(0,0); // no se si tiene que ir aca?
     grafo = Grafo(CANT_COLUMNAS * CANT_FILAS);
 
     for (size_t x = POSICION_INICIAL; x < CANT_COLUMNAS; x++){
@@ -281,10 +281,10 @@ void Tablero::imprimir(){
 void Tablero::imprimir_grafo(){
     this->grafo.imprimir();
 }*/
-std::pair<std::vector<size_t>, int> Tablero::obtener_mejor_camino() {
+std::pair<std::vector<size_t>, int> Tablero::obtener_mejor_camino(size_t x, size_t y) {
 
-    size_t x = pos_james.first;
-    size_t y = pos_james.second; //estuve 25 anios(no tengo enie) para decidir si hacer esto un atributo privado de tablero q bronca
+    //size_t x = pos_james.first;
+    //size_t y = pos_james.second; //estuve 25 anios(no tengo enie) para decidir si hacer esto un atributo privado de tablero q bronca
     size_t pos = x + y*CANT_FILAS;
     grafo.usar_dijkstra();
     std::pair<std::vector<size_t>, int> resultado = grafo.obtener_camino_minimo(pos, CANT_FILAS * CANT_COLUMNAS - 1);
@@ -292,7 +292,7 @@ std::pair<std::vector<size_t>, int> Tablero::obtener_mejor_camino() {
 
     return resultado;
 }
-
+/*
 void Tablero::mover_james(size_t direccion){
     if (puede_moverse_a(pos_james.first, pos_james.second, direccion)) { //tambien se chequea esto en juego.cpp linea 116, cual deberia irse?
         switch (direccion) {
@@ -314,13 +314,13 @@ void Tablero::mover_james(size_t direccion){
 
         }
     }
-}
+}*/
 
 bool Tablero::hay_camino(size_t x, size_t y) { //Terminan siendo medio redundantes los metodos hay camino y obtener mejor camino no??? seguro
     //hay una forma mejor de hacerlo
 
-    size_t pos_james_actual = pos_james.first + pos_james.second * CANT_FILAS;
+    size_t pos_james_actual = x + y * CANT_FILAS;
     std::vector<size_t> inicio;
     inicio.push_back(pos_james_actual);
-    return (obtener_mejor_camino().first != inicio); // porque el dijkstra solo te deberia devolver un vector con el inicio si no hay camino posible
+    return (obtener_mejor_camino(x , y).first != inicio); // porque el dijkstra solo te deberia devolver un vector con el inicio si no hay camino posible
 }

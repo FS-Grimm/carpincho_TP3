@@ -125,7 +125,7 @@ void Juego::mover_james_hacia(size_t direccion) {
 
 
 void Juego::mostrar_mejor_camino() {
-    vector<size_t> camino=tablero->obtener_mejor_camino().first;
+    vector<size_t> camino=tablero->obtener_mejor_camino(pos_james_1, pos_james_2).first;
     mostrar_camino(camino);
 }
 
@@ -142,7 +142,7 @@ void Juego::derrota() {
 
 void Juego::moverse_por_el_mejor_camino() {
     if(tablero->hay_camino(pos_james_1,pos_james_2)){
-        costo_total += tablero->obtener_mejor_camino().second;
+        costo_total += tablero->obtener_mejor_camino(pos_james_1, pos_james_2).second;
         finalizar_nivel();
     }else{
         cout<<NO_CAMINO_DISPONIBLE<<endl;
