@@ -5,6 +5,8 @@
 #define TP3_CARPINCHO_JUEGO_H
 #include "James.hpp"
 #include "Tablero.h"
+#include "Random.hpp"
+
 /*
 const size_t MINIMA_ID_PLACAS=100;;
 const size_t MAXIMA_ID_PLACAS=666;

@@ -6,15 +6,9 @@
 #include "Juego.h"
 
 const std::string NO_CAMINO_DISPONIBLE="No hay camino a la salida con las condiciones actuales, si james tiene armas disponibles, deberia equiparlas.";
-size_t POSICION_INICIAL=0;
-size_t POSICION_FINAL=9;
+size_t POSICION_INICIAL = 0;
+size_t POSICION_FINAL = 9;
 using namespace std;
-
-
-
-
-
-
 
 
 Juego::Juego() {
@@ -62,7 +56,7 @@ void Juego::nuevo_escenario() {
 
 
 bool Juego::puede_obtener_arma() {
-    int chance_arma=rand() %100+1;
+    int chance_arma = Random::random(0, 100);
     return chance_arma<=CHANCE_DE_NUEVA_ARMA;
 }
 

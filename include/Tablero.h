@@ -7,6 +7,7 @@
 
 #include "Grafo.hpp"
 #include "Random.hpp"
+#include "James.hpp"
 #include <fstream>
 #include <iostream>
 #include <string>
