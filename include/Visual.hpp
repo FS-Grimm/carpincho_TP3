@@ -10,14 +10,19 @@
 #define AHUYENTA_RANDALL_EMOJI "\U0001f6b7"
 #define MARTILLO_EMOJI "\U0001f528"
 #define EXTINTOR_EMOJI "\U0001f9ef"
-#define MOVIMIENTOS_EMOJI "\U0001f45f"
-#define MIKE_EMOJI "\U0001f47e"
+#define JAMES "\U0001f471"
+#define PH "\U0001f479"
+#define CAMINO "\u2B1C"
 #include "Juego.h"
+#include "Matriz.hpp"
+
+
 
 class Visual{
 private:
     Juego* fachada;
     Tablero* tablero;
+    Matriz prueba;
 public:
     //constructor
     Visual();
@@ -27,7 +32,7 @@ public:
 
     //PRE:
     //POST:Muestra a james
-    void Mostrar_James();
+    void Mostrar_James(size_t x, size_t y);
 
     //PRE:
     //POST:Muestra a ph
@@ -42,6 +47,6 @@ public:
     void Mostrar_Puntaje();
 
     //destructor
-    ~Visual();
+
 };
 #endif //TDAS_TESTS_VISUAL_HPP

@@ -47,7 +47,7 @@ private:
     void james_pelea_pyramid_head();
 
 
-    void mostrar_camino(std::vector<size_t> vector1);
+    void mostrar_camino();
 
 public:
     //CONSTRUCTOR
@@ -89,7 +89,7 @@ public:
 
     //Pre: -
     //Post: Se muestra en pantalla el puntaje actual de james, que varia segun su recorrido
-    void mostrar_puntaje();
+    int mostrar_puntaje();
 
     //Pre: James recorrio 5 escenarios
     //Post: Imprime en pantalla un mensaje de victoria para el usuario, el puntaje y termina el juego

@@ -32,6 +32,7 @@ add_executable(TP3_Carpincho
         src/Placa.cpp
         src/Random.cpp
         src/Tablero.cpp
+        src/Visual.cpp
         main.cpp
 )
 

@@ -139,12 +139,12 @@ void Juego::moverse_por_el_mejor_camino() {
     }
 }
 
-void Juego::mostrar_camino(std::vector<size_t> vector1) {
-
+void Juego::mostrar_camino() {
+    r
 }
 
-void Juego::mostrar_puntaje() {
-
+int Juego::mostrar_puntaje() {
+    return costo_total;
 }
 
 Juego::~Juego() {

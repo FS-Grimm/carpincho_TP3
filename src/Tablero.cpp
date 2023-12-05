@@ -1,5 +1,9 @@
 #include "Tablero.h"
 
+Tablero::Tablero() {
+    tablero = Matriz(CANT_COLUMNAS, (int)PASILLO);
+}
+
 void Tablero::usar_layout_uno(){
     cargar_tablero(ruta_layout1);
     cargar_grafo();
@@ -27,7 +31,7 @@ void Tablero::cargar_tablero(std::string ruta_archivo){
                 if ( indice % 2 == 1 ){
                     archivo_valido = ( ( linea[indice] == ',' ) || ( linea[indice] == '\0'));
                 } else if ( ( linea[indice] == '0' ) || ( linea[indice] == '1' )){
-                    tablero[indice/2][lineas] = (linea[indice] == '0') ? PARED : PASILLO;
+                    tablero.elemento(indice/2, lineas) = (int)(linea[indice] == '0') ? PARED : PASILLO;
                 } else {
                     archivo_valido = false;
                 }
@@ -42,14 +46,14 @@ void Tablero::cargar_tablero(std::string ruta_archivo){
     
     if (!archivo_valido) {      // Pero no imaginé, que evitando la ley, en la trampa caería yo
                                 //negro: JAJAJ q decis flaco
-        for (size_t i = POSICION_INICIAL; i < CANT_FILAS; i++){
-            for (size_t ii = POSICION_INICIAL; ii < CANT_COLUMNAS; ii++){
+        for (size_t y = POSICION_INICIAL; y < CANT_FILAS; y++){
+            for (size_t x = POSICION_INICIAL; x < CANT_COLUMNAS; x++){
 //                std::cout << "i: " << i << " ii: " << ii << std::endl;
-                tablero[i][ii] = 0;
+                tablero.elemento(x,y) = (int)PARED;
             }
         }
-        tablero[POSICION_INICIAL][POSICION_INICIAL] = 1;
-        tablero[POSICION_FINAL][POSICION_FINAL] = 1;
+        tablero.elemento(POSICION_INICIAL,POSICION_INICIAL) = (int)PASILLO;
+        tablero.elemento(POSICION_FINAL,POSICION_FINAL) = (int)PASILLO;
     }
 }
 
@@ -65,7 +69,7 @@ void Tablero::cargar_grafo(){
 }
 
 void Tablero::cargar_pesos_aristas(size_t x, size_t y, int peso, bool saliente){
-    if ( tablero[x][y] != PARED ){      // Si es una pared. No hay que conectarle nada 
+    if ( tablero.elemento(x,y) != PARED ){      // Si es una pared. No hay que conectarle nada
         if ( x > POSICION_INICIAL ){ 
             cargar_peso_arista(x,y,peso,true,false,saliente);
         }
@@ -84,15 +88,15 @@ void Tablero::cargar_pesos_aristas(size_t x, size_t y, int peso, bool saliente){
 void Tablero::cargar_peso_arista(size_t x, size_t y, int peso, bool horizontal, bool siguiente, bool saliente){
     int incremento = (siguiente) ? 1 : -1; //creo q aca la suma no va a funcionar con un negativo porq no existe size_t = -1 (es unsigned)
     if (saliente){  // Cambiamos arista de vertice origen a vertice contiguo
-        if ( horizontal && ( tablero[x + incremento][y] != PARED ) ){
+        if ( horizontal && ( tablero.elemento(x + incremento,y) != PARED ) ){
             grafo.cambiar_arista( x + y*(CANT_FILAS), ( x + incremento ) + y*(CANT_FILAS), peso);
-        } else if ( !horizontal && tablero[x][y + incremento] != PARED ) {
+        } else if ( !horizontal && tablero.elemento(x,y + incremento) != PARED ) {
             grafo.cambiar_arista( x + y*(CANT_FILAS), x + ( y + incremento )*(CANT_FILAS), peso );
         }
     } else {        // Cambiamos arista de vertice contiguo a vertice origen
-        if ( horizontal && ( tablero[x + incremento][y] != PARED ) ){
+        if ( horizontal && ( tablero.elemento(x + incremento,y) != PARED) ){
             grafo.cambiar_arista( ( x + incremento ) + y*(CANT_FILAS), x + y*(CANT_FILAS), peso );
-        } else if ( !horizontal && tablero[x][y + incremento] != PARED ) {
+        } else if ( !horizontal && tablero.elemento(x,y + incremento) != PARED ) {
             grafo.cambiar_arista( x + (y + incremento)*(CANT_FILAS), x + y*(CANT_FILAS), peso );
         }
     }
@@ -108,11 +112,11 @@ std::pair<size_t,size_t> Tablero::posicion_pyramid(){
     do {
         random = (size_t) Random::random(1,CANT_COLUMNAS*CANT_FILAS - 1);
         iter++;
-        iterar = ( tablero[ random % CANT_FILAS ][ random / CANT_FILAS ] != PASILLO ) && (iter < ITER_MAX );
+        iterar = ( tablero.elemento(random % CANT_FILAS,random / CANT_FILAS) != PASILLO ) && (iter < ITER_MAX );
     } while ( iterar ) ;    
     
     size_t x,y;
-    if ((iter < ITER_MAX) && (tablero[ random % CANT_FILAS ][ random / CANT_FILAS ] == PASILLO)){
+    if ((iter < ITER_MAX) && ( tablero.elemento(random % CANT_FILAS,random / CANT_FILAS) == PASILLO) ){
         x = random % CANT_FILAS;
         y = random / CANT_FILAS;
     } else {
@@ -135,16 +139,13 @@ void Tablero::cargar_pyramids(){
     bool pyramid_head2_valido = ( pyramid_head2.first < CANT_COLUMNAS ) && ( pyramid_head2.second < CANT_FILAS);
 
     if ( pyramid_head1_valido && pyramid_head2_valido ){
-        tablero[pyramid_head1.first][pyramid_head1.second] = PYRAMID_HEAD;
-        tablero[pyramid_head2.first][pyramid_head2.second] = PYRAMID_HEAD;
+        tablero.elemento(pyramid_head1.first, pyramid_head1.second) = PYRAMID_HEAD;
+        tablero.elemento(pyramid_head2.first, pyramid_head2.second) = PYRAMID_HEAD;
     }
 }
 
 void Tablero::alternar_estado(bool tiene_arma){
-    if ( this->tiene_arma != tiene_arma ){
-        alternar_pyramids(tiene_arma);
-        this->tiene_arma = tiene_arma;
-    }
+    alternar_pyramids(tiene_arma);
 }
 
 void Tablero::alternar_pyramids(bool pyramid_1, bool tiene_arma){
@@ -227,11 +228,11 @@ void Tablero::quitar_pyramid(bool pyramid1){
     }
 
     if (pyramid1){                      // Eliminamos pyramid de matriz 
-        tablero[pyramid_head1.first][pyramid_head1.second] = PASILLO;
+        tablero.elemento(pyramid_head1.first, pyramid_head1.second) = PASILLO;
         pyramid_head1.first = CANT_COLUMNAS;
         pyramid_head1.first = CANT_FILAS;
     } else {
-        tablero[pyramid_head2.first][pyramid_head2.second] = PASILLO;
+        tablero.elemento(pyramid_head2.first,pyramid_head2.second) = PASILLO;
         pyramid_head2.first = CANT_COLUMNAS;
         pyramid_head2.first = CANT_FILAS;
     }
@@ -257,7 +258,7 @@ bool Tablero::hay_pyramid_head_en(size_t x,size_t y,size_t direccion){
         return false;
     }
     else {
-        return ( tablero[x_final][y_final] == PYRAMID_HEAD);
+        return (tablero.elemento((size_t )x_final, (size_t )y_final) == PYRAMID_HEAD);
     }
 }
 
@@ -279,7 +280,7 @@ bool Tablero::puede_moverse_a(size_t x,size_t y,size_t direccion){
         return false;
     }
     else {
-        return ( ( tiene_arma && hay_pyramid_head_en(x,y,direccion) ) || tablero[x_final][y_final] == PASILLO );
+        return ( ( hay_pyramid_head_en(x,y,direccion) ) || tablero.elemento((size_t)x_final, (size_t)y_final) == PASILLO );
     }
 }
 
@@ -330,7 +331,7 @@ bool Tablero::hay_camino(size_t x, size_t y) { //Terminan siendo medio redundant
 void Tablero::imprimir(){
     for (int y = CANT_COLUMNAS - 1; y > -1; y--){
         for (size_t x = 0; x < CANT_COLUMNAS; x++)
-            std::cout << "[" << tablero[x][y] << "]";
+            std::cout << "[" << tablero.elemento((size_t)x,(size_t)y) << "]";
         std::cout << std::endl;
     }
 

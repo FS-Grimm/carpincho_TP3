@@ -11,6 +11,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include "Matriz.hpp"
 
 const size_t DIRECCION_ARRIBA=1;
 const size_t DIRECCION_DERECHA=2;
@@ -38,8 +39,7 @@ class Tablero {
 
 private: 
     Grafo grafo;
-    size_t tablero[CANT_FILAS][CANT_COLUMNAS];  // Tablero[x][y]
-    bool tiene_arma = true;
+    Matriz tablero;  // Tablero[x][y]
 
     //std::pair<size_t,size_t> pos_james = std::pair<size_t,size_t>(CANT_COLUMNAS,CANT_FILAS);
     std::pair<size_t,size_t> pyramid_head1 = std::pair<size_t,size_t>(CANT_COLUMNAS,CANT_FILAS);
@@ -74,7 +74,7 @@ private:
     //Post: Quita el pyramid head de la posicion indicada 
     void quitar_pyramid(bool pyramid_1);
 public:
-    Tablero() = default;
+    Tablero();
     ~Tablero() = default;
 
     //Pre:-

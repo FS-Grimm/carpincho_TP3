@@ -1,7 +1,7 @@
 
 #include <iostream>
 #include "Tablero.h"
-
+#include "Visual.hpp"
 
 int iterar_mostrar(std::pair<std::vector<size_t>, int> input){
     for (size_t i = 0; i < input.first.size(); i++){
@@ -16,7 +16,9 @@ int iterar_mostrar(std::pair<std::vector<size_t>, int> input){
 }
 
 int main(){
-    Tablero tablero = Tablero();
+    Visual prueba;
+    prueba.Mostrar_Tablero();
+   /* Tablero tablero = Tablero();
     tablero.usar_layout_uno();
     tablero.imprimir();
     
@@ -27,5 +29,5 @@ int main(){
 
     tablero.prueba_matar_ph(true); std::cout << "----------- DES ARMADO menos 1-----------" << std::endl;
     iterar_mostrar(tablero.obtener_mejor_camino(0,0));
-
+*/
 }
