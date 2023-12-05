@@ -4,15 +4,17 @@
 #ifndef TDAS_TESTS_VISUAL_HPP
 #define TDAS_TESTS_VISUAL_HPP
 #define LADRILLO_EMOJI "\U0001f9f1"
-#define FUEGO_EMOJI "\U0001f525"
-#define MEDIAS_EMOJI "\U0001f9e6"
-#define BOTELLA_DE_GRITOS_EMOJI "\U0001f9f4"
-#define AHUYENTA_RANDALL_EMOJI "\U0001f6b7"
-#define MARTILLO_EMOJI "\U0001f528"
-#define EXTINTOR_EMOJI "\U0001f9ef"
+#define CAMINO_MINIMO "\U0001f7e5"
 #define JAMES "\U0001f471"
 #define PH "\U0001f479"
 #define CAMINO "\u2B1C"
+
+const int PARED_NUMBER = 0;
+const int CAMINO_NUMBER = 1;
+const int PYRAMIDE_NUMBER = 2;
+const int JAMES_NUMBER = 3;
+const int MINIMO_NUMBER = 4;
+
 #include "Juego.h"
 #include "Matriz.hpp"
 
@@ -34,9 +36,7 @@ public:
     //POST:Muestra a james
     void Mostrar_James(size_t x, size_t y);
 
-    //PRE:
-    //POST:Muestra a ph
-    void Mostrar_PyramidHead();
+
 
     //PRE:
     //POST:Muestra el camino minimo

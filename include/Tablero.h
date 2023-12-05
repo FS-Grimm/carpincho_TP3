@@ -7,11 +7,9 @@
 
 #include "Grafo.hpp"
 #include "Random.hpp"
-#include "James.hpp"
 #include <fstream>
 #include <iostream>
 #include <string>
-#include "Matriz.hpp"
 
 const size_t DIRECCION_ARRIBA=1;
 const size_t DIRECCION_DERECHA=2;
@@ -63,7 +61,7 @@ private:
     void cargar_pyramids();
     // Pre: - 
     // Post: Devuelve posición válida aleatoria equiprobable para el ph
-    std::pair<size_t,size_t>  posicion_pyramid();
+    std::pair<size_t,size_t> posicion_pyramid();
     // Pre: -
     // Post: Alterna pyramid en cuestión
     void alternar_pyramids(bool pyramid_1, bool tiene_arma);
@@ -123,6 +121,8 @@ public:
 
     void imprimir();
     void prueba_matar_ph(bool pyramid);
+
+    Matriz obtener_matriz();
     //void mover_james(size_t direccion);
 };
 

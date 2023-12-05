@@ -55,7 +55,7 @@ public:
 
     //Pre: Hay un camino valido para llegar al final del tablero
     //Post: Imprime en pantalla el mejor camino al final del tablero
-    void mostrar_mejor_camino();
+    std::vector<size_t> mostrar_mejor_camino();
 
 
     //Pre:-
@@ -95,6 +95,7 @@ public:
     //Post: Imprime en pantalla un mensaje de victoria para el usuario, el puntaje y termina el juego
     void victoria();
 
+    Matriz Matriz_a_tablero();
     //DESTRUCTOR
     ~Juego();
 

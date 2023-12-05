@@ -6,8 +6,8 @@ Tablero::Tablero() {
 
 void Tablero::usar_layout_uno(){
     cargar_tablero(ruta_layout1);
-    cargar_grafo();
     cargar_pyramids();
+    cargar_grafo();
 }
 
 void Tablero::usar_layout_dos(){
@@ -337,4 +337,8 @@ void Tablero::prueba_matar_ph(bool pyramid){
     else
         std::cout << "Muerto x: " << pyramid_head2.first << " y: " << pyramid_head2.second << std::endl;
     this->quitar_pyramid(pyramid);
+}
+
+Matriz Tablero::obtener_matriz() {
+    return this->tablero;
 }

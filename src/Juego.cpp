@@ -45,7 +45,7 @@ void Juego::desequipar_arma() {
 
 void Juego::nuevo_escenario() {
     james->obtener_altura_placas();
-    if (james->obtener_altura_placas()%2){
+    if (james->obtener_altura_placas()%2==0){
         tablero->usar_layout_uno();
     } else{
         tablero->usar_layout_dos();
@@ -114,9 +114,9 @@ void Juego::mover_james_hacia(size_t direccion) {
 }
 
 
-void Juego::mostrar_mejor_camino() {
-    //vector<size_t> camino = tablero->obtener_mejor_camino(pos_james_1, pos_james_2).first;
-    //mostrar_camino(camino);
+vector<size_t> Juego::mostrar_mejor_camino() {
+    vector<size_t> camino=tablero->obtener_mejor_camino(pos_james_1, pos_james_2).first;
+    return camino;
 }
 
 void Juego::victoria() {
@@ -148,8 +148,14 @@ int Juego::mostrar_puntaje() {
     return costo_total;
 }
 
+Matriz Juego::Matriz_a_tablero() {
+    return tablero->obtener_matriz();
+}
+
 Juego::~Juego() {
     delete james; delete tablero;
 
 }
+
+
 
