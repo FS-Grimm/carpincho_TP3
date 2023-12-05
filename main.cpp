@@ -21,11 +21,11 @@ int main(){
     tablero.imprimir();
     
     tablero.alternar_estado(true);  std::cout << "----------- ARMADO -----------" << std::endl;
-    iterar_mostrar(tablero.obtener_mejor_camino());
+    iterar_mostrar(tablero.obtener_mejor_camino(0,0));
     tablero.alternar_estado(false);  std::cout << "----------- DES ARMADO -----------" << std::endl;
-    iterar_mostrar(tablero.obtener_mejor_camino());
+    iterar_mostrar(tablero.obtener_mejor_camino(0,0));
 
     tablero.prueba_matar_ph(true); std::cout << "----------- DES ARMADO menos 1-----------" << std::endl;
-    iterar_mostrar(tablero.obtener_mejor_camino());
+    iterar_mostrar(tablero.obtener_mejor_camino(0,0));
 
 }

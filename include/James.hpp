@@ -58,11 +58,12 @@ public:
 
     //Pre: James esta vivo
     //Post: Da una placa  de ID aleatoria a james.
-    void dar_placa();
+    void obtener_placa();
 
     //Pre:-
     //Post: Devuelve la altura del arbol de placas.
     size_t obtener_altura_placas();
+
 
     //Pre: James esta vivo, tiene armas en el inventario, hay una equipada.
     //Post: Usa el arma de mayor prioridad.
@@ -72,9 +73,7 @@ public:
     //Post: Cambia la prioridad del inventario.
     void cambiar_prioridad();
 
-    //Pre: -
-    //Post: Da una placa  de ID aleatoria a james.
-    void obtener_placa();
+
 
     ~James();
 

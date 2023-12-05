@@ -6,8 +6,8 @@
 #include "Juego.h"
 
 const std::string NO_CAMINO_DISPONIBLE="No hay camino a la salida con las condiciones actuales, si james tiene armas disponibles, deberia equiparlas.";
-size_t POSICION_INICIAL = 0;
-size_t POSICION_FINAL = 9;
+//size_t POSICION_INICIAL = 0;
+//size_t POSICION_FINAL = 9;
 using namespace std;
 
 
@@ -44,7 +44,7 @@ void Juego::desequipar_arma() {
 }
 
 void Juego::nuevo_escenario() {
-    james->dar_placa();
+    james->obtener_altura_placas();
     if (james->obtener_altura_placas()%2){
         tablero->usar_layout_uno();
     } else{
@@ -75,22 +75,18 @@ void Juego::cambiar_pos_james(size_t direccion) {
     switch(direccion){
         case DIRECCION_ARRIBA:
             pos_james_1++;
-            tablero->mover_james(direccion);
             break;
 
         case DIRECCION_ABAJO:
             pos_james_1--;
-            tablero->mover_james(direccion);
             break;
 
         case DIRECCION_DERECHA:
             pos_james_2++;
-            tablero->mover_james(direccion);
             break;
 
         case DIRECCION_IZQUIERDA:
             pos_james_2--;
-            tablero->mover_james(direccion);
             break;
 
     }
