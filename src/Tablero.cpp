@@ -130,16 +130,10 @@ std::pair<size_t,size_t> Tablero::posicion_pyramid(){
 void Tablero::cargar_pyramids(){
     if ( Random::random(0,1) == 0 ){   // Pyramids!!!
         pyramid_head1 = posicion_pyramid();
+        tablero.elemento(pyramid_head1.first, pyramid_head1.second) = PYRAMID_HEAD;
     }
     if ( Random::random(0,1) == 0 ){   // Pyramids!!!
         pyramid_head2 = posicion_pyramid();
-    }
-
-    bool pyramid_head1_valido = ( pyramid_head1.first < CANT_COLUMNAS ) && ( pyramid_head1.second < CANT_FILAS);
-    bool pyramid_head2_valido = ( pyramid_head2.first < CANT_COLUMNAS ) && ( pyramid_head2.second < CANT_FILAS);
-
-    if ( pyramid_head1_valido && pyramid_head2_valido ){
-        tablero.elemento(pyramid_head1.first, pyramid_head1.second) = PYRAMID_HEAD;
         tablero.elemento(pyramid_head2.first, pyramid_head2.second) = PYRAMID_HEAD;
     }
 }

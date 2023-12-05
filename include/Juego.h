@@ -47,7 +47,7 @@ private:
     void james_pelea_pyramid_head();
 
 
-    void mostrar_camino();
+    std::vector<size_t> mostrar_camino();
 
 public:
     //CONSTRUCTOR

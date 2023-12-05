@@ -115,8 +115,8 @@ void Juego::mover_james_hacia(size_t direccion) {
 
 
 void Juego::mostrar_mejor_camino() {
-    vector<size_t> camino=tablero->obtener_mejor_camino(pos_james_1, pos_james_2).first;
-    mostrar_camino(camino);
+    //vector<size_t> camino = tablero->obtener_mejor_camino(pos_james_1, pos_james_2).first;
+    //mostrar_camino(camino);
 }
 
 void Juego::victoria() {
@@ -139,8 +139,9 @@ void Juego::moverse_por_el_mejor_camino() {
     }
 }
 
-void Juego::mostrar_camino() {
-    r
+vector<size_t> Juego::mostrar_camino() {
+    vector<size_t> camino=tablero->obtener_mejor_camino(pos_james_1, pos_james_2).first;
+    return camino;
 }
 
 int Juego::mostrar_puntaje() {
