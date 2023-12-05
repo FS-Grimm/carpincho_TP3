@@ -1,8 +1,10 @@
 
 #include <iostream>
-#include "Tablero.h"
+#include "Tablero.hpp"
 #include "Visual.hpp"
-
+#include "vector"
+#include "Juego.hpp"
+#include "Menu.hpp"
 int iterar_mostrar(std::pair<std::vector<size_t>, int> input){
     for (size_t i = 0; i < input.first.size(); i++){
         std::cout << "(" << input.first[i]%9 << ", " << input.first[i]/9 << ")";
@@ -16,8 +18,14 @@ int iterar_mostrar(std::pair<std::vector<size_t>, int> input){
 }
 
 int main(){
-    Visual prueba;
-    prueba.Mostrar_Tablero();
+
+        auto menu=new Menu;
+        Menu::bienvenida();
+        while(!menu->quiere_salir()){
+            menu->ejecutar_menu();
+        }
+        delete menu;
+
    /* Tablero tablero = Tablero();
     tablero.usar_layout_uno();
     tablero.imprimir();

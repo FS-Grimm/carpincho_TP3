@@ -2,29 +2,28 @@
 // Created by feli on 04/12/23.
 //
 #include "Visual.hpp"
-
 using namespace std;
 Visual::Visual(){
-    this->fachada = new Juego;
+
 };
-void Visual::Mostrar_Tablero() {
-    Matriz tablero_aux = fachada->Matriz_a_tablero();
-    Mostrar_James(0,0);
+void Visual::mostrar_tablero(Matriz tablero,size_t pos_james_x,size_t pos_james_y) {
+    guardar_james(pos_james_x,pos_james_y, &tablero);
+    mostrar_camino_minimo(tablero);
     for (int y = CANT_COLUMNAS - 1; y > -1; y--){
         for (size_t x = 0; x < CANT_COLUMNAS; x++) {
-            int elemento=tablero_aux.elemento(x, (size_t) y);
+            int elemento=tablero.elemento(x, (size_t) y);
             switch (elemento) {
-                case CAMINO_NUMBER:
-                    cout << CAMINO;
+                case INDICADOR_CAMINO_MINIMO:
+                    cout << PISO_EMOJI;
                     break;
-                case PARED_NUMBER:
-                    cout << LADRILLO_EMOJI;
+                case PARED:
+                    cout << PARED_EMOJI;
                     break;
-                case PYRAMIDE_NUMBER:
-                    cout << PH;
+                case PYRAMID:
+                    cout << PYRAMID_CABEZA_EMOJI;
                     break;
                 case JAMES_NUMBER:
-                    cout << JAMES;
+                    cout << JAMES_EMOJI;
                     break;
                 case MINIMO_NUMBER:
                     cout << CAMINO_MINIMO;
@@ -33,7 +32,7 @@ void Visual::Mostrar_Tablero() {
             std::cout << std::endl;
         }
     }
-    Mostrar_Puntaje();
+    mostrar_puntaje();
 
     /*
     for (size_t y =  0; y < 8; y++) {
@@ -41,23 +40,20 @@ void Visual::Mostrar_Tablero() {
             std::cout << "[" <<prueba.elemento(x, y) << "]";
         std::cout << std::endl;
     }*/
-};
+}
+void Visual::guardar_james(size_t x, size_t y, Matriz* tablero){
+    tablero->elemento(x,y) = 3;
+}
 
-void Visual::Mostrar_James(size_t x, size_t y){
-    prueba.elemento(x,y) = 3;
-};
-
-void Visual::Mostrar_camino_minimo(){
-    vector<size_t> aux = fachada->mostrar_mejor_camino();
-
-    for (size_t i = 0; i < aux.size(); i++){
-        if (prueba.elemento(aux[i] % (size_t)9, aux[i] / (size_t)9) != 3){
-            prueba.elemento(aux[i] % (size_t)9, aux[i] / (size_t)9) = 4;
+void Visual::mostrar_camino_minimo(Matriz tablero, vector<size_t> camino_minimo){
+    for (size_t i = 0; i < camino_minimo.size(); i++){
+        if (tablero.elemento(camino_minimo[i] % (size_t)9, camino_minimo[i] / (size_t)9) != 3){
+            tablero.elemento(camino_minimo[i] % (size_t)9, camino_minimo[i] / (size_t)9) = 4;
         }
     }
-};
+}
 
-void Visual::Mostrar_Puntaje(){
-    int puntaje = fachada->mostrar_puntaje();
+void Visual::mostrar_puntaje(int puntaje){
+    int puntaje = mostrar_puntaje();
     cout << "Puntaje: " << puntaje << endl;
 };

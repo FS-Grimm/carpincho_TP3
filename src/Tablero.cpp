@@ -1,4 +1,4 @@
-#include "Tablero.h"
+#include "Tablero.hpp"
 
 Tablero::Tablero() {
     tablero = Matriz(CANT_COLUMNAS, (int)PASILLO);
@@ -341,4 +341,20 @@ void Tablero::prueba_matar_ph(bool pyramid){
 
 Matriz Tablero::obtener_matriz() {
     return this->tablero;
+}
+
+bool Tablero::hay_pyramid_head_en(std::vector<size_t> camino) {
+    size_t x_final;
+    size_t y_final;
+    size_t i = 0;
+    bool encontrado = false;
+    while ( i < camino.size() && !encontrado) {
+        x_final = camino[i] % 9;
+        y_final = camino[i] / 9;
+        if (tablero.elemento((size_t) x_final, (size_t) y_final) == PYRAMID_HEAD){
+            encontrado = true;
+        }
+        i++;
+    }
+    return encontrado;
 }

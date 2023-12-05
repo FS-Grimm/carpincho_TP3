@@ -3,50 +3,40 @@
 //
 #ifndef TDAS_TESTS_VISUAL_HPP
 #define TDAS_TESTS_VISUAL_HPP
-#define LADRILLO_EMOJI "\U0001f9f1"
+#define PARED_EMOJI "\U0001f9f1"
 #define CAMINO_MINIMO "\U0001f7e5"
-#define JAMES "\U0001f471"
-#define PH "\U0001f479"
-#define CAMINO "\u2B1C"
+#define JAMES_EMOJI "\U0001f471"
+#define PYRAMID_CABEZA_EMOJI "\U0001f479"
+#define PISO_EMOJI "\u2B1C"
 
-const int PARED_NUMBER = 0;
-const int CAMINO_NUMBER = 1;
-const int PYRAMIDE_NUMBER = 2;
-const int JAMES_NUMBER = 3;
+const int PARED = 0;
+const int INDICADOR_CAMINO_MINIMO = 1;
+const int PYRAMID = 2;
+const int JAME= 3;
 const int MINIMO_NUMBER = 4;
 
-#include "Juego.h"
+
 #include "Matriz.hpp"
+#include "vector"
 
 
 
 class Visual{
-private:
-    Juego* fachada;
-    Tablero* tablero;
-    Matriz prueba;
 public:
-    //constructor
-    Visual();
     //PRE:
     //POST:Muestra el tablero
-    void Mostrar_Tablero();
+    static void mostrar_tablero(Matriz tablero,size_t pos_james_x,size_t pos_james_y);
 
     //PRE:
     //POST:Muestra a james
-    void Mostrar_James(size_t x, size_t y);
-
-
+    static void guardar_james(size_t x, size_t y, Matriz* tablero);
 
     //PRE:
     //POST:Muestra el camino minimo
-    void Mostrar_camino_minimo();
+    static void mostrar_camino_minimo(Matriz tablero, std::vector<size_t> camino_minimo);
 
     //PRE:
     //POST:Muestra el puntaje
-    void Mostrar_Puntaje();
-
-    //destructor
-
+    static void mostrar_puntaje(int puntaje);
 };
 #endif //TDAS_TESTS_VISUAL_HPP

@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "Juego.h"
+#include "Juego.hpp"
 
 const std::string NO_CAMINO_DISPONIBLE="No hay camino a la salida con las condiciones actuales, si james tiene armas disponibles, deberia equiparlas.";
 //size_t POSICION_INICIAL = 0;
@@ -72,7 +72,7 @@ void Juego::finalizar_nivel() {
     }
 }
 void Juego::cambiar_pos_james(size_t direccion) {
-    switch(direccion){
+    switch (direccion) {
         case DIRECCION_ARRIBA:
             pos_james_1++;
             break;
@@ -92,6 +92,10 @@ void Juego::cambiar_pos_james(size_t direccion) {
     }
 }
 
+bool Juego::james_esta_vivo(){
+    return james->esta_vivo();
+}
+
 void Juego::james_pelea_pyramid_head() {
     if(james->tiene_arma_equipada()){
         james->usar_arma();
@@ -101,6 +105,7 @@ void Juego::james_pelea_pyramid_head() {
         derrota();
     }
 }
+
 
 void Juego::mover_james_hacia(size_t direccion) {
     if (tablero->puede_moverse_a(pos_james_1,pos_james_2,direccion)){
@@ -120,14 +125,13 @@ vector<size_t> Juego::mostrar_mejor_camino() {
 }
 
 void Juego::victoria() {
-
-    finalizo=true;
+    finalizo = true;
+    imprimir_tablero();
 }
 
 void Juego::derrota() {
-
-    finalizo=true;
-
+    finalizo = true;
+    imprimir_tablero();
 }
 
 void Juego::moverse_por_el_mejor_camino() {
@@ -140,21 +144,31 @@ void Juego::moverse_por_el_mejor_camino() {
 }
 
 vector<size_t> Juego::mostrar_camino() {
-    vector<size_t> camino=tablero->obtener_mejor_camino(pos_james_1, pos_james_2).first;
+    vector<size_t> camino = tablero->obtener_mejor_camino(pos_james_1, pos_james_2).first;
     return camino;
 }
 
-int Juego::mostrar_puntaje() {
+int Juego::obtener_puntaje() {
     return costo_total;
 }
 
-Matriz Juego::Matriz_a_tablero() {
-    return tablero->obtener_matriz();
+
+
+void Juego::imprimir_tablero() {
+    Visual::mostrar_tablero(tablero->obtener_matriz(), this->pos_james_1, this->pos_james_1);
 }
+
 
 Juego::~Juego() {
     delete james; delete tablero;
 
+}
+
+std::pair<size_t, size_t> Juego::obtener_posicion_james() {
+    std::pair<size_t, size_t> posicion;
+    posicion.first = pos_james_1;
+    posicion.second = pos_james_2;
+    return posicion;
 }
 
 

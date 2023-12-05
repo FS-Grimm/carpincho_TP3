@@ -26,7 +26,6 @@ add_executable(TP3_Carpincho
         src/James.cpp
         src/Juego.cpp
         src/Matriz.cpp
-        src/Menu.cpp
         src/MenuGrafo.cpp
         src/MenuInventario.cpp
         src/Placa.cpp
@@ -34,6 +33,8 @@ add_executable(TP3_Carpincho
         src/Tablero.cpp
         src/Visual.cpp
         main.cpp
+        include/Menu.hpp
+        src/Menu.cpp
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "main")

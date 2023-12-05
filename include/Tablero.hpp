@@ -2,8 +2,8 @@
 // Created by Felipe on 26/11/2023.
 //
 
-#ifndef TP3_CARPINCHO_TABLERO_H
-#define TP3_CARPINCHO_TABLERO_H
+#ifndef TP3_CARPINCHO_TABLERO_HPP
+#define TP3_CARPINCHO_TABLERO_HPP
 
 #include "Grafo.hpp"
 #include "Random.hpp"
@@ -127,4 +127,4 @@ public:
 };
 
 
-#endif //TP3_CARPINCHO_TABLERO_H
+#endif //TP3_CARPINCHO_TABLERO_HPP

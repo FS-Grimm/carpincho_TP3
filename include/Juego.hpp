@@ -1,11 +1,12 @@
 // Created by Felipe on 26/11/2023.
 //
 
-#ifndef TP3_CARPINCHO_JUEGO_H
-#define TP3_CARPINCHO_JUEGO_H
+#ifndef TP3_CARPINCHO_JUEGO_HPP
+#define TP3_CARPINCHO_JUEGO_HPP
 #include "James.hpp"
-#include "Tablero.h"
+#include "Tablero.hpp"
 #include "Random.hpp"
+#include "Visual.hpp"
 
 /*
 const size_t MINIMA_ID_PLACAS=100;;
@@ -17,14 +18,14 @@ const int CHANCE_DE_NUEVA_ARMA=20;
 
 class Juego {
 private:
-    Tablero *tablero;
-    James *james;
+    Tablero* tablero;
+    James* james;
     size_t niveles_recorridos;
     int costo_total;
     bool finalizo;
     size_t pos_james_1;
     size_t pos_james_2;
-
+    Visual* visual;
 
     //Pre: James esta vivo y se puede mover en esa direccion
     //Post: Mueve a james en la direccion solicitada
@@ -63,6 +64,8 @@ public:
     bool termino();
 
 
+
+
     //Pre: James Murio
     //Post: Imprime en pantalla un mensaje de derrota, el puntaje y termina el juego
     void derrota();
@@ -88,18 +91,26 @@ public:
     void desequipar_arma();
 
     //Pre: -
-    //Post: Se muestra en pantalla el puntaje actual de james, que varia segun su recorrido
-    int mostrar_puntaje();
+    //Post: Devuelve puntaje actual de james, que varia segun su recorrido
+    int obtener_puntaje();
+
+    //Pre:
+    //Post: Devuelve verdadero si James vive :D
+    bool james_esta_vivo();
 
     //Pre: James recorrio 5 escenarios
     //Post: Imprime en pantalla un mensaje de victoria para el usuario, el puntaje y termina el juego
     void victoria();
 
-    Matriz Matriz_a_tablero();
+    std::pair<size_t, size_t> obtener_posicion_james();
+
+    void imprimir_tablero();
+
+
     //DESTRUCTOR
     ~Juego();
 
 };
 
 
-#endif //TP3_CARPINCHO_JUEGO_H
+#endif //TP3_CARPINCHO_JUEGO_HPP
