@@ -37,4 +37,4 @@ add_executable(TP3_Carpincho
         src/Menu.cpp
 )
 
-set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "main")
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "main.exe")

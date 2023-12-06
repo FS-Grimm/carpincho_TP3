@@ -56,19 +56,20 @@ public:
 
     //Pre: Hay un camino valido para llegar al final del tablero
     //Post: Imprime en pantalla el mejor camino al final del tablero
-    std::vector<size_t> mostrar_mejor_camino();
+    void mostrar_mejor_camino();
 
 
     //Pre:-
     //Post: Devuelve verdadero si el juego termino.
-    bool termino();
-
-
-
+    bool termino() const;
 
     //Pre: James Murio
     //Post: Imprime en pantalla un mensaje de derrota, el puntaje y termina el juego
     void derrota();
+
+    //pre:
+    //post: devuelve true si tiene un arma equipado
+    bool james_tiene_arma_equipada();
 
     //Pre: Se quiere mover a james en una dirección, james esta vivo.
     //Post: Si se podia mover a james, se mueve en esa direccion.
@@ -102,10 +103,13 @@ public:
     //Post: Imprime en pantalla un mensaje de victoria para el usuario, el puntaje y termina el juego
     void victoria();
 
-    std::pair<size_t, size_t> obtener_posicion_james();
-
+    //pre:
+    //post: imprime el tablero
     void imprimir_tablero();
 
+    //pre:
+    //post: imprime el puntaje
+    void mostrar_puntaje();
 
     //DESTRUCTOR
     ~Juego();

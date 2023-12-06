@@ -106,7 +106,7 @@ public:
 
     //Pre: El tablero ya fue cargado
     //Post: Devuelve verdadero si hay un Pyramid Head en el camino indicado
-    bool hay_pyramid_head_en(std::vector<size_t> camino);
+    size_t hay_pyramid_head_en(std::vector<size_t> camino);
 
     //Pre: El tablero ya fue cargado
     //Post: Devuelve verdadero si hay un camino posible desde la posicion a la salida en el estado actual.

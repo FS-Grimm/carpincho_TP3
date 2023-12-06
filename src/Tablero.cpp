@@ -71,7 +71,7 @@ void Tablero::cargar_grafo(){
 }
 
 void Tablero::cargar_pesos_aristas(size_t x, size_t y, int peso, bool saliente){
-    if ( tablero.elemento(x,y) != PARED ){      // Si es una pared. No hay que conectarle nada
+    if (tablero.elemento(x,y) != PARED ){      // Si es una pared. No hay que conectarle nada
         if ( x > POSICION_INICIAL ){ 
             cargar_peso_arista(x,y,peso,true,false,saliente);
         }
@@ -90,13 +90,13 @@ void Tablero::cargar_pesos_aristas(size_t x, size_t y, int peso, bool saliente){
 void Tablero::cargar_peso_arista(size_t x, size_t y, int peso, bool horizontal, bool siguiente, bool saliente){
     int incremento = (siguiente) ? 1 : -1; //creo q aca la suma no va a funcionar con un negativo porq no existe size_t = -1 (es unsigned)
     if (saliente){  // Cambiamos arista de vertice origen a vertice contiguo
-        if ( horizontal && ( tablero.elemento(x + incremento,y) != PARED ) ){
+        if ( horizontal && (tablero.elemento(x + incremento,y) != PARED ) ){
             grafo.cambiar_arista( x + y*(CANT_FILAS), ( x + incremento ) + y*(CANT_FILAS), peso);
         } else if ( !horizontal && tablero.elemento(x,y + incremento) != PARED ) {
             grafo.cambiar_arista( x + y*(CANT_FILAS), x + ( y + incremento )*(CANT_FILAS), peso );
         }
     } else {        // Cambiamos arista de vertice contiguo a vertice origen
-        if ( horizontal && ( tablero.elemento(x + incremento,y) != PARED) ){
+        if ( horizontal && (tablero.elemento(x + incremento,y) != PARED) ){
             grafo.cambiar_arista( ( x + incremento ) + y*(CANT_FILAS), x + y*(CANT_FILAS), peso );
         } else if ( !horizontal && tablero.elemento(x,y + incremento) != PARED ) {
             grafo.cambiar_arista( x + (y + incremento)*(CANT_FILAS), x + y*(CANT_FILAS), peso );
@@ -276,7 +276,7 @@ bool Tablero::puede_moverse_a(size_t x,size_t y,size_t direccion){
         return false;
     }
     else {
-        return ( ( hay_pyramid_head_en(x,y,direccion) ) || tablero.elemento((size_t)x_final, (size_t)y_final) == PASILLO );
+        return ( tablero.elemento((size_t)x_final, (size_t)y_final) == PASILLO );
     }
 }
 
@@ -286,8 +286,13 @@ std::pair<std::vector<size_t>, int> Tablero::obtener_mejor_camino(size_t x, size
     //size_t y = pos_james.second; //estuve 25 anios(no tengo enie) para decidir si hacer esto un atributo privado de tablero q bronca
     size_t pos = x + y*CANT_FILAS;
     grafo.usar_dijkstra();
-    std::pair<std::vector<size_t>, int> resultado = grafo.obtener_camino_minimo(pos, CANT_FILAS * CANT_COLUMNAS - 1);
 
+
+    std::pair<std::vector<size_t>, int> resultado = grafo.obtener_camino_minimo(pos, CANT_FILAS * CANT_COLUMNAS - 1);
+    /*size_t n = resultado.first.size();
+    if (hay_pyramid_head_en(resultado.first) != resultado.first[n - 1]){
+
+    }*/
 
     return resultado;
 }
@@ -345,7 +350,7 @@ Matriz Tablero::obtener_matriz() {
     return this->tablero;
 }
 
-bool Tablero::hay_pyramid_head_en(std::vector<size_t> camino) {
+size_t Tablero::hay_pyramid_head_en(std::vector<size_t> camino) {
     size_t x_final;
     size_t y_final;
     size_t i = 0;
@@ -358,5 +363,6 @@ bool Tablero::hay_pyramid_head_en(std::vector<size_t> camino) {
         }
         i++;
     }
-    return encontrado;
+    return camino[i];
 }
+
