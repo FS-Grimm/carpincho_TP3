@@ -30,9 +30,8 @@ add_executable(TP3_Carpincho
         src/Random.cpp
         src/Tablero.cpp
         src/Mostrar_tablero.cpp
-        main.cpp
-        include/Menu.hpp
         src/Menu.cpp
+        main.cpp
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "main.exe")
