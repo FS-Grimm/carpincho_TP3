@@ -30,18 +30,24 @@ void Juego::alternar_prioridad() {
 
 }
 
-void Juego::equipar_arma() {
+bool Juego::equipar_arma() {
+    bool equipo=false;
     if (!james->tiene_arma_equipada()) {
         james->equipar_arma();
-        tablero->alternar_estado(true);
+        equipo=true;
+        tablero->alternar_estado(equipo);
     }
+    return equipo;
 }
 
-void Juego::desequipar_arma() {
+bool Juego::desequipar_arma() {
+    bool desequipo=false;
     if (james->tiene_armas() && james->tiene_arma_equipada()) {
         james->desequipar_arma();
+        desequipo=true;
         tablero->alternar_estado(false);
     }
+    return desequipo;
 }
 
 void Juego::nuevo_escenario() {
@@ -107,7 +113,7 @@ void Juego::james_pelea_pyramid_head() {
 void Juego::mover_james_hacia(size_t direccion) {
     if (tablero->puede_moverse_a(pos_james_1,pos_james_2,direccion)){
         cambiar_pos_james(direccion);
- //       costo_total += tablero->costo_movimiento(pos_james_1,pos_james_2,direccion);
+        costo_total += tablero->costo_movimiento(pos_james_1,pos_james_2,direccion);
         if(tablero->hay_pyramid_head_en(pos_james_1, pos_james_2)){
             james_pelea_pyramid_head();
         }else if((pos_james_1==pos_james_2) && (pos_james_2==POSICION_FINAL)){ // lo cambie yo(negro) porq creo q habia un error de sintaxis A CHEQUEAR

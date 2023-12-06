@@ -81,7 +81,7 @@ public:
 
     //Pre: James  esta vivo, tiene armas para equipar y no las tiene equipadas
     //Post: Se equipa el arma de mayor prioridad a james
-    void equipar_arma();
+    bool equipar_arma();
 
     //Pre: -
     //Post: Cambia la prioridad con la que se muestran las armas del invenario de james, de mejor a peor o peor a mejor.
@@ -89,7 +89,7 @@ public:
 
     //Pre: James esta vivo, tiene armas para equipar y tiene un arma equipada
     //Post: Se desequipa el arma de mayor prioridad a james
-    void desequipar_arma();
+    bool desequipar_arma();
 
     //Pre: -
     //Post: Devuelve puntaje actual de james, que varia segun su recorrido

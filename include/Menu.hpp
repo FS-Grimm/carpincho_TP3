@@ -56,7 +56,7 @@ const std::string COMANDO_SALIR = "salir";
 
 class Menu{
 private:
-    Juego juego;
+    Juego* juego;
     size_t comando;
 
     void ver_tablero();
@@ -75,7 +75,7 @@ private:
     //Post: Llama al metodo indicado por el comando
     void procesar_comando();
 public:
-
+    Menu();
     //Pre:-
     //Post: Procesa un comando pedido al usuario.
     void ejecutar_menu();
@@ -89,5 +89,7 @@ public:
     void victoria();
 
     void derrota();
+
+     ~Menu();
 };
 #endif //TP3_CARPINCHO_MENU_HPP

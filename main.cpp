@@ -18,9 +18,11 @@
 }
 */
 int main(){
-        auto menu=new Menu;
+
         std::cout << "Bienvenido " << std::endl;
         //Menu::bienvenida();
+        auto menu=new Menu;
+
         while(!menu->quiere_salir()){
             menu->ejecutar_menu();
         }

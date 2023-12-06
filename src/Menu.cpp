@@ -2,6 +2,10 @@
 // Created by feli on 05/12/23.
 //
 #include "Menu.hpp"
+Menu::Menu(){
+    this->juego = new Juego;
+    ver_tablero();
+}
 size_t Menu::recibir_direccion_james(){
     size_t direccion;
     std::string comando_direccion;
@@ -44,8 +48,8 @@ void Menu::guardar_comando_entero(const std::string &comando_s){
 };
 
 void Menu::solicitar_comando(){
-    std::cout << "ingrese el comando que desee ejecutar" << std::endl << COMANDO_MOVER_JAMES << ", " << COMANDO_VER_ARMA <<std::endl<< ", "<<  COMANDO_EQUIPAR_ARMA << ", " << COMANDO_DESEQUIPAR_ARMA << ","
-    <<std::endl<< COMANDO_MOSTRAR_CAMINO_MINIMO << ", " << COMANDO_MOVER_CAMINO_MINIMO << ", " << COMANDO_ALTERNAR_PRIORIDAD << ", "<< COMANDO_VER_PUNTAJE << ", " << std::endl;
+    std::cout << "ingrese el comando que desee ejecutar, los comandos son:" << std::endl << COMANDO_MOVER_JAMES << ", " << COMANDO_VER_ARMA <<", "<<  COMANDO_EQUIPAR_ARMA << ", " << COMANDO_DESEQUIPAR_ARMA << ","
+    << COMANDO_MOSTRAR_CAMINO_MINIMO << ", " << COMANDO_MOVER_CAMINO_MINIMO << ", " << COMANDO_ALTERNAR_PRIORIDAD <<std::endl<< " y "<< COMANDO_VER_PUNTAJE<<", o "<<COMANDO_SALIR<<" para salir." << std::endl;
 
     std::string comando_s;
     getline(std::cin, comando_s);
@@ -53,40 +57,42 @@ void Menu::solicitar_comando(){
 };
 
 void Menu::ver_tablero() {
-    juego.imprimir_tablero();
+    juego->imprimir_tablero();
 }
 
 void Menu::procesar_comando(){
     switch (comando) {
         case MOVER_JAMES_HACIA:
-            std::cout<<"ingrese dirección "<<DERECHA<<", "<<IZQUIERDA<<", "<<ARRIBA<<", "<< ABAJO<<std::endl;
-            juego.mover_james_hacia(recibir_direccion_james());
+            std::cout<<"Ingrese una dirección de las siguientes: "<<std::endl<<DERECHA<<", "<<IZQUIERDA<<", "<<ARRIBA<<", "<< ABAJO<<std::endl;
+            juego->mover_james_hacia(recibir_direccion_james());
+            if(juego->james_esta_vivo())
+                ver_tablero();
             break;
         case VER_ARMA:
-            if(juego.james_tiene_arma_equipada())
-                std::cout<<"james esta armado"<<std::endl;
+            if(juego->james_tiene_arma_equipada())
+                std::cout<<"James esta armado"<<std::endl;
             else
-                std::cout<<"james no esta armado"<<std::endl;
+                std::cout<<"James no esta armado"<<std::endl;
             break;
         case EQUIPAR_ARMA:
-            juego.equipar_arma();
+            juego->equipar_arma();
             std::cout << "Se equipo el arma" << std::endl;
             break;
         case DESEQUIPAR_ARMA:
-            juego.desequipar_arma();
+            juego->desequipar_arma();
             std::cout << "Se desequipo el arma" << std::endl;
             break;
         case MOSTRAR_CAMINO_MINIMO:
-            juego.mostrar_mejor_camino();
+            juego->mostrar_mejor_camino();
             break;
         case MOVER_CAMINO_MINIMO:
-            juego.moverse_por_el_mejor_camino();
+            juego->moverse_por_el_mejor_camino();
             break;
         case ALTERNAR_PRIORIDAD:
-            juego.alternar_prioridad();
+            juego->alternar_prioridad();
             break;
         case VER_PUNTAJE:
-            juego.mostrar_puntaje();
+            juego->mostrar_puntaje();
             break;
         default:
             std::cout << "Comando incorrecto, intente de vuelta." << std::endl;
@@ -94,25 +100,27 @@ void Menu::procesar_comando(){
 }
 
 void Menu::ejecutar_menu() {
-    if(this->comando != MOSTRAR_CAMINO_MINIMO)
-        ver_tablero();
     solicitar_comando();
     procesar_comando();
 }
 
 bool Menu::quiere_salir() const {
-    return (comando == SALIR || juego.termino());
+    return (comando == SALIR || juego->termino());
 }
 
 bool Menu::gano() {
-    return juego.termino() && juego.james_esta_vivo();
+    return juego->termino() && juego->james_esta_vivo();
 }
 
 void Menu::victoria() {
-    std::cout<<"felicidades, has ganado"<<std::endl;
+    std::cout<<"Felicidades, has ganado"<<std::endl;
 }
 
 void Menu::derrota() {
-    std::cout<<"lastima, has muerto"<<std::endl;
+    std::cout<<"Lastima, has muerto"<<std::endl;
+}
+
+Menu::~Menu() {
+    delete juego;
 }
 

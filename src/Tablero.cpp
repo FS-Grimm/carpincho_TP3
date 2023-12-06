@@ -261,10 +261,10 @@ bool Tablero::puede_moverse_a(size_t x,size_t y,size_t direccion){
         case DIRECCION_DERECHA:     x_final += 1; break;
     }
 
-    if ( ( x_final < 0 ) || ( x_final >= (int)CANT_COLUMNAS ) ){
+    if ( ( x_final < 0 ) || ( x_final >= (int)tablero.columnas() ) ){
         return false;
     }
-    else if ( ( y_final < 0 ) || ( y_final  >= (int)CANT_FILAS ) ){
+    else if ( ( y_final < 0 ) || ( y_final  >= (int)tablero.filas() ) ){
         return false;
     }
     else {
@@ -358,3 +358,16 @@ size_t Tablero::hay_pyramid_head_en(std::vector<size_t> camino) {
     return camino[i];
 }
 
+int Tablero::costo_movimiento(size_t pos_james_1, size_t pos_james_2, size_t direccion){
+    int costo = (int)PESO_BASE;
+    switch (direccion){
+        case DIRECCION_ABAJO:       pos_james_2 -= 1; break;
+        case DIRECCION_ARRIBA:      pos_james_2 += 1; break;
+        case DIRECCION_IZQUIERDA:   pos_james_1 -= 1; break;
+        case DIRECCION_DERECHA:     pos_james_1 += 1; break;
+    }
+    if (hay_pyramid_head_en(pos_james_1, pos_james_2)){
+        costo *= MULTIPLICADOR_PYRAMID_HEAD;
+    }
+    return costo;
+}

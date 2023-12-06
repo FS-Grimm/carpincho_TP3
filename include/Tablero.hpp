@@ -124,6 +124,7 @@ public:
 
     Matriz obtener_matriz();
     //void mover_james(size_t direccion);
+    int costo_movimiento(size_t pos_james_1, size_t pos_james_2, size_t direccion);
 };
 
 
