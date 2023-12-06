@@ -31,6 +31,7 @@ add_executable(TP3_Carpincho
         src/Tablero.cpp
         src/Mostrar_tablero.cpp
         src/Menu.cpp
+        src/Tablero_grafo.cpp
         main.cpp
 )
 

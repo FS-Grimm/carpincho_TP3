@@ -48,4 +48,53 @@ const size_t MULTIPLICADOR_PYRAMID_HEAD = 5;
 const std::string ruta_layout1 = "config/layout1.csv";
 const std::string ruta_layout2 = "config/layout2.csv";
 
+
+// CONSTANTES MENU
+const int MOVER_JAMES_HACIA = 1;
+
+const int VER_ARMA = 2;
+
+const int DESEQUIPAR_ARMA = 3;
+
+const int EQUIPAR_ARMA = 4;
+
+const int MOSTRAR_CAMINO_MINIMO = 5;
+
+const int MOVER_CAMINO_MINIMO = 6;
+
+const int ALTERNAR_PRIORIDAD = 7;
+
+const int VER_PUNTAJE = 8;
+
+const int SALIR = 14;
+
+
+const int INVALIDO = 404;
+
+const std::string COMANDO_MOVER_JAMES = "mover";
+
+const std::string COMANDO_VER_ARMA = "ver arma";
+
+const std::string COMANDO_EQUIPAR_ARMA = "equipar arma";
+
+const std::string COMANDO_DESEQUIPAR_ARMA = "desequipar arma";
+
+const std::string COMANDO_MOSTRAR_CAMINO_MINIMO = "ver camino minimo";
+
+const std::string COMANDO_MOVER_CAMINO_MINIMO = "transitar camino minimo";
+
+const std::string COMANDO_ALTERNAR_PRIORIDAD = "cambiar a arma mas chica";
+
+const std::string COMANDO_VER_PUNTAJE = "ver puntaje";
+
+const std::string DERECHA = "derecha";
+
+const std::string IZQUIERDA = "izquierda";
+
+const std::string ABAJO = "abajo";
+
+const std::string ARRIBA = "arriba";
+
+const std::string COMANDO_SALIR = "salir";
+
 #endif

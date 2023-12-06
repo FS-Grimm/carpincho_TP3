@@ -12,7 +12,7 @@
 #include "../config/constantes.hpp"
 #include "Grafo.hpp"
 #include "Random.hpp"
-
+#include "Tablero_grafo.hpp"
 class Tablero {
 
 private: 
@@ -28,12 +28,7 @@ private:
     // Pre: Tablero cargado
     // Post Carga grafo base (Pyramids pero con arma equipada)
     void cargar_grafo();
-    // Pre: Posición válida
-    // Post: Asigna peso a aristas entrantes o salientes de la posicion
-    void cargar_pesos_aristas(size_t x, size_t y, int peso, bool saliente);
-    // Pre: Posicion válida y siguiente válido 
-    // Post: Carga peso de arista especifica, vertical/horizontal - siguiente/anterior - aristas entrantes/salientes
-    void cargar_peso_arista(size_t x, size_t y, int peso, bool horizontal, bool siguiente, bool saliente);
+
     // Pre: - 
     // Post: Carga pyramids en tablero
     void cargar_pyramids();

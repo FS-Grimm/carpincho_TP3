@@ -62,45 +62,11 @@ void Tablero::cargar_grafo(){
 
     for (size_t x = POSICION_INICIAL; x < CANT_COLUMNAS; x++){
         for (size_t y = POSICION_INICIAL; y < CANT_FILAS; y++){
-            cargar_pesos_aristas(x,y, (int)PESO_BASE, true);
+            Utils_grafo::cargar_pesos_aristas(x,y,tablero,grafo, (int)PESO_BASE, true);
         }
     }
 
     alternar_estado(false);
-}
-
-void Tablero::cargar_pesos_aristas(size_t x, size_t y, int peso, bool saliente){
-    if (tablero.elemento(x,y) != PARED ){
-        if ( x > POSICION_INICIAL ){
-            cargar_peso_arista(x,y,peso,true,false,saliente);
-        }
-        if ( x < POSICION_FINAL ){
-            cargar_peso_arista(x,y,peso,true,true,saliente);
-        }
-        if ( y > POSICION_INICIAL ){
-            cargar_peso_arista(x,y,peso,false,false,saliente);
-        }
-        if ( y < POSICION_FINAL ){
-            cargar_peso_arista(x,y,peso,false,true,saliente);
-        }
-    }    
-}
-
-void Tablero::cargar_peso_arista(size_t x, size_t y, int peso, bool horizontal, bool siguiente, bool saliente){
-    int incremento = (siguiente) ? 1 : -1;
-    if (saliente){
-        if ( horizontal && (tablero.elemento(x + incremento,y) != PARED ) ){
-            grafo.cambiar_arista( x + y*(CANT_FILAS), ( x + incremento ) + y*(CANT_FILAS), peso);
-        } else if ( !horizontal && tablero.elemento(x,y + incremento) != PARED ) {
-            grafo.cambiar_arista( x + y*(CANT_FILAS), x + ( y + incremento )*(CANT_FILAS), peso );
-        }
-    } else {
-        if ( horizontal && (tablero.elemento(x + incremento,y) != PARED) ){
-            grafo.cambiar_arista( ( x + incremento ) + y*(CANT_FILAS), x + y*(CANT_FILAS), peso );
-        } else if ( !horizontal && tablero.elemento(x,y + incremento) != PARED ) {
-            grafo.cambiar_arista( x + (y + incremento)*(CANT_FILAS), x + y*(CANT_FILAS), peso );
-        }
-    }
 }
 
 std::pair<size_t,size_t> Tablero::posicion_pyramid(){
@@ -148,21 +114,21 @@ void Tablero::alternar_pyramids(bool pyramid_1, bool tiene_arma){
     int peso_pyramid = (tiene_arma) ? PESO_BASE : INFINITO;
     int peso_contiguo = (tiene_arma) ? PESO_BASE : PESO_BASE * MULTIPLICADOR_PYRAMID_HEAD ;
     
-    cargar_pesos_aristas(x,y,peso_pyramid,false);
+    Utils_grafo::cargar_pesos_aristas(x,y,tablero,grafo,peso_pyramid,false);
     if (x > 0){
-        cargar_pesos_aristas(x - 1, y, peso_contiguo, false);
+        Utils_grafo::cargar_pesos_aristas(x - 1, y,tablero,grafo, peso_contiguo, false);
     }
     if (x + 1 < CANT_COLUMNAS){
-        cargar_pesos_aristas(x + 1, y, peso_contiguo, false);
+        Utils_grafo::cargar_pesos_aristas(x + 1, y,tablero,grafo, peso_contiguo, false);
     }
     if ( y > 0 ){
-        cargar_pesos_aristas(x, y - 1, peso_contiguo, false);
+        Utils_grafo::cargar_pesos_aristas(x, y - 1,tablero,grafo, peso_contiguo, false);
     }
     if (y + 1 < CANT_FILAS){
-        cargar_pesos_aristas(x, y + 1, peso_contiguo, false);
+        Utils_grafo::cargar_pesos_aristas(x, y + 1,tablero,grafo, peso_contiguo, false);
     }
 
-    cargar_pesos_aristas(x,y,PESO_BASE,true);
+    Utils_grafo::cargar_pesos_aristas(x,y,tablero,grafo,PESO_BASE,true);
 
 
 
