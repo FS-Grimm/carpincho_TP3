@@ -1,7 +1,7 @@
 
 #include <iostream>
 #include "Tablero.hpp"
-#include "Visual.hpp"
+#include "Mostrar_tablero.hpp"
 #include "vector"
 #include "Juego.hpp"
 #include "Menu.hpp"
@@ -32,17 +32,4 @@ int main(){
             menu->derrota();
         }
         delete menu;
-
-   /* Tablero tablero = Tablero();
-    tablero.usar_layout_uno();
-    tablero.imprimir();
-    
-    tablero.alternar_estado(true);  std::cout << "----------- ARMADO -----------" << std::endl;
-    iterar_mostrar(tablero.obtener_mejor_camino(0,0));
-    tablero.alternar_estado(false);  std::cout << "----------- DES ARMADO -----------" << std::endl;
-    iterar_mostrar(tablero.obtener_mejor_camino(0,0));
-
-    tablero.prueba_matar_ph(true); std::cout << "----------- DES ARMADO menos 1-----------" << std::endl;
-    iterar_mostrar(tablero.obtener_mejor_camino(0,0));
-*/
 }

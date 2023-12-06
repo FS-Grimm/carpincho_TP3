@@ -39,7 +39,6 @@ private:
     Grafo grafo;
     Matriz tablero;  // Tablero[x][y]
 
-    //std::pair<size_t,size_t> pos_james = std::pair<size_t,size_t>(CANT_COLUMNAS,CANT_FILAS);
     std::pair<size_t,size_t> pyramid_head1 = std::pair<size_t,size_t>(CANT_COLUMNAS,CANT_FILAS);
     std::pair<size_t,size_t> pyramid_head2 = std::pair<size_t,size_t>(CANT_COLUMNAS,CANT_FILAS);
 
@@ -54,7 +53,6 @@ private:
     void cargar_pesos_aristas(size_t x, size_t y, int peso, bool saliente);
     // Pre: Posicion válida y siguiente válido 
     // Post: Carga peso de arista especifica, vertical/horizontal - siguiente/anterior - aristas entrantes/salientes
-    // Ejemplo: x = 0 no tiene anterior, x = 8 no tiene siguiente
     void cargar_peso_arista(size_t x, size_t y, int peso, bool horizontal, bool siguiente, bool saliente);
     // Pre: - 
     // Post: Carga pyramids en tablero
@@ -92,9 +90,6 @@ public:
     // Post: Carga el tablero al estado deseado
     void alternar_estado(bool tiene_arma);
 
-    //Pre: El tablero ya fue cargado
-    //Post: Devuelve un vector con el mejor camino para el personaje y su peso.
-    //std::pair<std::vector<size_t>, int> obtener_mejor_camino(size_t pos_personaje1,size_t pos_personaje2);
 
     //Pre: El tablero ya fue cargado
     //Post: Indica si se puede mover al personaje en la direccion deseada.
@@ -115,15 +110,12 @@ public:
     //pre: El tablero ya fue cargado
     //post: devuelve en un pair el vector que contiene el recorrido minimo y el peso de ese camino
     std::pair<std::vector<size_t>, int> obtener_mejor_camino(size_t x, size_t y);
-
-    //pre: el tablero fue cargado,y tiene que ser capaz de moverse en esa direccion
-    //post: modifica la posicion de james
-
-    void imprimir();
-    void prueba_matar_ph(bool pyramid);
-
+    //pre:
+    //post:devuelve una copia de matriz
     Matriz obtener_matriz();
-    //void mover_james(size_t direccion);
+
+    //pre:
+    //post: devuelve el costo de movimiento dependiendo de si hay un pyramid en su direccion
     int costo_movimiento(size_t pos_james_1, size_t pos_james_2, size_t direccion);
 };
 

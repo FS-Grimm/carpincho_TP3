@@ -21,8 +21,11 @@ const int CAMINO_MINIMO = 4;
 
 
 
-class Visual{
+class Mostrar_tablero{
 private:
+
+    //PRE: -
+    //POST: muestra el tablero
     static void mostrar_tablero(Matriz* tablero,size_t pos_james_x,size_t pos_james_y);
     //PRE:
     //POST:Guarda James en el tablero recibido.

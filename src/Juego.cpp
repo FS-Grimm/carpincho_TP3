@@ -6,8 +6,7 @@
 #include "Juego.hpp"
 
 const std::string NO_CAMINO_DISPONIBLE="No hay camino a la salida con las condiciones actuales, si james tiene armas disponibles, deberia equiparlas.";
-//size_t POSICION_INICIAL = 0;
-//size_t POSICION_FINAL = 9;
+
 using namespace std;
 
 
@@ -78,6 +77,7 @@ void Juego::finalizar_nivel() {
         nuevo_escenario();
     }
 }
+
 void Juego::cambiar_pos_james(size_t direccion) {
     switch (direccion) {
         case DIRECCION_ARRIBA:
@@ -109,11 +109,10 @@ void Juego::james_pelea_pyramid_head() {
     }
 }
 
-
 void Juego::mover_james_hacia(size_t direccion) {
     if (tablero->puede_moverse_a(pos_james_1,pos_james_2,direccion)){
         cambiar_pos_james(direccion);
-        costo_total += tablero->costo_movimiento(pos_james_1,pos_james_2,direccion);
+        costo_total += tablero->costo_movimiento(pos_james_1, pos_james_2, direccion);
         if(tablero->hay_pyramid_head_en(pos_james_1, pos_james_2)){
             james_pelea_pyramid_head();
         }else if((pos_james_1==pos_james_2) && (pos_james_2==POSICION_FINAL)){ // lo cambie yo(negro) porq creo q habia un error de sintaxis A CHEQUEAR
@@ -122,10 +121,9 @@ void Juego::mover_james_hacia(size_t direccion) {
     }
 }
 
-
 void Juego::mostrar_mejor_camino() {
     vector<size_t> camino=tablero->obtener_mejor_camino(pos_james_1, pos_james_2).first;
-    Visual::mostrar_camino_minimo(tablero->obtener_matriz(),camino,pos_james_1,pos_james_2);
+    Mostrar_tablero::mostrar_camino_minimo(tablero->obtener_matriz(), camino, pos_james_1, pos_james_2);
 }
 
 void Juego::victoria() {
@@ -158,13 +156,16 @@ int Juego::obtener_puntaje() {
 
 void Juego::mostrar_puntaje(){
     int puntaje = obtener_puntaje();
-    Visual::mostrar_puntaje(puntaje);
+    Mostrar_tablero::mostrar_puntaje(puntaje);
 };
 
 void Juego::imprimir_tablero() {
-    Visual::mostrar_tablero(tablero->obtener_matriz(), this->pos_james_1, this->pos_james_2);
+    Mostrar_tablero::mostrar_tablero(tablero->obtener_matriz(), this->pos_james_1, this->pos_james_2);
 }
 
+bool Juego::james_tiene_arma_equipada() {
+    return james->tiene_arma_equipada();
+}
 
 Juego::~Juego() {
     delete james; delete tablero;
@@ -173,9 +174,6 @@ Juego::~Juego() {
 
 
 
-bool Juego::james_tiene_arma_equipada() {
-    return james->tiene_arma_equipada();
-}
 
 
 

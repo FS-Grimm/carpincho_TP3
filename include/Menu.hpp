@@ -27,7 +27,7 @@ const int SALIR = 14;
 
 const int INVALIDO = 404;
 
-const std::string COMANDO_MOVER_JAMES = "mover james hacia";
+const std::string COMANDO_MOVER_JAMES = "mover";
 
 const std::string COMANDO_VER_ARMA = "ver arma";
 
@@ -41,7 +41,7 @@ const std::string COMANDO_MOVER_CAMINO_MINIMO = "transitar camino minimo";
 
 const std::string COMANDO_ALTERNAR_PRIORIDAD = "cambiar a arma mas chica";
 
-const std::string COMANDO_VER_PUNTAJE = "ver puntaje previo a terminar";
+const std::string COMANDO_VER_PUNTAJE = "ver puntaje";
 
 const std::string DERECHA = "derecha";
 
@@ -59,8 +59,12 @@ private:
     Juego* juego;
     size_t comando;
 
+    //Pre:
+    //Post: muestra tablero
     void ver_tablero();
 
+    //Pre:
+    //Post: le pasa a james una direccion
     size_t recibir_direccion_james();
 
     //Pre: -
@@ -84,10 +88,16 @@ public:
     //Post: Devuelve verdadero si el usuario quizo salir, falso en caso contrario.
     [[nodiscard]] bool quiere_salir() const;
 
+    //Pre: -
+    //Post: determina si el jugador gano
     bool gano();
 
+    //Pre: -
+    //Post: mensaje de victoria
     void victoria();
 
+    //Pre: -
+    //Post: mensaje de derrota
     void derrota();
 
      ~Menu();

@@ -20,7 +20,7 @@ void Tablero::cargar_tablero(std::string ruta_archivo){
     std::ifstream archivo(ruta_archivo);
     bool archivo_valido = archivo.is_open();
 
-    if (archivo_valido){        // Validacion de sintaxis
+    if (archivo_valido){
         std::string linea;
         size_t lineas = 0;
         size_t indice;
@@ -44,11 +44,10 @@ void Tablero::cargar_tablero(std::string ruta_archivo){
         archivo.close();
     }
     
-    if (!archivo_valido) {      // Pero no imaginé, que evitando la ley, en la trampa caería yo
-                                //negro: JAJAJ q decis flaco
+    if (!archivo_valido) {
+
         for (size_t y = POSICION_INICIAL; y < CANT_FILAS; y++){
             for (size_t x = POSICION_INICIAL; x < CANT_COLUMNAS; x++){
-//                std::cout << "i: " << i << " ii: " << ii << std::endl;
                 tablero.elemento(x,y) = (int)PARED;
             }
         }
@@ -58,7 +57,7 @@ void Tablero::cargar_tablero(std::string ruta_archivo){
 }
 
 void Tablero::cargar_grafo(){
-    //pos_james = std::pair<size_t, size_t>(0,0); // no se si tiene que ir aca?
+
     grafo = Grafo(CANT_COLUMNAS * CANT_FILAS);
 
     for (size_t x = POSICION_INICIAL; x < CANT_COLUMNAS; x++){
@@ -71,8 +70,8 @@ void Tablero::cargar_grafo(){
 }
 
 void Tablero::cargar_pesos_aristas(size_t x, size_t y, int peso, bool saliente){
-    if (tablero.elemento(x,y) != PARED ){      // Si es una pared. No hay que conectarle nada
-        if ( x > POSICION_INICIAL ){ 
+    if (tablero.elemento(x,y) != PARED ){
+        if ( x > POSICION_INICIAL ){
             cargar_peso_arista(x,y,peso,true,false,saliente);
         }
         if ( x < POSICION_FINAL ){
@@ -88,14 +87,14 @@ void Tablero::cargar_pesos_aristas(size_t x, size_t y, int peso, bool saliente){
 }
 
 void Tablero::cargar_peso_arista(size_t x, size_t y, int peso, bool horizontal, bool siguiente, bool saliente){
-    int incremento = (siguiente) ? 1 : -1; //creo q aca la suma no va a funcionar con un negativo porq no existe size_t = -1 (es unsigned)
-    if (saliente){  // Cambiamos arista de vertice origen a vertice contiguo
+    int incremento = (siguiente) ? 1 : -1;
+    if (saliente){
         if ( horizontal && (tablero.elemento(x + incremento,y) != PARED ) ){
             grafo.cambiar_arista( x + y*(CANT_FILAS), ( x + incremento ) + y*(CANT_FILAS), peso);
         } else if ( !horizontal && tablero.elemento(x,y + incremento) != PARED ) {
             grafo.cambiar_arista( x + y*(CANT_FILAS), x + ( y + incremento )*(CANT_FILAS), peso );
         }
-    } else {        // Cambiamos arista de vertice contiguo a vertice origen
+    } else {
         if ( horizontal && (tablero.elemento(x + incremento,y) != PARED) ){
             grafo.cambiar_arista( ( x + incremento ) + y*(CANT_FILAS), x + y*(CANT_FILAS), peso );
         } else if ( !horizontal && tablero.elemento(x,y + incremento) != PARED ) {
@@ -105,8 +104,7 @@ void Tablero::cargar_peso_arista(size_t x, size_t y, int peso, bool horizontal, 
 }
 
 std::pair<size_t,size_t> Tablero::posicion_pyramid(){
-    // Nota, conviene iterar rand() porque es O(1) en tiempo y memoria auxiliar (o eso dicen)
-    size_t random = 1; 
+    size_t random = 1;
     size_t iter = 0;
     size_t ITER_MAX = 100; 
 
@@ -130,11 +128,11 @@ std::pair<size_t,size_t> Tablero::posicion_pyramid(){
 }
 
 void Tablero::cargar_pyramids(){
-    if ( Random::random(0,1) == 0 ){   // Pyramids!!!
+    if ( Random::random(0,1) == 0 ){
         pyramid_head1 = posicion_pyramid();
         tablero.elemento(pyramid_head1.first, pyramid_head1.second) = PYRAMID_HEAD;
     }
-    if ( Random::random(0,1) == 0 ){   // Pyramids!!!
+    if ( Random::random(0,1) == 0 ){
         pyramid_head2 = posicion_pyramid();
         tablero.elemento(pyramid_head2.first, pyramid_head2.second) = PYRAMID_HEAD;
     }
@@ -150,42 +148,22 @@ void Tablero::alternar_pyramids(bool pyramid_1, bool tiene_arma){
     int peso_pyramid = (tiene_arma) ? PESO_BASE : INFINITO;
     int peso_contiguo = (tiene_arma) ? PESO_BASE : PESO_BASE * MULTIPLICADOR_PYRAMID_HEAD ;
     
-    // Cambiamos las aristas que inciden en el pyramid
     cargar_pesos_aristas(x,y,peso_pyramid,false);
-    // Cambiamos las aristas incidentes en vertices contiguos al pyramid 
     if (x > 0){
         cargar_pesos_aristas(x - 1, y, peso_contiguo, false);
-//        grafo.cambiar_arista(x - 1 + y*CANT_FILAS, x + y*CANT_FILAS, PESO_BASE);
     }
     if (x + 1 < CANT_COLUMNAS){
         cargar_pesos_aristas(x + 1, y, peso_contiguo, false);
-//        grafo.cambiar_arista(x + 1 + y*CANT_FILAS, x + y*CANT_FILAS, PESO_BASE);
     }
     if ( y > 0 ){
         cargar_pesos_aristas(x, y - 1, peso_contiguo, false);
-//        grafo.cambiar_arista(x + (y - 1)*CANT_FILAS, x + y*CANT_FILAS, PESO_BASE);
     }
     if (y + 1 < CANT_FILAS){
         cargar_pesos_aristas(x, y + 1, peso_contiguo, false);
-//        grafo.cambiar_arista(x + (y + 1)*CANT_FILAS, x + y*CANT_FILAS, PESO_BASE);
     }
 
     cargar_pesos_aristas(x,y,PESO_BASE,true);
 
-/*  DEBUG - Miedo que no funcione 
-    if ( x > 0 ){   
-        cargar_peso_arista(x, y, peso, true, false, false);
-    }
-    if ( x + 1 <  CANT_COLUMNAS ){
-        cargar_peso_arista(x, y, peso, true, true, false);
-    }
-    if ( y > 0 ){
-        cargar_peso_arista(x, y, peso, true, false, false);
-    }
-    if ( y + 1 < CANT_FILAS ) { 
-        cargar_peso_arista(x, y, peso, true, true, false);
-    }
-*/
 
 
 }
@@ -274,69 +252,25 @@ bool Tablero::puede_moverse_a(size_t x,size_t y,size_t direccion){
 
 std::pair<std::vector<size_t>, int> Tablero::obtener_mejor_camino(size_t x, size_t y) {
 
-    //size_t x = pos_james.first;
-    //size_t y = pos_james.second; //estuve 25 anios(no tengo enie) para decidir si hacer esto un atributo privado de tablero q bronca
     size_t pos = x + y*CANT_FILAS;
     grafo.usar_dijkstra();
 
 
     std::pair<std::vector<size_t>, int> resultado = grafo.obtener_camino_minimo(pos, CANT_FILAS * CANT_COLUMNAS - 1);
-    /*size_t n = resultado.first.size();
-    if (hay_pyramid_head_en(resultado.first) != resultado.first[n - 1]){
 
-    }*/
 
     return resultado;
 }
-/*
-void Tablero::mover_james(size_t direccion){
-    if (puede_moverse_a(pos_james.first, pos_james.second, direccion)) { //tambien se chequea esto en juego.cpp linea 116, cual deberia irse?
-        switch (direccion) {
-            case DIRECCION_ARRIBA:
-                pos_james.second += 1;
-                break;
 
-            case DIRECCION_ABAJO:
-                pos_james.second -= 1;
-                break;
 
-            case DIRECCION_DERECHA:
-                pos_james.first += 1;
-                break;
-
-            case DIRECCION_IZQUIERDA:
-                pos_james.first -= 1;
-                break;
-
-        }
-    }
-}*/
-
-bool Tablero::hay_camino(size_t x, size_t y) { //Terminan siendo medio redundantes los metodos hay camino y obtener mejor camino no??? seguro
-    //hay una forma mejor de hacerlo
-
+bool Tablero::hay_camino(size_t x, size_t y) {
     size_t pos_james_actual = x + y * CANT_FILAS;
     std::vector<size_t> inicio;
     inicio.push_back(pos_james_actual);
-    return (obtener_mejor_camino(x , y).first != inicio); // porque el dijkstra solo te deberia devolver un vector con el inicio si no hay camino posible
+    return (obtener_mejor_camino(x, y).first != inicio);
 }
 
-void Tablero::imprimir(){
-    for (int y = CANT_COLUMNAS - 1; y > -1; y--){
-        for (size_t x = 0; x < CANT_COLUMNAS; x++)
-            std::cout << "[" << tablero.elemento((size_t)x,(size_t)y) << "]";
-        std::cout << std::endl;
-    }
 
-}
-
-void Tablero::prueba_matar_ph(bool pyramid){
-    if (pyramid)
-        std::cout << "Muerto x: " << pyramid_head1.first << " y: " << pyramid_head1.second << std::endl;
-    else
-        std::cout << "Muerto x: " << pyramid_head2.first << " y: " << pyramid_head2.second << std::endl;
-    this->quitar_pyramid(pyramid);
-}
 
 Matriz Tablero::obtener_matriz() {
     return this->tablero;
@@ -348,8 +282,8 @@ size_t Tablero::hay_pyramid_head_en(std::vector<size_t> camino) {
     size_t i = 0;
     bool encontrado = false;
     while ( i < camino.size() && !encontrado) {
-        x_final = camino[i] % 9;
-        y_final = camino[i] / 9;
+        x_final = camino[i] % tablero.columnas();
+        y_final = camino[i] / tablero.filas();
         if (tablero.elemento((size_t) x_final, (size_t) y_final) == PYRAMID_HEAD){
             encontrado = true;
         }
@@ -358,16 +292,28 @@ size_t Tablero::hay_pyramid_head_en(std::vector<size_t> camino) {
     return camino[i];
 }
 
-int Tablero::costo_movimiento(size_t pos_james_1, size_t pos_james_2, size_t direccion){
+int Tablero::costo_movimiento(size_t pos_james_1, size_t pos_james_2, size_t direccion) {
     int costo = (int)PESO_BASE;
-    switch (direccion){
-        case DIRECCION_ABAJO:       pos_james_2 -= 1; break;
-        case DIRECCION_ARRIBA:      pos_james_2 += 1; break;
-        case DIRECCION_IZQUIERDA:   pos_james_1 -= 1; break;
-        case DIRECCION_DERECHA:     pos_james_1 += 1; break;
-    }
     if (hay_pyramid_head_en(pos_james_1, pos_james_2)){
         costo *= MULTIPLICADOR_PYRAMID_HEAD;
+    } else {
+        switch (direccion) {
+            case DIRECCION_ABAJO:
+                pos_james_2 += 1;
+                break;
+            case DIRECCION_ARRIBA:
+                pos_james_2 -= 1;
+                break;
+            case DIRECCION_IZQUIERDA:
+                pos_james_1 += 1;
+                break;
+            case DIRECCION_DERECHA:
+                pos_james_1 = 1;
+                break;
+        }
+        if (hay_pyramid_head_en(pos_james_1, pos_james_2)) {
+            costo *= MULTIPLICADOR_PYRAMID_HEAD;
+        }
     }
     return costo;
 }

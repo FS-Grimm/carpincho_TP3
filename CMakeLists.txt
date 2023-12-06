@@ -26,12 +26,10 @@ add_executable(TP3_Carpincho
         src/James.cpp
         src/Juego.cpp
         src/Matriz.cpp
-        src/MenuGrafo.cpp
-        src/MenuInventario.cpp
         src/Placa.cpp
         src/Random.cpp
         src/Tablero.cpp
-        src/Visual.cpp
+        src/Mostrar_tablero.cpp
         main.cpp
         include/Menu.hpp
         src/Menu.cpp

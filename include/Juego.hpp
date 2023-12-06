@@ -6,14 +6,9 @@
 #include "James.hpp"
 #include "Tablero.hpp"
 #include "Random.hpp"
-#include "Visual.hpp"
+#include "Mostrar_tablero.hpp"
 
-/*
-const size_t MINIMA_ID_PLACAS=100;;
-const size_t MAXIMA_ID_PLACAS=666;
-const size_t MINIMA_POTENCIA_ARMAS=10;
-const size_t MAXIMA_POTENCIA_ARMAS=100;
-*/
+
 const int CHANCE_DE_NUEVA_ARMA=20;
 
 class Juego {
@@ -25,7 +20,7 @@ private:
     bool finalizo;
     size_t pos_james_1;
     size_t pos_james_2;
-    Visual* visual;
+    Mostrar_tablero* visual;
 
     //Pre: James esta vivo y se puede mover en esa direccion
     //Post: Mueve a james en la direccion solicitada
@@ -47,7 +42,8 @@ private:
     //Post: James asusta al pyramid si tiene arma equipada, muere si no.
     void james_pelea_pyramid_head();
 
-
+    //pre:
+    //post: devuelve el vector camino minimo
     std::vector<size_t> mostrar_camino();
 
 public:
@@ -67,7 +63,7 @@ public:
     //Post: Imprime en pantalla un mensaje de derrota, el puntaje y termina el juego
     void derrota();
 
-    //pre:
+    //pre: -
     //post: devuelve true si tiene un arma equipado
     bool james_tiene_arma_equipada();
 

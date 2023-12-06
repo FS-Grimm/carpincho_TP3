@@ -51,18 +51,12 @@ std::vector<size_t> Dijkstra::obtener_camino(size_t origen, size_t destino) {
     std::vector<size_t> camino;
 
     size_t actual = destino;
-    size_t intentos = 0;
+
     while ( (actual != origen) && distancia[destino] < INFINITO) {
         camino.insert(camino.begin(), actual);
         actual = recorrido[actual];
-        intentos += 1;
-    }/*
-    if (intentos < 100)
-        camino.insert(camino.begin(), origen);
-    else {
-        camino.clear();
-        camino.push_back(origen);
-    }*/
+
+    }
     camino.insert(camino.begin(), origen);
     return camino;
 }

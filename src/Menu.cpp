@@ -114,6 +114,7 @@ bool Menu::gano() {
 
 void Menu::victoria() {
     std::cout<<"Felicidades, has ganado"<<std::endl;
+    juego->mostrar_puntaje();
 }
 
 void Menu::derrota() {

@@ -1,11 +1,11 @@
 //
 // Created by feli on 04/12/23.
 //
-#include "Visual.hpp"
+#include "Mostrar_tablero.hpp"
 
 #include "iostream"
 
-void Visual::mostrar_tablero(Matriz *tablero, size_t pos_james_x, size_t pos_james_y) {
+void Mostrar_tablero::mostrar_tablero(Matriz *tablero, size_t pos_james_x, size_t pos_james_y) {
     guardar_james(pos_james_x,pos_james_y, tablero);
     int cant_columnas=(int)tablero->columnas(),elemento;
     size_t y,x;
@@ -35,17 +35,15 @@ void Visual::mostrar_tablero(Matriz *tablero, size_t pos_james_x, size_t pos_jam
 
 }
 
-void Visual::mostrar_tablero(Matriz tablero,size_t pos_james_x,size_t pos_james_y) {
-    std::cout << "x: " << pos_james_x << " y: " << pos_james_y << std::endl;
-    std::cout << "col: " << tablero.columnas() << " fil: " << tablero.filas() << std::endl;
+void Mostrar_tablero::mostrar_tablero(Matriz tablero, size_t pos_james_x, size_t pos_james_y) {
 
     mostrar_tablero(&tablero,pos_james_x,pos_james_y);
 }
-void Visual::guardar_james(size_t x, size_t y, Matriz* tablero){
+void Mostrar_tablero::guardar_james(size_t x, size_t y, Matriz* tablero){
     tablero->elemento(x,y) = 3;
 }
 
-void Visual::mostrar_camino_minimo(Matriz tablero, const std::vector<size_t>& camino_minimo,size_t pos_james_x,size_t pos_james_y){
+void Mostrar_tablero::mostrar_camino_minimo(Matriz tablero, const std::vector<size_t>& camino_minimo, size_t pos_james_x, size_t pos_james_y){
     int elemento;
     for (size_t elemento_pos : camino_minimo){
         elemento=tablero.elemento(elemento_pos % tablero.columnas(), elemento_pos / tablero.columnas());
@@ -56,6 +54,6 @@ void Visual::mostrar_camino_minimo(Matriz tablero, const std::vector<size_t>& ca
     mostrar_tablero(&tablero,pos_james_x,pos_james_y);
 }
 
-void Visual::mostrar_puntaje(int puntaje) {
+void Mostrar_tablero::mostrar_puntaje(int puntaje) {
     std::cout << "El puntaje es: " << puntaje << std::endl;
 }

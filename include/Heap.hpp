@@ -28,11 +28,7 @@ private:
     // (El dato "baja" en el heap, intercambiándose con el menor/mayor dato.)
     void downheap(size_t& index_movido);
 
-    // NOTA: No es necesario que lancen excepciones en estos métodos porque son privados.
-    // Deberian siempre asegurar que los indices pasados por parámetros son válidos.
-    // Consideren cada caso con detenimiento.
-    // Adicionalmente, tengan cuidado con el casteo de las variables, porque son size_t.
-    // Hacer, por ejemplo, size_t i = 0; i - 1; produce un underflow.
+
 public:
     // Constructor.
     Heap() = default;
