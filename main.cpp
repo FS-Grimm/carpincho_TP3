@@ -5,7 +5,7 @@
 #include "vector"
 #include "Juego.hpp"
 #include "Menu.hpp"
-int iterar_mostrar(std::pair<std::vector<size_t>, int> input){
+/*int iterar_mostrar(std::pair<std::vector<size_t>, int> input){
     for (size_t i = 0; i < input.first.size(); i++){
         std::cout << "(" << input.first[i]%9 << ", " << input.first[i]/9 << ")";
 
@@ -16,11 +16,11 @@ int iterar_mostrar(std::pair<std::vector<size_t>, int> input){
 
     return 0; 
 }
-
+*/
 int main(){
-
         auto menu=new Menu;
-        Menu::bienvenida();
+        std::cout << "Bienvenido " << std::endl;
+        //Menu::bienvenida();
         while(!menu->quiere_salir()){
             menu->ejecutar_menu();
         }

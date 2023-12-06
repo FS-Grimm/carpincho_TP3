@@ -17,10 +17,11 @@ Juego::Juego() {
     costo_total = 0;
     niveles_recorridos = 0;
     finalizo = false;
+    james->obtener_placa();
     nuevo_escenario();
 }
 
-bool Juego::termino() {
+bool Juego::termino() const {
     return finalizo;
 }
 
@@ -74,21 +75,17 @@ void Juego::finalizar_nivel() {
 void Juego::cambiar_pos_james(size_t direccion) {
     switch (direccion) {
         case DIRECCION_ARRIBA:
-            pos_james_1++;
-            break;
-
-        case DIRECCION_ABAJO:
-            pos_james_1--;
-            break;
-
-        case DIRECCION_DERECHA:
             pos_james_2++;
             break;
-
-        case DIRECCION_IZQUIERDA:
+        case DIRECCION_ABAJO:
             pos_james_2--;
             break;
-
+        case DIRECCION_DERECHA:
+            pos_james_1++;
+            break;
+        case DIRECCION_IZQUIERDA:
+            pos_james_1--;
+            break;
     }
 }
 
@@ -110,6 +107,7 @@ void Juego::james_pelea_pyramid_head() {
 void Juego::mover_james_hacia(size_t direccion) {
     if (tablero->puede_moverse_a(pos_james_1,pos_james_2,direccion)){
         cambiar_pos_james(direccion);
+ //       costo_total += tablero->costo_movimiento(pos_james_1,pos_james_2,direccion);
         if(tablero->hay_pyramid_head_en(pos_james_1,pos_james_2,direccion)){
             james_pelea_pyramid_head();
         }else if((pos_james_1==pos_james_2) && (pos_james_2==POSICION_FINAL)){ // lo cambie yo(negro) porq creo q habia un error de sintaxis A CHEQUEAR
@@ -119,9 +117,9 @@ void Juego::mover_james_hacia(size_t direccion) {
 }
 
 
-vector<size_t> Juego::mostrar_mejor_camino() {
+void Juego::mostrar_mejor_camino() {
     vector<size_t> camino=tablero->obtener_mejor_camino(pos_james_1, pos_james_2).first;
-    return camino;
+    Visual::mostrar_camino_minimo(tablero->obtener_matriz(),camino,pos_james_1,pos_james_2);
 }
 
 void Juego::victoria() {
@@ -152,10 +150,13 @@ int Juego::obtener_puntaje() {
     return costo_total;
 }
 
-
+void Juego::mostrar_puntaje(){
+    int puntaje = obtener_puntaje();
+    Visual::mostrar_puntaje(puntaje);
+};
 
 void Juego::imprimir_tablero() {
-    Visual::mostrar_tablero(tablero->obtener_matriz(), this->pos_james_1, this->pos_james_1);
+    Visual::mostrar_tablero(tablero->obtener_matriz(), this->pos_james_1, this->pos_james_2);
 }
 
 
@@ -164,11 +165,10 @@ Juego::~Juego() {
 
 }
 
-std::pair<size_t, size_t> Juego::obtener_posicion_james() {
-    std::pair<size_t, size_t> posicion;
-    posicion.first = pos_james_1;
-    posicion.second = pos_james_2;
-    return posicion;
+
+
+bool Juego::james_tiene_arma_equipada() {
+    return james->tiene_arma_equipada();
 }
 
 
