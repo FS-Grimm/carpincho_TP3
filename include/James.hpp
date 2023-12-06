@@ -4,6 +4,7 @@
 
 #ifndef TP3_CARPINCHO_JAMES_H
 #define TP3_CARPINCHO_JAMES_H
+
 #include "InventarioArmas.hpp"
 #include "Random.hpp"
 #include "ABB.hpp"
@@ -12,11 +13,7 @@
 #include "InventarioArmas.hpp"
 #include "ArbolPlacas.hpp"
 
-
-const std::vector<std::string> ARMAS_BAJA_POTENCIA = {"cuchillo", "palo", "tuberia_oxidada", "crowbar"};
-const std::vector<std::string> ARMAS_MEDIA_POTENCIA = {"pistola_9mm", "revolver_22", "recortada_12"};
-const std::vector<std::string> ARMAS_ALTA_POTENCIA = {"escopeta_12", "rifle_caza", "revolver_44_magnum"};
-
+#include "../config/constantes.hpp"
 class James {
 private:
     InventarioArmas* inventario_armas;

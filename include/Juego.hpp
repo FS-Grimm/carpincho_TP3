@@ -8,8 +8,7 @@
 #include "Random.hpp"
 #include "Mostrar_tablero.hpp"
 
-
-const int CHANCE_DE_NUEVA_ARMA=20;
+#include "../config/constantes.hpp"
 
 class Juego {
 private:
