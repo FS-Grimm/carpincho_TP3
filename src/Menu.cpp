@@ -44,8 +44,8 @@ void Menu::guardar_comando_entero(const std::string &comando_s){
 };
 
 void Menu::solicitar_comando(){
-    std::cout << "ingrese el comando que desee ejecutar" << std::endl << COMANDO_MOVER_JAMES << ", " << COMANDO_VER_ARMA << ", "<<  COMANDO_EQUIPAR_ARMA << ", " << COMANDO_DESEQUIPAR_ARMA << ","
-    << COMANDO_MOSTRAR_CAMINO_MINIMO << ", " << COMANDO_MOVER_CAMINO_MINIMO << ", " << COMANDO_ALTERNAR_PRIORIDAD << ", "<< COMANDO_VER_PUNTAJE << ", " << std::endl;
+    std::cout << "ingrese el comando que desee ejecutar" << std::endl << COMANDO_MOVER_JAMES << ", " << COMANDO_VER_ARMA <<std::endl<< ", "<<  COMANDO_EQUIPAR_ARMA << ", " << COMANDO_DESEQUIPAR_ARMA << ","
+    <<std::endl<< COMANDO_MOSTRAR_CAMINO_MINIMO << ", " << COMANDO_MOVER_CAMINO_MINIMO << ", " << COMANDO_ALTERNAR_PRIORIDAD << ", "<< COMANDO_VER_PUNTAJE << ", " << std::endl;
 
     std::string comando_s;
     getline(std::cin, comando_s);
@@ -102,5 +102,17 @@ void Menu::ejecutar_menu() {
 
 bool Menu::quiere_salir() const {
     return (comando == SALIR || juego.termino());
+}
+
+bool Menu::gano() {
+    return juego.termino() && juego.james_esta_vivo();
+}
+
+void Menu::victoria() {
+    std::cout<<"felicidades, has ganado"<<std::endl;
+}
+
+void Menu::derrota() {
+    std::cout<<"lastima, has muerto"<<std::endl;
 }
 

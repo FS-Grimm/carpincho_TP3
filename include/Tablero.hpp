@@ -102,7 +102,7 @@ public:
 
     //Pre: El tablero ya fue cargado
     //Post: Devuelve verdadero si hay un Pyramid Head en la direccion deseada
-    bool hay_pyramid_head_en(size_t x,size_t y,size_t direccion);
+    bool hay_pyramid_head_en(size_t x, size_t y);
 
     //Pre: El tablero ya fue cargado
     //Post: Devuelve verdadero si hay un Pyramid Head en el camino indicado

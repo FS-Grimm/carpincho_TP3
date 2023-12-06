@@ -24,6 +24,11 @@ int main(){
         while(!menu->quiere_salir()){
             menu->ejecutar_menu();
         }
+        if (menu->gano()){
+            menu->victoria();
+        } else{
+            menu->derrota();
+        }
         delete menu;
 
    /* Tablero tablero = Tablero();

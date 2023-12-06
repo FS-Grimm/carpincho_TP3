@@ -236,25 +236,17 @@ void Tablero::quitar_pyramid(bool pyramid1){
 
 
 
-bool Tablero::hay_pyramid_head_en(size_t x,size_t y,size_t direccion){
-    int x_final = (int) x;
-    int y_final = (int) y;
+bool Tablero::hay_pyramid_head_en(size_t x, size_t y) {
 
-    switch (direccion){
-        case DIRECCION_ABAJO:       y_final -= 1; break;
-        case DIRECCION_ARRIBA:      y_final += 1; break;
-        case DIRECCION_IZQUIERDA:   x_final -= 1; break;
-        case DIRECCION_DERECHA:     x_final += 1; break;
-    }
 
-    if ( ( x_final < 0 ) || ( x_final >= (int)CANT_COLUMNAS ) ){
+    if ( ( x < 0 ) || ( x >= CANT_COLUMNAS ) ){
         return false;
     }
-    else if ( ( y_final < 0 ) || ( y_final  >= (int)CANT_FILAS ) ){
+    else if ( ( y < 0 ) || ( x  >= CANT_FILAS ) ){
         return false;
     }
     else {
-        return (tablero.elemento((size_t )x_final, (size_t )y_final) == PYRAMID_HEAD);
+        return (tablero.elemento(x, y) == PYRAMID_HEAD);
     }
 }
 
@@ -276,7 +268,7 @@ bool Tablero::puede_moverse_a(size_t x,size_t y,size_t direccion){
         return false;
     }
     else {
-        return ( tablero.elemento((size_t)x_final, (size_t)y_final) == PASILLO );
+        return ( tablero.elemento((size_t)x_final, (size_t)y_final) != PARED );
     }
 }
 

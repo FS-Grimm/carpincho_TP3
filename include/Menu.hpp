@@ -84,5 +84,10 @@ public:
     //Post: Devuelve verdadero si el usuario quizo salir, falso en caso contrario.
     [[nodiscard]] bool quiere_salir() const;
 
+    bool gano();
+
+    void victoria();
+
+    void derrota();
 };
 #endif //TP3_CARPINCHO_MENU_HPP

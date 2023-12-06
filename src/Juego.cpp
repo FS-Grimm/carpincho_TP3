@@ -108,7 +108,7 @@ void Juego::mover_james_hacia(size_t direccion) {
     if (tablero->puede_moverse_a(pos_james_1,pos_james_2,direccion)){
         cambiar_pos_james(direccion);
  //       costo_total += tablero->costo_movimiento(pos_james_1,pos_james_2,direccion);
-        if(tablero->hay_pyramid_head_en(pos_james_1,pos_james_2,direccion)){
+        if(tablero->hay_pyramid_head_en(pos_james_1, pos_james_2)){
             james_pelea_pyramid_head();
         }else if((pos_james_1==pos_james_2) && (pos_james_2==POSICION_FINAL)){ // lo cambie yo(negro) porq creo q habia un error de sintaxis A CHEQUEAR
                 finalizar_nivel();
