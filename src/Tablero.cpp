@@ -12,8 +12,8 @@ void Tablero::usar_layout_uno(){
 
 void Tablero::usar_layout_dos(){
     cargar_tablero(ruta_layout2);
-    cargar_grafo();
     cargar_pyramids();
+    cargar_grafo();
 }
 
 void Tablero::cargar_tablero(std::string ruta_archivo){
@@ -66,6 +66,8 @@ void Tablero::cargar_grafo(){
             cargar_pesos_aristas(x,y, (int)PESO_BASE, true);
         }
     }
+
+    alternar_estado(false);
 }
 
 void Tablero::cargar_pesos_aristas(size_t x, size_t y, int peso, bool saliente){

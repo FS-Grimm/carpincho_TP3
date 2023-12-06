@@ -2,29 +2,34 @@
 #include "Matriz.hpp"
 #include <string>
 
+const size_t DIRECCION_ARRIBA=1;
+const size_t DIRECCION_DERECHA=2;
+const size_t DIRECCION_IZQUIERDA=3;
+const size_t DIRECCION_ABAJO=4;
+
+const size_t CANT_FILAS = 9;
+const size_t CANT_COLUMNAS = 9;
+const size_t CANT_PYRAMIDS = 2;
+
+const size_t PARED = 0;
+const size_t PASILLO = 1;
+const size_t PYRAMID_HEAD = 2;
+
+const size_t POSICION_INICIAL = 0;
+const size_t POSICION_FINAL = 8;
+
+const size_t PESO_BASE = 10;
+const size_t MULTIPLICADOR_PYRAMID_HEAD = 5;
+
 const std::string ruta_layout1 = "config/layout1.csv";
 const std::string ruta_layout2 = "config/layout2.csv";
-
-class Tablero_grafo {
-private:
-    Grafo grafo;
-    std::pair<size_t,size_t> pyramid_head1 = std::pair<size_t,size_t>(CANT_COLUMNAS,CANT_FILAS);
-    std::pair<size_t,size_t> pyramid_head2 = std::pair<size_t,size_t>(CANT_COLUMNAS,CANT_FILAS);
-
-    // Pre: -
-    // Post: Carga los pesos de todas las aristas SALIENTES
-    void cargar_peso_aristas(size_t x, size_t y, Matriz matriz, bool pyramid);
-
-    // Pre: Posicion válida y siguiente válido
-    // Post: Carga peso de arista especifica, vertical/horizontal - siguiente/anterior - aristas entrantes/salientes
-    // Ejemplo: x = 0 no tiene anterior, x = 8 no tiene siguiente
-    void cargar_peso_arista(size_t x, size_t y, int peso, bool horizontal, bool siguiente, bool saliente);
+class Utils_grafo {
 
 public:
-    Tablero_grafo(Matriz matriz);
-    ~Tablero_grafo();
+    Utils_grafo() = default;
+    ~Utils_grafo() = default;
 
-    // Pre: -
-    // Post:
-    void alternar_estado(bool tiene_arma);
+    // Pre: Posición válida
+    // Post: Asigna peso a aristas entrantes o salientes de la posicion
+    static void cargar_pesos_aristas(size_t x, size_t y, Matriz& matriz, Grafo& grafo, int peso, bool saliente);
 };

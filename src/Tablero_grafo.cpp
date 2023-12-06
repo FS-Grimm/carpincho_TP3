@@ -1,14 +1,18 @@
 #include "Tablero_grafo.hpp"
 
-Tablero_grafo::Tablero_grafo(Matriz matriz) {
-    for (size_t y = 0; y < matriz.filas(); y++){
-        for (size_t x = 0; x < matriz.columnas(); x++){
-            cargar_peso_aristas(x,y,matriz,false);
+void Utils_grafo::cargar_pesos_aristas(size_t x, size_t y, Matriz& tablero, Grafo& grafo, int peso, bool saliente){
+    if ( tablero.elemento(x,y) != PARED ){      // Si es una pared. No hay que conectarle nada
+        if ( x > POSICION_INICIAL ){ 
+            cargar_peso_arista(x,y,peso,true,false,saliente);
         }
-    }
+        if ( x < POSICION_FINAL ){
+            cargar_peso_arista(x,y,peso,true,true,saliente);
+        }
+        if ( y > POSICION_INICIAL ){
+            cargar_peso_arista(x,y,peso,false,false,saliente);
+        }
+        if ( y < POSICION_FINAL ){
+            cargar_peso_arista(x,y,peso,false,true,saliente);
+        }
+    }    
 }
-
-void Tablero_grafo::alternar_estado(bool tiene_arma) {
-
-}
-
