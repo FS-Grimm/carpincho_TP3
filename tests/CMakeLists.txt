@@ -16,6 +16,9 @@ add_executable(Google_Tests_run
         ../src/Dijkstra.cpp
         ../src/Floyd.cpp
         ../src/Matriz.cpp
+        ../include/James.hpp
+        ../include/ArbolPlacas.hpp
+        ../include/Random.hpp
 )
 
 target_link_libraries(Google_Tests_run gtest gtest_main)

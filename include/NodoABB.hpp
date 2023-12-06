@@ -15,8 +15,6 @@ private:
     NodoABB<T, menor, igual>* hijo_izquierdo;
     NodoABB<T, menor, igual>* hijo_derecho;
 
-    /* friend class, en resumen, permite el libre acceso de los atributos
-     * del nodo desde el árbol. Simplifica getters y setters. */
     friend class ABB<T, menor, igual>;
 };
 

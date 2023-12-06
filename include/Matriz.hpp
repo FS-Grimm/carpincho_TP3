@@ -70,7 +70,7 @@ public:
     size_t columnas();
 
     // Pre: -
-    // Post: Libera la memoria reservada por la matriz.
+    // Post: Libera la memoria reservada por la matriz. c
     ~Matriz();
 };
 

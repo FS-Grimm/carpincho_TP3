@@ -8,7 +8,6 @@
 #include "Heap.hpp"
 #include "Arma.hpp"
 
-const std::string CONSULTA_NO_ARMAS="No hay armas en el inventario";
 class InventarioArmas {
 private:
 
@@ -43,8 +42,8 @@ public:
     Arma * baja();
 
     //Pre:-
-    //Post: Muestra el arma de mayor prioridad del inventario, informando si no hay ninguna.
-    void consulta();
+    //Post: Devuelve el arma de mayor prioridad del inventario.
+    Arma * consulta();
 
     //Pre:-
     //Post: Alterna la prioridad del inventario entre priorizar armas fuertes o débiles

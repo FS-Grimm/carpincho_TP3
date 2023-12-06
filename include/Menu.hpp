@@ -1,36 +1,71 @@
 //
-// Created by Felipe on 23/11/2023.
+// Created by feli on 05/12/23.
 //
-#ifndef TP3_CARPINCHO_MENU_H
-#define TP3_CARPINCHO_MENU_H
 
-#include "MenuGrafo.hpp"
-#include "MenuInventario.hpp"
+#ifndef TP3_CARPINCHO_MENU_HPP
+#define TP3_CARPINCHO_MENU_HPP
+#include "Juego.hpp"
 
-const std::string MENU_BIENVENIDA_UNO="Bienvenido al menu  de Camino Minimo e inventario de armas favorito delos niños de algoritmos y programación dos,";
-const std::string MENU_BIENVENIDA_DOS=" a continuacion se le solicitaran comandos para elegir el menu a usar, ";
-const std::string MENU_BIENVENIDA_TRES="puede salir de cualquiera de los menus para volver a este y entrar otro, esperamos que la pase bien  :D";
+const int MOVER_JAMES_HACIA = 1;
 
-const std::string SOLICITUD_MENU_UNO="\nPor favor ingrese uno de los comandos validos, estos son: \n";
-const std::string COMANDO_MENU_GRAFO="Menu Grafo";
-const std::string COMANDO_MENU_INVENTARIO="Menu Inventario";
-const std::string SOLICITUD_MENU_DOS=" para elegir un Menu o ";
-const std::string SOLICITUD_MENU_TRES=" para salir del programa.";
+const int VER_ARMA = 2;
 
-const size_t MENU_INVENTARIO_ENTERO=1;
-const size_t MENU_GRAFO_ENTERO=2;
-const size_t MENU_SALIR_ENTERO=14;
-const size_t MENU_INVALIDO=404;
+const int DESEQUIPAR_ARMA = 3;
+
+const int EQUIPAR_ARMA = 4;
+
+const int MOSTRAR_CAMINO_MINIMO = 5;
+
+const int MOVER_CAMINO_MINIMO = 6;
+
+const int ALTERNAR_PRIORIDAD = 7;
+
+const int VER_PUNTAJE = 8;
+
+const int SALIR = 14;
 
 
-const std::string MENU_SALIDA_GRAFO="Ha salido exitosamente del Menu del Grafo.";
-const std::string MENU_SALIDA_INVENTARIO="Ha salido exitosamente del Menu del Inventario.";
+const int INVALIDO = 404;
 
-class Menu {
+const std::string COMANDO_MOVER_JAMES = "mover";
+
+const std::string COMANDO_VER_ARMA = "ver arma";
+
+const std::string COMANDO_EQUIPAR_ARMA = "equipar arma";
+
+const std::string COMANDO_DESEQUIPAR_ARMA = "desequipar arma";
+
+const std::string COMANDO_MOSTRAR_CAMINO_MINIMO = "ver camino minimo";
+
+const std::string COMANDO_MOVER_CAMINO_MINIMO = "transitar camino minimo";
+
+const std::string COMANDO_ALTERNAR_PRIORIDAD = "cambiar a arma mas chica";
+
+const std::string COMANDO_VER_PUNTAJE = "ver puntaje";
+
+const std::string DERECHA = "derecha";
+
+const std::string IZQUIERDA = "izquierda";
+
+const std::string ABAJO = "abajo";
+
+const std::string ARRIBA = "arriba";
+
+const std::string COMANDO_SALIR = "salir";
+
+
+class Menu{
+private:
+    Juego* juego;
     size_t comando;
-    MenuGrafo *menu_grafo;
-    MenuInventario *menu_inventario;
 
+    //Pre:
+    //Post: muestra tablero
+    void ver_tablero();
+
+    //Pre:
+    //Post: le pasa a james una direccion
+    size_t recibir_direccion_james();
 
     //Pre: -
     //Post: Guarda el valor equivalente al comando_s como numero natural en comando
@@ -44,13 +79,7 @@ class Menu {
     //Post: Llama al metodo indicado por el comando
     void procesar_comando();
 public:
-    //Pre:-
-    //Post: Da la bienvenida al menu al usuario.
-    static void bienvenida();
-
-    //Constructor
     Menu();
-
     //Pre:-
     //Post: Procesa un comando pedido al usuario.
     void ejecutar_menu();
@@ -58,10 +87,19 @@ public:
     //Pre:-
     //Post: Devuelve verdadero si el usuario quizo salir, falso en caso contrario.
     [[nodiscard]] bool quiere_salir() const;
-    //Destructor
-    ~Menu();
 
+    //Pre: -
+    //Post: determina si el jugador gano
+    bool gano();
+
+    //Pre: -
+    //Post: mensaje de victoria
+    void victoria();
+
+    //Pre: -
+    //Post: mensaje de derrota
+    void derrota();
+
+     ~Menu();
 };
-
-
-#endif //TP3_CARPINCHO_MENU_H
+#endif //TP3_CARPINCHO_MENU_HPP
