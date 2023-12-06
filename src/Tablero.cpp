@@ -112,7 +112,7 @@ std::pair<size_t,size_t> Tablero::posicion_pyramid(){
 
     bool iterar = true;
     do {
-        random = (size_t) Random::random(1,CANT_COLUMNAS*CANT_FILAS - 1);
+        random = (size_t) Random::random(1,CANT_COLUMNAS*CANT_FILAS - 2);
         iter++;
         iterar = ( tablero.elemento(random % CANT_FILAS,random / CANT_FILAS) != PASILLO ) && (iter < ITER_MAX );
     } while ( iterar ) ;    
