@@ -1,4 +1,4 @@
-    #ifndef ABB_H
+#ifndef ABB_H
 #define ABB_H
 
 #include <exception>
@@ -385,10 +385,12 @@ void ABB<T, menor, igual>::baja(NodoABB<T, menor, igual>* nodo_actual){
             reapuntar_padre_hijo( precesor );
             intercambiar_nodo(nodo_actual,precesor);
         }
-        else ( sucesor == nodo_actual->hijo_izquierdo ){
+        else if ( sucesor == nodo_actual->hijo_izquierdo ) {
             reapuntar_padre_hijo( sucesor );
             intercambiar_nodo(nodo_actual,sucesor);
         }
+        else
+            intercambiar_nodo(nodo_actual,sucesor);            
     }
     else if ( nodo_actual->hijo_derecho || nodo_actual->hijo_izquierdo )
         reapuntar_padre_hijo(nodo_actual);
