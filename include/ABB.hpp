@@ -3,7 +3,7 @@
 
 #include <exception>
 #include "NodoABB.hpp"
-
+#include <iostream>
 #include <queue>
 class ABB_exception : public std::exception {
 };
@@ -51,13 +51,17 @@ private:
     // Post: Ejecuta el método/función en el subárbol.
     //void ejecutar(void metodo(T), NodoABB<T, menor, igual>* nodo_actual);
     
-    // Pre: Tiene un solo hijo
-    // Post: Reapuntado de nodos como lista doble enlazada
-    void reapuntar_padre_hijo( NodoABB<T, menor, igual>* nodo);
+    // Pre: - 
+    // Post: Reapuntado de padres e hijos segun corresponda
+    void reapuntar( NodoABB<T, menor, igual>* nodo);
 
-    // Pre: -
-    // Post: Intercambia nodo viejo con nuevo. Nodo viejo queda sin hijos 
-    void intercambiar_nodo( NodoABB<T, menor, igual>* nodo_viejo, NodoABB<T, menor, igual>* nodo_nuevo);
+    // Pre: - 
+    // Post: Reapuntado de padres e hijos segun corresponda
+    void reapuntar_un_hijo( NodoABB<T, menor, igual>* nodo);
+
+    // Pre: - 
+    // Post: Reapuntado de padres e hijos segun corresponda
+    void reapuntar_dos_hijos( NodoABB<T, menor, igual>* nodo);
 
     // Pre: -
     // Post: Devuelve sucesor, o null si no tiene
@@ -324,77 +328,36 @@ NodoABB<T, menor, igual> *ABB<T, menor, igual>::precesor(NodoABB<T, menor, igual
     if(!nodo_actual->hijo_derecho){
         return nodo_actual;
     }else
-        return sucesor(nodo_actual->hijo_derecho);
+        return precesor(nodo_actual->hijo_derecho);
 }
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
-void ABB<T, menor, igual>::reapuntar_padre_hijo( NodoABB<T, menor, igual>* nodo){
-    if ( nodo->hijo_derecho )
-        nodo->hijo_derecho->padre = nodo->padre;
-    else if ( nodo->hijo_izquierdo )
-        nodo->hijo_izquierdo->padre = nodo->padre;
-
-    if ( !nodo->padre )
-        this->raiz = ( nodo->hijo_derecho ) ? nodo->hijo_derecho : nodo->hijo_izquierdo;
-    else {
-        if ( nodo->padre->hijo_derecho = nodo )
-            nodo->padre->hijo_derecho = ( nodo->hijo_derecho ) ? nodo->hijo_derecho : nodo->hijo_izquierdo;
-        else
-            nodo->padre->hijo_izquierdo = ( nodo->hijo_derecho ) ? nodo->hijo_derecho : nodo->hijo_izquierdo;
-    }
-
-    nodo->hijo_derecho = nullptr;
-    nodo->hijo_izquierdo = nullptr;
+void ABB<T, menor, igual>::reapuntar(NodoABB<T, menor, igual>* nodo){
+    if ( nodo->hijo_derecho && nodo->hijo_izquierdo )
+        reapuntar_dos_hijos(nodo);
+    else if ( nodo->hijo_derecho || nodo->hijo_izquierdo )
+        reapuntar_un_hijo(nodo);
 }
 
-
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
-void ABB<T, menor, igual>::intercambiar_nodo( NodoABB<T, menor, igual>* nodo_viejo, NodoABB<T, menor, igual>* nodo_nuevo){
-    nodo_nuevo->padre = nodo_viejo->padre;
-    nodo_nuevo->hijo_derecho = nodo_viejo->hijo_derecho;
-    nodo_nuevo->hijo_izquierdo = nodo_viejo->hijo_izquierdo;
+void ABB<T, menor, igual>::reapuntar_un_hijo(NodoABB<T, menor, igual>* nodo){
+    bool derecho = (nodo->hijo_derecho);
 
-    if ( !nodo_viejo->padre )
-        this->raiz = nodo_nuevo;
-    else {
-        if ( nodo_viejo->padre->hijo_izquierdo == nodo_viejo )
-            nodo_viejo->padre->hijo_izquierdo = nodo_nuevo;
-        else
-            nodo_viejo->padre->hijo_derecho = nodo_nuevo;
+    if (!nodo->padre)   // ASIGNAR HIJO A PADRE 
+        this->raiz = ( derecho ) ? nodo->hijo_derecho : nodo->hijo_izquierdo ;
+    else{
+        if (nodo->padre->hijo_derecho = nodo)
+            nodo->padre->hijo_derecho = ( derecho ) ? nodo->hijo_derecho : nodo->hijo_izquierdo ;
+        else 
+            nodo->padre->hijo_izquierdo = ( derecho ) ? nodo->hijo_derecho : nodo->hijo_izquierdo ;
     }
 
-    if ( nodo_viejo->hijo_derecho )
-        nodo_viejo->hijo_derecho->padre = nodo_nuevo;
-
-    if ( nodo_viejo->hijo_izquierdo )
-        nodo_viejo->hijo_izquierdo->padre = nodo_nuevo;
-
-    nodo_viejo->hijo_derecho = nullptr;
-    nodo_viejo->hijo_izquierdo = nullptr;
-    
+    ( derecho ) ? nodo->hijo_derecho->padre = nodo->padre : nodo->hijo_izquierdo->padre = nodo->padre;  // ASIGNAR PADRE A HIJO
 }
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 void ABB<T, menor, igual>::baja(NodoABB<T, menor, igual>* nodo_actual){
-
-    if ( nodo_actual->hijo_derecho && nodo_actual->hijo_izquierdo ){
-        NodoABB<T, menor, igual>* sucesor = this->sucesor(nodo_actual);
-        NodoABB<T, menor, igual>* precesor = this->precesor(nodo_actual);
-
-        if ( precesor == nodo_actual->hijo_derecho ){
-            reapuntar_padre_hijo( precesor );
-            intercambiar_nodo(nodo_actual,precesor);
-        }
-        else if ( sucesor == nodo_actual->hijo_izquierdo ) {
-            reapuntar_padre_hijo( sucesor );
-            intercambiar_nodo(nodo_actual,sucesor);
-        }
-        else
-            intercambiar_nodo(nodo_actual,sucesor);            
-    }
-    else if ( nodo_actual->hijo_derecho || nodo_actual->hijo_izquierdo )
-        reapuntar_padre_hijo(nodo_actual);
-
+    reapuntar(nodo_actual);
     delete nodo_actual;
 }
 

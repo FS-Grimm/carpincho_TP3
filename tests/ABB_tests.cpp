@@ -84,10 +84,15 @@ TEST_F(ABB_tests, vacio) {
 
 TEST_F(ABB_tests, baja) {
     cargar(arbol);
+    std::cout << "-1" << std::endl;
     arbol.baja(10);
+    std::cout << "0" << std::endl;
     ASSERT_THAT(arbol.inorder(), testing::ElementsAre(3, 7, 11, 13, 16));
+    std::cout << "1" << std::endl;
     ASSERT_THAT(arbol.preorder(), testing::ElementsAre(11, 7, 3, 13, 16));
+    std::cout << "2" << std::endl;
     ASSERT_THAT(arbol.postorder(), testing::ElementsAre(3, 7, 16, 13, 11));
+    std::cout << "3" << std::endl;
     ASSERT_THAT(arbol.ancho(), testing::ElementsAre(11, 7, 13, 3, 16));
     ASSERT_EQ(arbol.tamanio(), 5);
 
