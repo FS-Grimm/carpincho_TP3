@@ -57,6 +57,10 @@ private:
 
     // Pre: - 
     // Post: Reapuntado de padres e hijos segun corresponda
+    void reapuntar_sin_hijos( NodoABB<T, menor, igual>* nodo);
+
+    // Pre: - 
+    // Post: Reapuntado de padres e hijos segun corresponda
     void reapuntar_un_hijo( NodoABB<T, menor, igual>* nodo);
 
     // Pre: - 
@@ -283,7 +287,6 @@ void ABB<T, menor, igual>::inorder(NodoABB<T, menor, igual>* nodo_actual, std::v
         inorder(nodo_actual->hijo_izquierdo, datos);
     datos.push_back(nodo_actual->dato);
     if (nodo_actual->hijo_derecho)
-
         this->inorder(nodo_actual->hijo_derecho, datos);
 }
 
@@ -333,15 +336,30 @@ NodoABB<T, menor, igual> *ABB<T, menor, igual>::precesor(NodoABB<T, menor, igual
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 void ABB<T, menor, igual>::reapuntar(NodoABB<T, menor, igual>* nodo){
+    std::cout << "Estoy por re apuntar nodo del numero: " << nodo->dato << std::endl;
     if ( nodo->hijo_derecho && nodo->hijo_izquierdo )
         reapuntar_dos_hijos(nodo);
     else if ( nodo->hijo_derecho || nodo->hijo_izquierdo )
         reapuntar_un_hijo(nodo);
+    else
+        reapuntar_sin_hijos(nodo);
+}
+
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+void ABB<T, menor, igual>::reapuntar_sin_hijos(NodoABB<T, menor, igual>* nodo){
+    if (!nodo->padre)
+        this->raiz = nullptr;
+    else {
+        if (nodo->padre->hijo_derecho == nodo)
+            nodo->padre->hijo_derecho = nullptr;
+        else
+            nodo->padre->hijo_izquierdo = nullptr;
+    }
 }
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
 void ABB<T, menor, igual>::reapuntar_un_hijo(NodoABB<T, menor, igual>* nodo){
-    bool derecho = (nodo->hijo_derecho);
+    bool derecho = ( nodo->hijo_derecho != nullptr );
 
     if (!nodo->padre)   // ASIGNAR HIJO A PADRE 
         this->raiz = ( derecho ) ? nodo->hijo_derecho : nodo->hijo_izquierdo ;
@@ -352,7 +370,15 @@ void ABB<T, menor, igual>::reapuntar_un_hijo(NodoABB<T, menor, igual>* nodo){
             nodo->padre->hijo_izquierdo = ( derecho ) ? nodo->hijo_derecho : nodo->hijo_izquierdo ;
     }
 
-    ( derecho ) ? nodo->hijo_derecho->padre = nodo->padre : nodo->hijo_izquierdo->padre = nodo->padre;  // ASIGNAR PADRE A HIJO
+    if ( derecho )  // ASIGNAR PADRE A HIJO
+        nodo->hijo_derecho->padre = nodo->padre ;
+    else 
+        nodo->hijo_izquierdo->padre = nodo->padre;  
+}
+
+template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
+void ABB<T, menor, igual>::reapuntar_dos_hijos(NodoABB<T, menor, igual>* nodo){
+
 }
 
 template<typename T, bool (*menor)(T, T), bool (*igual)(T, T)>
