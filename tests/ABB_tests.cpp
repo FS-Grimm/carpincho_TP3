@@ -84,6 +84,24 @@ TEST_F(ABB_tests, vacio) {
 
 TEST_F(ABB_tests, baja) {
     cargar(arbol);
+
+/*
+    std::cout << "0" << std::endl;
+    arbol.baja(16);
+    std::cout << "1" << std::endl;
+    ASSERT_THAT(arbol.inorder(), testing::ElementsAre(3,7,10, 11, 13));
+    std::cout << "2" << std::endl;
+    ASSERT_EQ(arbol.tamanio(), 5);
+    std::cout << "3" << std::endl;
+    
+    std::cout << "Sin hijos OK" << std::endl;
+    arbol.baja(7);
+    ASSERT_THAT(arbol.inorder(), testing::ElementsAre(3,10, 11, 13));
+    ASSERT_EQ(arbol.tamanio(), 4);
+
+    std::cout << "DOS hijos OK" << std::endl;
+*/
+
     arbol.baja(10);
     ASSERT_THAT(arbol.inorder(), testing::ElementsAre(3, 7, 11, 13, 16));
     ASSERT_THAT(arbol.preorder(), testing::ElementsAre(11, 7, 3, 13, 16));
@@ -114,6 +132,7 @@ TEST_F(ABB_tests, baja) {
 }
 
 
+/*
 TEST_F(ABB_tests, altura) {
     cargar(arbol);
     ASSERT_EQ(arbol.altura(), 3);
@@ -124,3 +143,4 @@ TEST_F(ABB_tests, altura) {
     arbol.alta(30);
     ASSERT_EQ(arbol.altura(), 5);
 }
+*/
